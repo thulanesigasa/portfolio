@@ -1,0 +1,40 @@
+{
+  "workData": [
+    {
+      "image": "/images/work/work-img-1.jpg",
+      "title": "SaaS Dashboard & Analytics",
+      "client": "Apex Fintech",
+      "slug": "saas-dashboard-analytics"
+    },
+    {
+      "image": "/images/work/work-img-2.jpg",
+      "title": "Mobile E-Commerce App",
+      "client": "Aura Boutique",
+      "slug": "mobile-ecommerce-app"
+    },
+    {
+      "image": "/images/work/work-img-3.jpg",
+      "title": "Cloud Architecture Migration",
+      "client": "Logix Global",
+      "slug": "cloud-architecture-migration"
+    },
+    {
+      "image": "/images/work/work-img-4.jpg",
+      "title": "Real Estate Web Portal",
+      "client": "Prime Realty",
+      "slug": "real-estate-web-portal"
+    },
+    {
+      "image": "/images/work/work-img-5.jpg",
+      "title": "AI Content Generator App",
+      "client": "ScribeAI",
+      "slug": "ai-content-generator-app"
+    },
+    {
+      "image": "/images/work/work-img-6.jpg",
+      "title": "Corporate Design System",
+      "client": "Zenith Tech",
+      "slug": "corporate-design-system"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "contactBar": {
+    "contactItems": [
+      {
+        "type": "email",
+        "label": "pharezsigasa@gmail.com",
+        "icon": "/images/icon/mail-icon.svg",
+        "link": "mailto:pharezsigasa@gmail.com"
+      },
+      {
+        "type": "phone",
+        "label": "+447544357979",
+        "icon": "/images/icon/call-icon.svg",
+        "link": "tel:+447544357979"
+      },
+      {
+        "type": "website",
+        "label": "ts-industries.co.za",
+        "icon": "/images/icon/web-icon.svg",
+        "link": "https://ts-industries.co.za"
+      }
+    ],
+    "socialItems": [
+      {
+        "platform": "github",
+        "icon": "/images/icon/github-icon.svg",
+        "link": "https://github.com/thulanesigasa"
+      },
+      {
+        "platform": "linkedin",
+        "icon": "/images/icon/linkedin-icon.svg",
+        "link": "https://www.linkedin.com/in/thulanesigasa/"
+      }
+    ]
+  },
+  "educationData": {
+    "education": [
+      {
+        "title": "Custom Web Applications",
+        "description": "We engineer fast, scalable, and responsive web applications using React, Next.js, and modern frontend tools tailored to your business needs."
+      },
+      {
+        "title": "Robust SaaS Solutions",
+        "description": "From cloud native database designs to high-concurrency API microservices, we build reliable, secure, and performant backend architectures."
+      },
+      {
+        "title": "UI/UX & Design Systems",
+        "description": "We design intuitive user journeys and premium design systems in Figma that seamlessly transition to clean, maintainable frontend code."
+      }
+    ],
+    "skills": [
+      { "name": "HTML", "icon": "/images/home/education-skill/html-icon.svg", "rating": 5 },
+      { "name": "CSS", "icon": "/images/home/education-skill/css-icon.svg", "rating": 5 },
+      { "name": "JavaScript", "icon": "/images/home/education-skill/js-icon.svg", "rating": 5 },
+      { "name": "TypeScript", "icon": "/images/home/education-skill/ts-icon.svg", "rating": 5 },
+      { "name": "React", "icon": "/images/home/education-skill/react-icon.svg", "rating": 5 },
+      { "name": "Next.js", "icon": "/images/home/education-skill/nextjs-icon.svg", "rating": 5 },
+      { "name": "Python", "icon": "/images/home/education-skill/python-icon.svg", "rating": 4 },
+      { "name": "VB.NET", "icon": "/images/home/education-skill/vbnet-icon.svg", "rating": 4 }
+    ]
+  },
+  "contactLinks": {
+    "socialLinks": [
+      {
+        "title": "GitHub",
+        "href": "https://github.com/thulanesigasa"
+      },
+      {
+        "title": "LinkedIn",
+        "href": "https://www.linkedin.com/in/thulanesigasa/"
+      }
+    ],
+    "contactInfo": [
+      {
+        "type": "email",
+        "label": "pharezsigasa@gmail.com",
+        "link": "mailto:pharezsigasa@gmail.com"
+      },
+      {
+        "type": "phone",
+        "label": "+447544357979",
+        "link": "tel:+447544357979"
+      }
+    ]
+  }
+}
