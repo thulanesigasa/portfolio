@@ -101,9 +101,12 @@ const Header = () => {
       </header>
 
       {/* Full Screen Menu Overlay */}
-      <div className={`fs-menu-overlay ${menuOpen ? "open" : ""}`}>
+      <div 
+        className={`fs-menu-overlay ${menuOpen ? "open" : ""}`}
+        onClick={() => setMenuOpen(false)}
+      >
         <div className="container h-100">
-          <div className="fs-menu-content">
+          <div className="fs-menu-content" onClick={(e) => e.stopPropagation()}>
             {/* Left Column: Main Navigation (Accordion) */}
             <div className="fs-menu-left">
               <nav className="fs-main-nav">

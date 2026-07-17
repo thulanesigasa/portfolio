@@ -30,8 +30,8 @@ const Footer = () => {
             <h4 className="footer-heading">PRODUCT</h4>
             <ul className="footer-links">
               <li><Link href="#services">Features</Link></li>
-              <li><Link href="#contact">Pricing</Link></li>
-              <li><Link href="#works">Dashboard</Link></li>
+              <li><Link href="/pricing">Pricing</Link></li>
+              <li><Link href="#">Dashboard</Link></li>
             </ul>
           </div>
 
@@ -39,7 +39,7 @@ const Footer = () => {
           <div className="footer-col">
             <h4 className="footer-heading">RESOURCES</h4>
             <ul className="footer-links">
-              <li><Link href="#about">FAQ</Link></li>
+              <li><Link href="/faq">FAQ</Link></li>
               <li><Link href="#about">About Us</Link></li>
               <li><Link href="#contact">Contact</Link></li>
             </ul>
@@ -49,20 +49,20 @@ const Footer = () => {
           <div className="footer-col">
             <h4 className="footer-heading">LEGAL</h4>
             <ul className="footer-links">
-              <li><a href="#!">Privacy Policy</a></li>
-              <li><a href="#!">Terms of Service</a></li>
-              <li><a href="#!">Shipping & Delivery</a></li>
-              <li><a href="#!">Refund Policy</a></li>
+              <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+              <li><Link href="/terms-of-service">Terms of Service</Link></li>
+              <li><Link href="/shipping-delivery">Shipping & Delivery</Link></li>
+              <li><Link href="/refund-policy">Refund Policy</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
           <p className="footer-copyright">
-            © {new Date().getFullYear()} T.S INDUSTRIES. ALL RIGHTS RESERVED.
+            © Copyright {new Date().getFullYear()} T.s industries. All rights reserved.
           </p>
           <p className="footer-credit">
-            Designed for the modern web.
+            Designed for modern...
           </p>
         </div>
       </div>
