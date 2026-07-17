@@ -40,7 +40,7 @@ const LatestWork = () => {
   const catMap: Record<string, string> = {
     "SaaS Dashboard & Analytics": "SaaS",
     "Mobile E-Commerce App": "Mobile",
-    "Cloud Architecture Migration": "Web",
+    "Resume Build": "Web",
     "Real Estate Web Portal": "Web",
     "AI Content Generator App": "SaaS",
     "Corporate Design System": "Design",
@@ -75,7 +75,7 @@ const LatestWork = () => {
         {/* Work grid */}
         <div className="works-grid">
           {filtered.map((value: any, index: number) => (
-            <div key={index} className="work-card reveal">
+            <Link key={index} href={`/work/${value?.slug}`} className="work-card reveal" style={{ textDecoration: 'none' }}>
               <div className="work-card-img-wrap">
                 <Image
                   src={getImgPath(value?.image)}
@@ -94,7 +94,7 @@ const LatestWork = () => {
                   Client: <span>{value?.client}</span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
