@@ -7,28 +7,28 @@ const fullMenuData = [
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "#about" },
-      { label: "Our Journey", href: "#journey" },
+      { label: "About Us", href: "/dashboard" },
+      { label: "Our Journey", href: "/#journey" },
     ]
   },
   {
     title: "Expertise",
     links: [
-      { label: "Custom Web Applications", href: "#services" },
-      { label: "Robust SaaS Solutions", href: "#services" },
-      { label: "UI/UX & Design Systems", href: "#services" },
+      { label: "Custom Web Applications", href: "/services/custom-web-applications" },
+      { label: "Robust SaaS Solutions", href: "/services/robust-saas-solutions" },
+      { label: "UI/UX & Design Systems", href: "/services/ui-ux-design-systems" },
     ]
   },
   {
     title: "Portfolio",
     links: [
-      { label: "All Works", href: "#works" },
+      { label: "All Works", href: "/#works" },
     ]
   },
   {
     title: "Contact",
     links: [
-      { label: "Get in Touch", href: "#contact" },
+      { label: "Get in Touch", href: "/contact" },
     ]
   }
 ];
@@ -72,10 +72,12 @@ const Header = () => {
   }, [menuOpen]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const id = href.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const id = href.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
     setMenuOpen(false);
   };
 
