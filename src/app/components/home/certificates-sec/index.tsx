@@ -1,33 +1,156 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
-const certificates = [
+const allCertificates = [
   {
     id: 1,
-    title: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    description: "Validates technical expertise in designing and deploying scalable, highly available, and fault-tolerant systems on AWS.",
-    pdfLink: "/images/certificates/aws-cert.pdf",
+    title: "Responsive Web Design",
+    issuer: "freeCodeCamp",
+    description: "Certified in building responsive, accessible, and modern web interfaces using HTML and CSS.",
+    pdfLink: "/images/certificates/responsive-web-design.pdf",
   },
   {
     id: 2,
-    title: "Google Cloud Professional Developer",
-    issuer: "Google Cloud",
-    description: "Demonstrates proficiency in building and deploying highly scalable applications on Google Cloud Platform.",
-    pdfLink: "/images/certificates/gcp-cert.pdf",
+    title: "JavaScript Algorithms & Data Structures",
+    issuer: "freeCodeCamp",
+    description: "Demonstrates strong foundational knowledge in JavaScript, algorithms, and data structures.",
+    pdfLink: "/images/certificates/javascript-algorithms-and-data-structures.pdf",
   },
   {
     id: 3,
-    title: "Meta Front-End Developer",
-    issuer: "Meta",
-    description: "Certified skills in React, responsive web design, and modern front-end engineering principles.",
-    pdfLink: "/images/certificates/meta-cert.pdf",
+    title: "Front End Development Libraries",
+    issuer: "freeCodeCamp",
+    description: "Certified skills in React, Redux, and modern front-end engineering principles.",
+    pdfLink: "/images/certificates/front-end-development-libraries.pdf",
+  },
+  {
+    id: 4,
+    title: "CCNA - Introduction to Networks",
+    issuer: "Cisco",
+    description: "Foundational networking knowledge including architecture, structure, functions, and models of the Internet.",
+    pdfLink: "/images/certificates/CCNA-_Introduction_to_Networks_certificate_pharezsigasa-gmail-com_752fabf4-9c4d-4877-bf16-52f9a21fb35a.pdf",
+  },
+  {
+    id: 5,
+    title: "IT Essentials",
+    issuer: "Cisco",
+    description: "Comprehensive understanding of computer hardware, software, and advanced troubleshooting.",
+    pdfLink: "/images/certificates/IT_Essentials_certificate_sigasathulane584-gmail-com_b9069ced-ec69-4653-91e5-3f6b491c8a0a.pdf",
+  },
+  {
+    id: 6,
+    title: "Operating Systems Support",
+    issuer: "Cisco",
+    description: "Proficiency in operating systems installation, configuration, and maintenance.",
+    pdfLink: "/images/certificates/Operating_Systems_Suport_Cisco.pdf",
+  },
+  {
+    id: 7,
+    title: "Basics of Network Layer Protocols",
+    issuer: "Micro Certification",
+    description: "Technical expertise in network layer protocols and IP addressing.",
+    pdfLink: "/images/certificates/Basics_of_Network_Layer_Protocols_Micro_Certification.pdf",
+  },
+  {
+    id: 8,
+    title: "Cloud Service Computing",
+    issuer: "Micro Certification",
+    description: "Knowledge of cloud service models, deployments, and infrastructure.",
+    pdfLink: "/images/certificates/Cloud_Service_Computing_Micro_Certification.pdf",
+  },
+  {
+    id: 9,
+    title: "Data Link Network Layer Technology",
+    issuer: "Micro Certification",
+    description: "Understanding of data link protocols, switching, and network access technologies.",
+    pdfLink: "/images/certificates/Data_Link_Network_Layer_Technology_Micro_Certification.pdf",
+  },
+  {
+    id: 10,
+    title: "Data Visualization",
+    issuer: "freeCodeCamp",
+    description: "Certified in building data visualizations using D3.js and modern web APIs.",
+    pdfLink: "/images/certificates/data-visualization.pdf",
+  },
+  {
+    id: 11,
+    title: "Legacy Data Visualization",
+    issuer: "freeCodeCamp",
+    description: "Certification in legacy data visualization techniques.",
+    pdfLink: "/images/certificates/legacy-data-visualization.pdf",
+  },
+  {
+    id: 12,
+    title: "Legacy Front End",
+    issuer: "freeCodeCamp",
+    description: "Certification in legacy front-end web development.",
+    pdfLink: "/images/certificates/legacy-front-end.pdf",
+  },
+  {
+    id: 13,
+    title: "JavaScript Algorithms & Data Structures (v8)",
+    issuer: "freeCodeCamp",
+    description: "Updated certification in JS algorithms and data structures.",
+    pdfLink: "/images/certificates/javascript-algorithms-and-data-structures-v8.pdf",
+  },
+  {
+    id: 14,
+    title: "AI+ Foundation™",
+    issuer: "AI Certification",
+    description: "Foundational knowledge in Artificial Intelligence principles and applications.",
+    pdfLink: "/images/certificates/null_AI+_Foundation™__certificate.pdf",
+  },
+  {
+    id: 15,
+    title: "Technical Certification 1",
+    issuer: "Cisco Academy",
+    description: "Official course completion certificate.",
+    pdfLink: "/images/certificates/_certificate_sigasathulane584-gmail-com_4bc7c6a6-6b7a-4523-a170-0d77040a1402.pdf",
+  },
+  {
+    id: 16,
+    title: "Technical Certification 2",
+    issuer: "Cisco Academy",
+    description: "Official course completion certificate.",
+    pdfLink: "/images/certificates/_certificate_sigasathulane584-gmail-com_58d22fe6-1131-4576-b614-4acf9aa75904.pdf",
+  },
+  {
+    id: 17,
+    title: "Technical Certification 3",
+    issuer: "Cisco Academy",
+    description: "Official course completion certificate.",
+    pdfLink: "/images/certificates/_certificate_sigasathulane584-gmail-com_6d48752f-ac10-478f-a52a-b2ff68da6897.pdf",
+  },
+  {
+    id: 18,
+    title: "Technical Certification 4",
+    issuer: "Cisco Academy",
+    description: "Official course completion certificate.",
+    pdfLink: "/images/certificates/_certificate_sigasathulane584-gmail-com_7fdf6300-5260-43d2-aa3e-9edb37075ba6.pdf",
+  },
+  {
+    id: 19,
+    title: "Technical Certification 5",
+    issuer: "Cisco Academy",
+    description: "Official course completion certificate.",
+    pdfLink: "/images/certificates/_certificate_sigasathulane584-gmail-com_8d3aaf88-df7a-4333-8a96-440397e77832.pdf",
+  },
+  {
+    id: 20,
+    title: "Technical Certification 6",
+    issuer: "Cisco Academy",
+    description: "Official course completion certificate.",
+    pdfLink: "/images/certificates/_certificate_sigasathulane584-gmail-com_ab9cf82f-08ac-4b3d-b283-4e09e8d82a1e.pdf",
   }
 ];
 
 const CertificatesSec = () => {
+  const [showAll, setShowAll] = useState(false);
+
+  const displayedCertificates = showAll ? allCertificates : allCertificates.slice(0, 3);
+
   return (
     <section id="certificates" className="section-padding">
       <div className="container">
@@ -42,7 +165,7 @@ const CertificatesSec = () => {
         </div>
 
         <div className="cert-grid">
-          {certificates.map((cert) => (
+          {displayedCertificates.map((cert) => (
             <Link 
               key={cert.id} 
               href={cert.pdfLink} 
@@ -64,6 +187,30 @@ const CertificatesSec = () => {
             </Link>
           ))}
         </div>
+
+        {!showAll && allCertificates.length > 3 && (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+            <button 
+              className="btn-outline" 
+              onClick={() => setShowAll(true)}
+              style={{ cursor: 'pointer' }}
+            >
+              See More Certificates
+            </button>
+          </div>
+        )}
+        
+        {showAll && (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+            <button 
+              className="btn-outline" 
+              onClick={() => setShowAll(false)}
+              style={{ cursor: 'pointer' }}
+            >
+              Show Less
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
