@@ -1651,9 +1651,9 @@ section {
   .nav-cta { display: none; }
 }
 
-/* ─── HAMBURGER ──────────────────────────────────── */
+/* ─── HAMBURGER ────────────────────────────────────── */
 .hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -1683,9 +1683,7 @@ section {
 .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-@media (max-width: 768px) {
-  .hamburger { display: flex; }
-}
+
 
 /* ─── MOBILE NAV ─────────────────────────────────── */
 .mobile-nav {
