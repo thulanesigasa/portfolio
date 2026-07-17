@@ -381,6 +381,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  padding-top: 3.5rem;
 }
 
 .fs-menu-top-row,

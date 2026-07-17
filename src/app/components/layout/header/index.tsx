@@ -34,12 +34,9 @@ const fullMenuData = [
 ];
 
 const projects = [
-  { title: "SaaS Dashboard & Analytics", href: "#works" },
-  { title: "Mobile E-Commerce App", href: "#works" },
-  { title: "Cloud Architecture Migration", href: "#works" },
-  { title: "Real Estate Web Portal", href: "#works" },
-  { title: "AI Content Generator App", href: "#works" },
-  { title: "Corporate Design System", href: "#works" },
+  { title: "SaaS Dashboard & Analytics", href: "/#works" },
+  { title: "Mobile E-Commerce App", href: "/#works" },
+  { title: "See more...", href: "/#works" },
 ];
 
 const socialLinks = [
