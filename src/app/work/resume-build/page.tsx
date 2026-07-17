@@ -26,18 +26,14 @@ export default function ResumeBuildWorkPage() {
 
         <div style={{ color: 'var(--color-text-muted)', lineHeight: 1.8, fontSize: '1.1rem' }}>
           <h3 style={{ color: 'var(--color-text)', marginTop: '2.5rem', fontSize: '1.5rem', marginBottom: '1rem' }}>Project Overview</h3>
-          <p>
-            The Resume Build project is a comprehensive web platform designed to streamline the resume creation process. 
-            Built with a modern tech stack, this application allows users to seamlessly design, build, and download professional 
-            resumes with real-time previews. The platform prioritizes a user-centric experience, ensuring that generating an 
-            industry-standard resume is as intuitive as possible.
+          <p style={{ marginBottom: '1.5rem' }}>
+            The Resume Build platform is a highly robust and sophisticated application meticulously designed to redefine how professionals create, format, and share their career accomplishments. Understanding the challenges job seekers face in crafting applicant-tracking-system (ATS) friendly resumes, we developed an intelligent, user-centric web platform that automates the tedious aspects of resume formatting. The core mission of this project was to bridge the gap between brilliant career histories and the modern recruiting software that parses them, ensuring our client's users have the highest possible chance of landing interviews.
           </p>
-
-          <h3 style={{ color: 'var(--color-text)', marginTop: '2.5rem', fontSize: '1.5rem', marginBottom: '1rem' }}>The Solution</h3>
+          <p style={{ marginBottom: '1.5rem' }}>
+            Built using a modern, scalable tech stack, the application empowers users with dynamic form handling, real-time visual previews, and seamless PDF generation. It replaces the traditional, frustrating word-processor experience with a streamlined, form-driven interface. Users can effortlessly navigate through guided sections covering their professional summary, work experience, education, and technical skills. Behind the scenes, the engine dynamically calculates spatial layouts to ensure pixel-perfect typography and alignment, avoiding the common pitfalls of overlapping text or awkward page breaks.
+          </p>
           <p>
-            We implemented a scalable React and Next.js architecture to handle dynamic form state and instant visual feedback. 
-            The system manages complex user data structures securely and renders pixel-perfect PDF outputs. The interface was 
-            meticulously crafted to balance robust customization options with a clean, uncluttered user experience.
+            Beyond its core resume-generation capabilities, the platform was architected with security, speed, and cross-device compatibility in mind. Whether accessed from a desktop or a mobile device, the interface remains remarkably fluid. Complex state management ensures that every keystroke is securely maintained, allowing users to pause their progress and return later without losing any data. This project ultimately stands as a testament to combining sleek UI/UX design principles with complex, data-heavy frontend engineering to deliver an exceptionally polished end product.
           </p>
           
           <div style={{ 
@@ -56,22 +52,9 @@ export default function ResumeBuildWorkPage() {
               target="_blank" 
               rel="noopener noreferrer"
               className="btn"
-              style={{ display: 'inline-block', marginBottom: '2.5rem' }}
+              style={{ display: 'inline-block' }}
             >
               Visit rbptech.co.za
-            </a>
-
-            <h3 style={{ color: 'var(--color-text)', fontSize: '1.5rem', marginBottom: '1rem' }}>Study the Concept</h3>
-            <p style={{ marginBottom: '1rem' }}>
-              Interested in how this application was built from the ground up? Use the link below to study the whole concept and dive into the source code:
-            </p>
-            <a 
-              href="https://github.com/thulanesigasa/resume_builder.git" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ color: 'var(--color-primary)', textDecoration: 'underline', fontWeight: 600, wordBreak: 'break-all' }}
-            >
-              https://github.com/thulanesigasa/resume_builder.git
             </a>
           </div>
         </div>
