@@ -50,18 +50,6 @@ const Header = () => {
     <header className={`navbar${scrolled ? " scrolled" : ""}`}>
       <div className="container">
         <div className="nav-inner">
-          {/* Logo */}
-          <Link href="/" className="nav-logo">
-            <Image
-              src={getImgPath("/images/logo/logo.svg")}
-              alt="T.s Indurstries"
-              width={44}
-              height={44}
-              className="nav-logo-img"
-            />
-            <span className="nav-logo-text">T.s Indurstries</span>
-          </Link>
-
           {/* Desktop nav */}
           <nav className="nav-links">
             {navLinks.map((link) => {

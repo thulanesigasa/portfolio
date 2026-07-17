@@ -51,7 +51,7 @@
     "skills": [
       { "name": "HTML", "icon": "/images/home/education-skill/html-5-svgrepo-com.svg", "rating": 5 },
       { "name": "CSS", "icon": "/images/home/education-skill/css-3-svgrepo-com.svg", "rating": 5 },
-      { "name": "JavaScript", "icon": "/images/home/education-skill/java-script-logo-svgrepo-com.svg", "rating": 5 },
+      { "name": "JavaScript", "icon": "/images/home/education-skill/js-svgrepo-com.svg", "rating": 5 },
       { "name": "TypeScript", "icon": "/images/home/education-skill/typescript-logo-svgrepo-com.svg", "rating": 5 },
       { "name": "React", "icon": "/images/home/education-skill/react-javascript-js-framework-facebook-svgrepo-com.svg", "rating": 5 },
       { "name": "Next.js", "icon": "/images/home/education-skill/next-js-svgrepo-com.svg", "rating": 5 },
