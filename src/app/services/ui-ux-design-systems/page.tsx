@@ -20,7 +20,7 @@ export default function UIUXDesign() {
           </p>
           <Link href="/contact" style={{
             display: "inline-flex", alignItems: "center", gap: "10px", 
-            background: "var(--color-primary)", color: "#000", padding: "1rem 2rem", 
+            background: "var(--color-primary)", color: "#fff", padding: "1rem 2rem", 
             borderRadius: "var(--radius-full)", textDecoration: "none", fontWeight: 600, fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.1em"
           }}>
             Discuss Your Brand

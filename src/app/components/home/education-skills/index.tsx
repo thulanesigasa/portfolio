@@ -80,21 +80,11 @@ const EducationSkills = () => {
         </div>
 
         {/* Services list */}
-        <div className="service-list">
+        <div className="simple-service-list" style={{ marginBottom: "5rem" }}>
           {services.map((s, i) => (
-            <div key={i} className="service-card reveal">
-              <div className="service-card-inner">
-                <h3 className="service-card-title">{s.title}</h3>
-                <div className="service-card-hover-content">
-                  <p className="service-card-desc">{s.description}</p>
-                </div>
-                <div className="service-card-footer">
-                  <span className="service-card-dot"></span>
-                  <button className="service-card-btn" aria-label="Learn more">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                  </button>
-                </div>
-              </div>
+            <div key={i} className="simple-service-item reveal">
+              <h3 className="simple-service-title">{s.title}</h3>
+              <p className="simple-service-desc">{s.description}</p>
             </div>
           ))}
         </div>

@@ -7,19 +7,19 @@
 
 /* ─── CSS VARIABLES ─────────────────────────────── */
 :root {
-  --color-bg:           #0b0d19;
-  --color-bg-card:      rgba(255,255,255,0.04);
-  --color-bg-card-hover: rgba(255,255,255,0.07);
-  --color-primary:      #FE4300;
-  --color-primary-glow: rgba(254,67,0,0.35);
-  --color-primary-dim:  rgba(254,67,0,0.15);
+  --color-bg:           #ffffff;
+  --color-bg-card:      rgba(0,0,0,0.02);
+  --color-bg-card-hover: rgba(0,0,0,0.05);
+  --color-primary:      #666666;
+  --color-primary-glow: rgba(102,102,102,0.15);
+  --color-primary-dim:  rgba(102,102,102,0.05);
   --color-secondary:    #8a92a9;
-  --color-text:         #f0f2fa;
-  --color-text-muted:   #6b7390;
-  --color-border:       rgba(255,255,255,0.08);
-  --color-border-glow:  rgba(254,67,0,0.4);
-  --color-surface:      #131628;
-  --color-surface-2:    #1a1e35;
+  --color-text:         #1a1a1a;
+  --color-text-muted:   #666666;
+  --color-border:       rgba(0,0,0,0.1);
+  --color-border-glow:  rgba(102,102,102,0.2);
+  --color-surface:      #f9f9f9;
+  --color-surface-2:    #f0f0f0;
   --color-white:        #ffffff;
 
   --font-heading: 'Outfit', sans-serif;
@@ -845,105 +845,64 @@ section {
 
 
 
-.service-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-@media (max-width: 900px) {
-  .service-list { grid-template-columns: 1fr; }
-}
-
-.service-card {
-  background: transparent;
-  border-left: 1px solid var(--color-border);
-  border-right: 1px solid var(--color-border);
-  padding: 3rem 2rem;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
+.simple-service-list {
   display: flex;
   flex-direction: column;
 }
-.service-card:first-child {
-  border-left: 1px solid var(--color-border);
+
+.simple-service-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.service-card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--color-primary);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
-}
-.service-card:hover::before {
-  transform: scaleX(1);
-}
-
-.service-card-title {
+.simple-service-title {
   font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 500;
   color: var(--color-text);
-  margin-bottom: 2rem;
-  line-height: 1.4;
+  margin: 0;
+  transition: color 0.3s ease;
+  width: 40%;
 }
 
-.service-card-hover-content {
-  height: 0;
-  overflow: hidden;
+.simple-service-desc {
   opacity: 0;
-  transition: all 0.4s ease;
-}
-.service-card:hover .service-card-hover-content {
-  height: 110px;
-  opacity: 1;
-}
-
-.service-card-desc {
-  font-size: 0.95rem;
+  visibility: hidden;
+  width: 60%;
   color: var(--color-text-muted);
+  font-size: 1.1rem;
   line-height: 1.6;
+  margin: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateX(-10px);
 }
 
-.service-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-top: auto;
-  padding-top: 1.5rem;
+.simple-service-item:hover .simple-service-title {
+  color: var(--color-primary);
 }
 
-.service-card-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-border);
-  transition: all 0.3s ease;
+.simple-service-item:hover .simple-service-desc {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
 }
 
-.service-card:hover .service-card-dot {
-  display: none;
-}
-
-.service-card-btn {
-  display: none;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  border: none;
-  color: #000;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.service-card:hover .service-card-btn {
-  display: flex;
+@media (max-width: 900px) {
+  .simple-service-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .simple-service-title {
+    width: 100%;
+    font-size: 2rem;
+  }
+  .simple-service-desc {
+    width: 100%;
+  }
 }
 
 .skills-grid {
@@ -1693,6 +1652,7 @@ section {
 
 /* ─── HAMBURGER ────────────────────────────────────── */
 .hamburger {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;

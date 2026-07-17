@@ -55,7 +55,7 @@ export default function Pricing() {
               <p style={{ color: "var(--color-text-muted)", fontSize: "0.95rem", lineHeight: 1.6, margin: 0 }}>{plan.description}</p>
               <div className="pricing-arrow-btn" style={{
                 width: "44px", height: "44px", borderRadius: "50%", background: "var(--color-primary)", 
-                display: "flex", alignItems: "center", justifyContent: "center", color: "#000"
+                display: "flex", alignItems: "center", justifyContent: "center", color: "#fff"
               }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </div>
@@ -66,7 +66,7 @@ export default function Pricing() {
         <div style={{ textAlign: "center", marginTop: "4rem" }}>
           <Link href="#contact" style={{
             display: "inline-flex", alignItems: "center", gap: "10px", 
-            background: "var(--color-primary)", color: "#000", padding: "1rem 2.5rem", 
+            background: "var(--color-primary)", color: "#fff", padding: "1rem 2.5rem", 
             borderRadius: "var(--radius-full)", textDecoration: "none", fontWeight: 600, fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.1em"
           }}>
             Individual Solution
