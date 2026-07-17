@@ -23,7 +23,7 @@
   --color-white:        #ffffff;
 
   --font-heading: 'Outfit', sans-serif;
-  --font-body:    'Inter', sans-serif;
+  --font-body:    'Outfit', sans-serif;
 
   --radius-sm:  8px;
   --radius-md:  14px;
@@ -345,7 +345,7 @@ section {
 }
 
 .fs-nav-item.active .fs-nav-title {
-  color: var(--color-text);
+  color: var(--color-primary);
 }
 
 .fs-nav-dot {

@@ -1,14 +1,36 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Journey", href: "#journey" },
-  { label: "Services", href: "#services" },
-  { label: "Works", href: "#works" },
-  { label: "Contact", href: "#contact" },
+const fullMenuData = [
+  {
+    title: "Company",
+    links: [
+      { label: "About Us", href: "#about" },
+      { label: "Our Journey", href: "#journey" },
+    ]
+  },
+  {
+    title: "Expertise",
+    links: [
+      { label: "Custom Web Applications", href: "#services" },
+      { label: "Robust SaaS Solutions", href: "#services" },
+      { label: "UI/UX & Design Systems", href: "#services" },
+    ]
+  },
+  {
+    title: "Portfolio",
+    links: [
+      { label: "All Works", href: "#works" },
+    ]
+  },
+  {
+    title: "Contact",
+    links: [
+      { label: "Get in Touch", href: "#contact" },
+    ]
+  }
 ];
 
 const projects = [
@@ -28,22 +50,11 @@ const socialLinks = [
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const [activeMenuIndex, setActiveMenuIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 40);
-
-      // Highlight active nav link based on visible section
-      const sectionIds = ["about", "journey", "services", "works", "contact"];
-      for (const id of [...sectionIds].reverse()) {
-        const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 120) {
-          setActiveSection(id);
-          return;
-        }
-      }
-      setActiveSection("");
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -93,24 +104,45 @@ const Header = () => {
       <div className={`fs-menu-overlay ${menuOpen ? "open" : ""}`}>
         <div className="container h-100">
           <div className="fs-menu-content">
-            {/* Left Column: Main Navigation */}
+            {/* Left Column: Main Navigation (Accordion) */}
             <div className="fs-menu-left">
               <nav className="fs-main-nav">
                 <ul>
-                  {navLinks.map((link, index) => {
-                    const id = link.href.replace("#", "");
-                    const isActive = activeSection === id;
+                  {fullMenuData.map((item, index) => {
+                    const isActive = activeMenuIndex === index;
                     return (
                       <li key={index} className={`fs-nav-item ${isActive ? "active" : ""}`}>
-                        <a 
-                          href={link.href}
+                        <div 
                           className="fs-nav-title" 
-                          onClick={(e) => handleNavClick(e, link.href)}
-                          style={{ textDecoration: "none" }}
+                          onClick={() => setActiveMenuIndex(isActive ? null : index)}
                         >
                           {isActive && <span className="fs-nav-dot"></span>}
-                          {link.label}
-                        </a>
+                          {item.title}
+                        </div>
+                        <div 
+                          className="fs-sub-nav-wrapper"
+                          style={{
+                            display: "grid",
+                            gridTemplateRows: isActive ? "1fr" : "0fr",
+                            transition: "grid-template-rows 0.4s ease-in-out"
+                          }}
+                        >
+                          <div style={{ overflow: "hidden" }}>
+                            <ul className="fs-sub-nav">
+                              {item.links.map((link, subIndex) => (
+                                <li key={subIndex} style={{ 
+                                  opacity: isActive ? 1 : 0, 
+                                  transform: isActive ? "translateY(0)" : "translateY(10px)",
+                                  transition: `all 0.4s ease ${subIndex * 0.05 + 0.1}s`
+                                }}>
+                                  <a href={link.href} onClick={(e) => handleNavClick(e, link.href)}>
+                                    {link.label}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
                       </li>
                     );
                   })}

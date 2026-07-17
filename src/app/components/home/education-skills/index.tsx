@@ -84,7 +84,6 @@ const EducationSkills = () => {
           <div className="service-list">
             {services.map((s, i) => (
               <div key={i} className="service-item reveal">
-                <div className="service-icon">{s.icon}</div>
                 <div>
                   <div className="service-item-title">{s.title}</div>
                   <p className="service-item-desc">{s.description}</p>

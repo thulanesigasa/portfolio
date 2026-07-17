@@ -1,6 +1,57 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const AnimatedStat = ({ endValue, suffix }: { endValue: number, suffix: string }) => {
+  const [count, setCount] = useState(0);
+  const statRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let startTime: number | null = null;
+    const duration = 2000; // 2 seconds
+    let animationFrame: number;
+    let observer: IntersectionObserver;
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = timestamp - startTime;
+      const percentage = Math.min(progress / duration, 1);
+      
+      // Easing function (easeOutExpo)
+      const easeOut = percentage === 1 ? 1 : 1 - Math.pow(2, -10 * percentage);
+      
+      setCount(Math.floor(endValue * easeOut));
+
+      if (progress < duration) {
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        setCount(endValue);
+      }
+    };
+
+    observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        animationFrame = requestAnimationFrame(animate);
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+
+    if (statRef.current) {
+      observer.observe(statRef.current);
+    }
+
+    return () => {
+      if (animationFrame) cancelAnimationFrame(animationFrame);
+      if (observer) observer.disconnect();
+    };
+  }, [endValue]);
+
+  return (
+    <div ref={statRef} className="about-stat-num">
+      {count < 10 && endValue >= 10 ? `0${count}` : (endValue < 10 ? `0${count}` : count)}{suffix}
+    </div>
+  );
+};
 
 const AboutMe = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -29,9 +80,9 @@ const AboutMe = () => {
   }, []);
 
   const stats = [
-    { count: "03+", label: "Years" },
-    { count: "28+", label: "Clients" },
-    { count: "42+", label: "Projects" },
+    { target: 3, suffix: "+", label: "Years" },
+    { target: 28, suffix: "+", label: "Clients" },
+    { target: 42, suffix: "+", label: "Projects" },
   ];
 
   const focusAreas = ["Web Apps", "E-Commerce", "SaaS Systems", "Custom APIs"];
@@ -57,7 +108,7 @@ const AboutMe = () => {
         <div className="about-stats-row reveal">
           {stats.map((s, i) => (
             <div key={i} className="about-stat">
-              <div className="about-stat-num">{s.count}</div>
+              <AnimatedStat endValue={s.target} suffix={s.suffix} />
               <div className="about-stat-label">{s.label}</div>
             </div>
           ))}
