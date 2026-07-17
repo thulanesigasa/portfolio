@@ -30,12 +30,7 @@ export default function CertificatesPage() {
               <iframe 
                 src={`${cert.pdfLink}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
                 title={cert.title}
-                style={{ 
-                  width: '100%', 
-                  height: '100%', 
-                  border: 'none', 
-                  pointerEvents: 'none' 
-                }} 
+                className="cert-iframe-preview"
               />
             </div>
             <div className="cert-content">

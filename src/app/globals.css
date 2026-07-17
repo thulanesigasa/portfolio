@@ -1809,6 +1809,19 @@ section {
   overflow: hidden;
 }
 
+.cert-iframe-preview {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none;
+  filter: blur(4px) opacity(0.8);
+  transition: filter var(--transition-base);
+}
+
+.cert-card:hover .cert-iframe-preview {
+  filter: blur(0px) opacity(1);
+}
+
 .cert-img-placeholder {
   width: 60px;
   height: 60px;
