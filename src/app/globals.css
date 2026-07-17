@@ -260,12 +260,12 @@ section {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1000;
   transition: all var(--transition-base);
 }
 
 .navbar.scrolled {
-  background: rgba(11, 13, 25, 0.85);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--color-border);
@@ -751,10 +751,6 @@ section {
   transition: all var(--transition-base);
 }
 
-.timeline-item:hover .timeline-card {
-  border-color: var(--color-border-glow);
-  box-shadow: var(--shadow-hover);
-}
 
 .timeline-year {
   text-align: right;
@@ -797,11 +793,7 @@ section {
 }
 
 .timeline-card {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 1.75rem;
-  backdrop-filter: blur(10px);
+  padding-bottom: 2rem;
   transition: all var(--transition-base);
 }
 
@@ -1047,7 +1039,7 @@ section {
 .work-card-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(254,67,0,0.15);
+  background: var(--color-primary-dim);
   backdrop-filter: blur(2px);
   opacity: 0;
   display: flex;
