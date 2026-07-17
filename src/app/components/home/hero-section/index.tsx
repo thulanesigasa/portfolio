@@ -85,6 +85,12 @@ const HeroSection = () => {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleWorkScroll = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const el = document.getElementById("works");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="hero-section">
       <canvas ref={canvasRef} id="particles-canvas" />
@@ -115,12 +121,11 @@ const HeroSection = () => {
               Contact Us
             </button>
             <a
-              href="https://ts-industries.co.za"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#works"
               className="btn-outline"
+              onClick={handleWorkScroll}
             >
-              Visit Website
+              Our Work
             </a>
           </div>
         </div>
