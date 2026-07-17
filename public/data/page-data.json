@@ -23,7 +23,7 @@
     "socialItems": [
       {
         "platform": "github",
-        "icon": "/images/icon/github-icon.svg",
+        "icon": "/images/home/education-skill/github-142-svgrepo-com.svg",
         "link": "https://github.com/thulanesigasa"
       },
       {
@@ -49,14 +49,16 @@
       }
     ],
     "skills": [
-      { "name": "HTML", "icon": "/images/home/education-skill/html-icon.svg", "rating": 5 },
-      { "name": "CSS", "icon": "/images/home/education-skill/css-icon.svg", "rating": 5 },
-      { "name": "JavaScript", "icon": "/images/home/education-skill/js-icon.svg", "rating": 5 },
-      { "name": "TypeScript", "icon": "/images/home/education-skill/ts-icon.svg", "rating": 5 },
-      { "name": "React", "icon": "/images/home/education-skill/react-icon.svg", "rating": 5 },
-      { "name": "Next.js", "icon": "/images/home/education-skill/nextjs-icon.svg", "rating": 5 },
-      { "name": "Python", "icon": "/images/home/education-skill/python-icon.svg", "rating": 4 },
-      { "name": "VB.NET", "icon": "/images/home/education-skill/vbnet-icon.svg", "rating": 4 }
+      { "name": "HTML", "icon": "/images/home/education-skill/html-5-svgrepo-com.svg", "rating": 5 },
+      { "name": "CSS", "icon": "/images/home/education-skill/css-3-svgrepo-com.svg", "rating": 5 },
+      { "name": "JavaScript", "icon": "/images/home/education-skill/java-script-logo-svgrepo-com.svg", "rating": 5 },
+      { "name": "TypeScript", "icon": "/images/home/education-skill/typescript-logo-svgrepo-com.svg", "rating": 5 },
+      { "name": "React", "icon": "/images/home/education-skill/react-javascript-js-framework-facebook-svgrepo-com.svg", "rating": 5 },
+      { "name": "Next.js", "icon": "/images/home/education-skill/next-js-svgrepo-com.svg", "rating": 5 },
+      { "name": "Python", "icon": "/images/home/education-skill/python-svgrepo-com.svg", "rating": 4 },
+      { "name": "VB.NET", "icon": "/images/home/education-skill/vb-svgrepo-com.svg", "rating": 4 },
+      { "name": "Django", "icon": "/images/home/education-skill/django-svgrepo-com.svg", "rating": 4 },
+      { "name": "PostgreSQL", "icon": "/images/home/education-skill/postgresql-svgrepo-com.svg", "rating": 4 }
     ]
   },
   "contactLinks": {
