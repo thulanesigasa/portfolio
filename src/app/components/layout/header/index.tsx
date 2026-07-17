@@ -3,50 +3,47 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-const fullMenuData = [
-  {
-    title: "Homepage",
-    links: [
-      { label: "Landing page", href: "#!" },
-      { label: "Personal", href: "#!" },
-      { label: "Portfolio slider", href: "#!" },
-    ]
-  },
-  {
-    title: "Portfolio",
-    links: [
-      { label: "Transport & Logistics", href: "#!" },
-      { label: "Food & Beverage", href: "#!" },
-      { label: "Beauty & Wellness", href: "#!" },
-      { label: "Lifestyle & Services", href: "#!" },
-      { label: "Health & Education", href: "#!" },
-    ]
-  },
-  {
-    title: "Services",
-    links: [
-      { label: "Services List", href: "#services" },
-      { label: "Single service", href: "#!" },
-    ]
-  },
-  {
-    title: "Other pages",
-    links: [
-      { label: "Team", href: "#!" },
-      { label: "Contact", href: "#contact" },
-      { label: "404", href: "#!" },
-    ]
-  }
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Journey", href: "#journey" },
+  { label: "Services", href: "#services" },
+  { label: "Works", href: "#works" },
+  { label: "Contact", href: "#contact" },
+];
+
+const projects = [
+  { title: "SaaS Dashboard & Analytics", href: "#works" },
+  { title: "Mobile E-Commerce App", href: "#works" },
+  { title: "Cloud Architecture Migration", href: "#works" },
+  { title: "Real Estate Web Portal", href: "#works" },
+  { title: "AI Content Generator App", href: "#works" },
+  { title: "Corporate Design System", href: "#works" },
+];
+
+const socialLinks = [
+  { title: "GitHub", href: "https://github.com/thulanesigasa" },
+  { title: "LinkedIn", href: "https://www.linkedin.com/in/thulanesigasa/" },
 ];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeMenuIndex, setActiveMenuIndex] = useState<number | null>(2); // Default to Services open
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 40);
+
+      // Highlight active nav link based on visible section
+      const sectionIds = ["about", "journey", "services", "works", "contact"];
+      for (const id of [...sectionIds].reverse()) {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 120) {
+          setActiveSection(id);
+          return;
+        }
+      }
+      setActiveSection("");
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -62,6 +59,14 @@ const Header = () => {
     }
     return () => { document.body.style.overflow = "auto"; };
   }, [menuOpen]);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
+  };
 
   return (
     <>
@@ -92,28 +97,20 @@ const Header = () => {
             <div className="fs-menu-left">
               <nav className="fs-main-nav">
                 <ul>
-                  {fullMenuData.map((item, index) => {
-                    const isActive = activeMenuIndex === index;
+                  {navLinks.map((link, index) => {
+                    const id = link.href.replace("#", "");
+                    const isActive = activeSection === id;
                     return (
                       <li key={index} className={`fs-nav-item ${isActive ? "active" : ""}`}>
-                        <div 
+                        <a 
+                          href={link.href}
                           className="fs-nav-title" 
-                          onClick={() => setActiveMenuIndex(isActive ? null : index)}
+                          onClick={(e) => handleNavClick(e, link.href)}
+                          style={{ textDecoration: "none" }}
                         >
                           {isActive && <span className="fs-nav-dot"></span>}
-                          {item.title}
-                        </div>
-                        {isActive && (
-                          <ul className="fs-sub-nav">
-                            {item.links.map((link, subIndex) => (
-                              <li key={subIndex}>
-                                <Link href={link.href} onClick={() => setMenuOpen(false)}>
-                                  {link.label}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
+                          {link.label}
+                        </a>
                       </li>
                     );
                   })}
@@ -127,23 +124,25 @@ const Header = () => {
                 <div className="fs-menu-block">
                   <h6 className="fs-menu-heading">Projects</h6>
                   <ul className="fs-menu-list">
-                    <li><Link href="#!">Gentleman&apos;s Barbershop</Link></li>
-                    <li><Link href="#!">Car Rental Platform</Link></li>
-                    <li><Link href="#!">Clean Earth Initiative</Link></li>
-                    <li><Link href="#!">EcoVolt Energy Systems</Link></li>
-                    <li><Link href="#!">Foodi Delivery App</Link></li>
-                    <li><Link href="#!">Healthcare &amp; Hospital Portal</Link></li>
-                    <li><Link href="#!">Skincare &amp; Cosmetics Shop</Link></li>
-                    <li><Link href="#!">Wanderlust Travel Planner</Link></li>
+                    {projects.map((proj, idx) => (
+                      <li key={idx}>
+                        <a href={proj.href} onClick={(e) => handleNavClick(e, proj.href)}>
+                          {proj.title}
+                        </a>
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div className="fs-menu-block">
-                  <h6 className="fs-menu-heading">Useful links</h6>
+                  <h6 className="fs-menu-heading">Socials</h6>
                   <ul className="fs-menu-list">
-                    <li><Link href="#!">Privacy Policy</Link></li>
-                    <li><Link href="#!">Terms and conditions</Link></li>
-                    <li><Link href="#!">Cookie Policy</Link></li>
-                    <li><Link href="#!">Careers</Link></li>
+                    {socialLinks.map((social, idx) => (
+                      <li key={idx}>
+                        <Link href={social.href} target="_blank" rel="noopener noreferrer">
+                          {social.title}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -152,17 +151,23 @@ const Header = () => {
 
               <div className="fs-menu-bottom-row">
                 <div className="fs-menu-block">
-                  <h6 className="fs-menu-heading">South Africa</h6>
+                  <h6 className="fs-menu-heading">Contact Details</h6>
                   <p className="fs-menu-text">
-                    6866 Ext 7 Sakhile Standerton<br/>
-                    2431 +27 60 476 6693
+                    <a href="mailto:pharezsigasa@gmail.com" style={{ color: "inherit", textDecoration: "none" }}>
+                      pharezsigasa@gmail.com
+                    </a>
+                    <br />
+                    <a href="tel:+447544357979" style={{ color: "inherit", textDecoration: "none" }}>
+                      +44 75 4435 7979
+                    </a>
                   </p>
                 </div>
                 <div className="fs-menu-block">
-                  <h6 className="fs-menu-heading">Zimbabwe</h6>
+                  <h6 className="fs-menu-heading">Website</h6>
                   <p className="fs-menu-text">
-                    3125 Entumbane Street<br/>
-                    Bulawayo +263 78 502 9078
+                    <a href="https://ts-industries.co.za" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none" }}>
+                      ts-industries.co.za
+                    </a>
                   </p>
                 </div>
               </div>
