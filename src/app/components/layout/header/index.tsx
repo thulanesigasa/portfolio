@@ -7,7 +7,7 @@ const fullMenuData = [
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "/dashboard" },
+      { label: "About Us", href: "/#about" },
       { label: "Our Journey", href: "/#journey" },
     ]
   },

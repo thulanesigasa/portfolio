@@ -31,7 +31,7 @@ const Footer = () => {
             <ul className="footer-links">
               <li><Link href="/#services">Features</Link></li>
               <li><Link href="/pricing">Pricing</Link></li>
-              <li><Link href="/dashboard">Dashboard</Link></li>
+              <li><Link href="/">Dashboard</Link></li>
             </ul>
           </div>
 
@@ -40,7 +40,7 @@ const Footer = () => {
             <h4 className="footer-heading">RESOURCES</h4>
             <ul className="footer-links">
               <li><Link href="/faq">FAQ</Link></li>
-              <li><Link href="/dashboard">About Us</Link></li>
+              <li><Link href="/#about">About Us</Link></li>
               <li><Link href="/contact">Contact</Link></li>
             </ul>
           </div>
