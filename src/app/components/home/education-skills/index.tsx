@@ -79,51 +79,49 @@ const EducationSkills = () => {
           <span className="section-number">03</span>
         </div>
 
-        <div className="services-grid">
-          {/* Services list */}
-          <div className="service-list">
-            {services.map((s, i) => (
-              <div key={i} className="service-card reveal">
-                <div className="service-card-inner">
-                  <h3 className="service-card-title">{s.title}</h3>
-                  <div className="service-card-hover-content">
-                    <p className="service-card-desc">{s.description}</p>
-                  </div>
-                  <div className="service-card-footer">
-                    <span className="service-card-dot"></span>
-                    <button className="service-card-btn" aria-label="Learn more">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </button>
-                  </div>
+        {/* Services list */}
+        <div className="service-list">
+          {services.map((s, i) => (
+            <div key={i} className="service-card reveal">
+              <div className="service-card-inner">
+                <h3 className="service-card-title">{s.title}</h3>
+                <div className="service-card-hover-content">
+                  <p className="service-card-desc">{s.description}</p>
+                </div>
+                <div className="service-card-footer">
+                  <span className="service-card-dot"></span>
+                  <button className="service-card-btn" aria-label="Learn more">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </button>
                 </div>
               </div>
-            ))}
-          </div>
-
-          <div className="skill-tags-wrap reveal">
-            <p className="skill-tags-label">Tech Stack</p>
-            <div className="skill-grid">
-              {educationData?.skills?.map((value: any, index: number) => {
-                const rating = value?.rating || 0;
-                return (
-                  <div key={index} className="skill-item">
-                    <Image
-                      src={getImgPath(value?.icon)}
-                      alt={value?.name}
-                      width={40}
-                      height={40}
-                      className="skill-item-icon"
-                    />
-                    <span className="skill-item-name">{value?.name}</span>
-                    <div className="skill-dots">
-                      {[1, 2, 3, 4, 5].map((dot) => (
-                        <span key={dot} className={`skill-dot ${dot <= rating ? 'filled' : ''}`}></span>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
             </div>
+          ))}
+        </div>
+
+        <div className="skill-tags-wrap reveal">
+          <p className="skill-tags-label">Tech Stack</p>
+          <div className="skill-grid">
+            {educationData?.skills?.map((value: any, index: number) => {
+              const rating = value?.rating || 0;
+              return (
+                <div key={index} className="skill-item">
+                  <Image
+                    src={getImgPath(value?.icon)}
+                    alt={value?.name}
+                    width={40}
+                    height={40}
+                    className="skill-item-icon"
+                  />
+                  <span className="skill-item-name">{value?.name}</span>
+                  <div className="skill-dots">
+                    {[1, 2, 3, 4, 5].map((dot) => (
+                      <span key={dot} className={`skill-dot ${dot <= rating ? 'filled' : ''}`}></span>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
