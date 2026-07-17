@@ -28,7 +28,7 @@ const fullMenuData = [
   {
     title: "Contact",
     links: [
-      { label: "Get in Touch", href: "/contact" },
+      { label: "Get in Touch", href: "/#contact" },
     ]
   }
 ];
