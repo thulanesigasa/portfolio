@@ -4,6 +4,7 @@ import EducationSkills from "./components/home/education-skills"
 import ExperienceSec from "./components/home/experience-sec"
 import HeroSection from "./components/home/hero-section"
 import ContactBar from "./components/home/hero-section/contact-bar"
+import CertificatesSec from "./components/home/certificates-sec"
 import LatestWork from "./components/home/latest-work"
 
 const page = () => {
@@ -15,6 +16,7 @@ const page = () => {
         <AboutMe />
         <ExperienceSec />
         <EducationSkills />
+        <CertificatesSec />
         <LatestWork />
         <Contact />
       </main>
