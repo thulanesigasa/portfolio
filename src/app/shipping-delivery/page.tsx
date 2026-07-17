@@ -1,8 +1,11 @@
+import BackButton from "@/app/components/ui/back-button";
 import React from 'react';
 
 export default function ShippingDelivery() {
   return (
     <main className="container" style={{ paddingTop: '150px', paddingBottom: '120px', minHeight: '100vh' }}>
+        <BackButton />
+
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
         <h1 className="hero-title" style={{ fontSize: '3.5rem', marginBottom: '2rem' }}>
           Shipping & <span style={{ fontWeight: 300 }}>Delivery</span>

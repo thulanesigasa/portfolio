@@ -1,5 +1,6 @@
 "use client";
 
+import BackButton from "@/app/components/ui/back-button";
 import React from "react";
 import Link from "next/link";
 import CertificatesSec, { allCertificates } from "../components/home/certificates-sec";
@@ -7,6 +8,8 @@ import CertificatesSec, { allCertificates } from "../components/home/certificate
 export default function CertificatesPage() {
   return (
     <main className="container" style={{ paddingTop: '150px', paddingBottom: '120px', minHeight: '100vh' }}>
+        <BackButton />
+
       <div className="section-heading">
         <span className="section-eyebrow">Milestones</span>
         <h2 className="section-title">

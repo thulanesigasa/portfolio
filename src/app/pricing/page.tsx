@@ -1,3 +1,4 @@
+import BackButton from "@/app/components/ui/back-button";
 import Link from "next/link";
 
 export default function Pricing() {

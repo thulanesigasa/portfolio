@@ -1,3 +1,4 @@
+import BackButton from "@/app/components/ui/back-button";
 import React from 'react';
 
 export default function FAQ() {
@@ -46,6 +47,8 @@ export default function FAQ() {
 
   return (
     <main className="container" style={{ paddingTop: '150px', paddingBottom: '120px', minHeight: '100vh' }}>
+        <BackButton />
+
       <h1 className="hero-title" style={{ fontSize: '3.5rem', marginBottom: '4rem', textAlign: 'center' }}>
         Frequently Asked <span style={{ fontWeight: 300 }}>Questions</span>
       </h1>
