@@ -1,43 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { getDataPath, getImgPath } from "@/utils/image";
-import Image from "next/image";
-import Link from "next/link";
+import useReveal from "@/app/hooks/useReveal";
 
 const Contact = () => {
-  const [contactData, setContactData] = useState<any>(null);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({
-    name: "", number: "", email: "", message: "",
+    name: "", email: "", message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(getDataPath("/data/page-data.json"));
-        if (!res.ok) throw new Error("Failed to fetch");
-        const data = await res.json();
-        setContactData(data?.contactLinks);
-      } catch (error) {
-        console.error("Error fetching contact data:", error);
-      }
-    };
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => e.isIntersecting && e.target.classList.add("visible")),
-      { threshold: 0.1 }
-    );
-    sectionRef.current?.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, [contactData]);
+  useReveal(sectionRef);
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -64,7 +39,7 @@ const Contact = () => {
       const data = await res.json();
       if (data.success) {
         setSubmitted(true);
-        setFormData({ name: "", number: "", email: "", message: "" });
+        setFormData({ name: "", email: "", message: "" });
       }
     } catch (err) {
       console.error(err);
@@ -79,131 +54,69 @@ const Contact = () => {
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  const contactInfoItems = [
-    { icon: "/images/icon/mail-icon.svg", label: "pharezsigasa@gmail.com", link: "mailto:pharezsigasa@gmail.com" },
-    { icon: "/images/icon/call-icon.svg", label: "+447544357979", link: "tel:+447544357979" },
-    { icon: "/images/icon/web-icon.svg", label: "ts-industries.co.za", link: "https://ts-industries.co.za" },
-  ];
-
   return (
     <section id="contact" className="contact-section" ref={sectionRef}>
-      <div className="container">
-        <div className="section-header reveal">
-          <h2>Contact Us</h2>
-          <span className="section-number">05</span>
-        </div>
-
-        <div className="contact-grid">
-          {/* Form */}
-          <div className="reveal">
-            {submitted && (
-              <div className="form-success visible">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2ecc71" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Message sent successfully! We will be in touch soon.
-              </div>
-            )}
-            <form onSubmit={handleSubmit} noValidate>
-              <div className="form-row">
-                <div className={`form-group${errors.name ? " invalid" : formData.name ? " valid" : ""}`}>
-                  <input
-                    className="form-input"
-                    type="text"
-                    name="name"
-                    id="name"
-                    placeholder=" "
-                    value={formData.name}
-                    onChange={handleChange}
-                  />
-                  <label className="form-label" htmlFor="name">Full Name *</label>
-                  <div className="form-error">{errors.name}</div>
-                </div>
-                <div className={`form-group${errors.number ? " invalid" : ""}`}>
-                  <input
-                    className="form-input"
-                    type="tel"
-                    name="number"
-                    id="number"
-                    placeholder=" "
-                    value={formData.number}
-                    onChange={handleChange}
-                  />
-                  <label className="form-label" htmlFor="number">Phone Number</label>
-                  <div className="form-error">{errors.number}</div>
-                </div>
-              </div>
-
-              <div className={`form-group${errors.email ? " invalid" : formData.email ? " valid" : ""}`}>
+      <div className="container contact-container reveal">
+        <h3 className="contact-title">
+          Let&apos;s <span className="contact-title-thin">Talk</span>
+        </h3>
+        
+        {submitted ? (
+          <div className="form-success">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2ecc71" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <p>Message sent successfully! We will be in touch soon.</p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} noValidate className="contact-form">
+            <div className="contact-form-row">
+              <div className="contact-form-group">
                 <input
-                  className="form-input"
+                  type="text"
+                  name="name"
+                  placeholder="What's your name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className={`contact-input ${errors.name ? 'invalid' : ''}`}
+                />
+                {errors.name && <span className="error-text">{errors.name}</span>}
+              </div>
+              <div className="contact-form-group">
+                <input
                   type="email"
                   name="email"
-                  id="email"
-                  placeholder=" "
+                  placeholder="Your Email"
                   value={formData.email}
                   onChange={handleChange}
+                  className={`contact-input ${errors.email ? 'invalid' : ''}`}
                 />
-                <label className="form-label" htmlFor="email">Email Address *</label>
-                <div className="form-error">{errors.email}</div>
+                {errors.email && <span className="error-text">{errors.email}</span>}
               </div>
+            </div>
+            
+            <div className="contact-form-group full-width">
+              <textarea
+                name="message"
+                placeholder="Tell us about our project"
+                value={formData.message}
+                onChange={handleChange}
+                className={`contact-textarea ${errors.message ? 'invalid' : ''}`}
+              />
+              {errors.message && <span className="error-text">{errors.message}</span>}
+            </div>
 
-              <div className={`form-group${errors.message ? " invalid" : formData.message ? " valid" : ""}`}>
-                <textarea
-                  className="form-input form-textarea"
-                  name="message"
-                  id="message"
-                  placeholder=" "
-                  value={formData.message}
-                  onChange={handleChange}
-                />
-                <label className="form-label" htmlFor="message">Your Message *</label>
-                <div className="form-error">{errors.message}</div>
+            <div className="contact-form-footer">
+              <div className="contact-disclaimer">
+                <span className="accent-asterisk">*</span> We promise not to disclose your personal information to third parties.
               </div>
-
-              <button type="submit" className="btn-primary" disabled={submitting}>
-                {submitting ? "Sending..." : "Send Message"}
+              <button type="submit" className="contact-submit-btn" disabled={submitting}>
+                <span>{submitting ? "Sending..." : "Send message"}</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 5.3418C13.7441 5.3418 13.488 5.44122 13.293 5.63672L13.207 5.72266C12.816 6.11366 12.816 6.74672 13.207 7.13672L17.0703 11H4C3.448 11 3 11.448 3 12C3 12.552 3.448 13 4 13H17.0703L13.207 16.8633C12.816 17.2543 12.816 17.8873 13.207 18.2773L13.293 18.3633C13.684 18.7543 14.317 18.7543 14.707 18.3633L20.3633 12.707C20.7543 12.316 20.7543 11.683 20.3633 11.293L14.707 5.63672C14.5115 5.44122 14.2559 5.3418 14 5.3418Z" fill="currentColor"/>
+                </svg>
               </button>
-            </form>
-          </div>
-
-          {/* Info panel */}
-          <div className="contact-info-panel reveal">
-            <div>
-              <h3 style={{ marginBottom: "1.5rem", fontSize: "1.4rem" }}>Get in touch</h3>
-              <div className="contact-info-block">
-                {contactInfoItems.map((item, i) => (
-                  <Link key={i} href={item.link} className="contact-info-link"
-                    target={item.link.startsWith("http") ? "_blank" : undefined}
-                    rel={item.link.startsWith("http") ? "noopener noreferrer" : undefined}
-                  >
-                    <div className="contact-info-icon">
-                      <Image src={getImgPath(item.icon)} alt="" width={18} height={18} />
-                    </div>
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
             </div>
-
-            <div>
-              <h5 style={{ marginBottom: "1rem", color: "var(--color-text-muted)", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.08em", fontSize: "0.8rem" }}>
-                Follow Us
-              </h5>
-              <div className="contact-social-row">
-                {contactData?.socialLinks?.map((value: any, index: number) => (
-                  <Link
-                    key={index}
-                    href={value?.href || "#!"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-social-link"
-                  >
-                    {value?.title}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+          </form>
+        )}
       </div>
     </section>
   );
