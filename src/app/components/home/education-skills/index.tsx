@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { getDataPath, getImgPath } from "@/utils/image";
 import Image from "next/image";
+import Link from "next/link";
 
 const services = [
   {
@@ -16,6 +17,7 @@ const services = [
     title: "Custom Web Applications",
     description:
       "Fast, scalable, responsive web apps using React, Next.js, and modern frontend tools tailored to your business.",
+    link: "/services/custom-web-applications",
   },
   {
     icon: (
@@ -26,6 +28,7 @@ const services = [
     title: "Robust SaaS Solutions",
     description:
       "Cloud-native database designs to high-concurrency API microservices — reliable, secure, and performant architectures.",
+    link: "/services/robust-saas-solutions",
   },
   {
     icon: (
@@ -39,7 +42,8 @@ const services = [
     ),
     title: "UI/UX & Design Systems",
     description:
-      "Intuitive user journeys and premium design systems in Figma that seamlessly transition to clean frontend code.",
+      "Pixel-perfect interfaces and cohesive component libraries built with Figma, Tailwind, and CSS Modules.",
+    link: "/services/ui-ux-design-systems",
   },
 ];
 
@@ -82,10 +86,10 @@ const EducationSkills = () => {
         {/* Services list */}
         <div className="simple-service-list" style={{ marginBottom: "5rem" }}>
           {services.map((s, i) => (
-            <div key={i} className="simple-service-item reveal">
+            <Link key={i} href={s.link} className="simple-service-item reveal" style={{ textDecoration: 'none', display: 'block' }}>
               <h3 className="simple-service-title">{s.title}</h3>
               <p className="simple-service-desc">{s.description}</p>
-            </div>
+            </Link>
           ))}
         </div>
 
