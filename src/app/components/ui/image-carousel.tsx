@@ -61,15 +61,12 @@ export default function ImageCarousel({ slides }: ImageCarouselProps) {
             }}
           >
             <div style={{ 
-              background: "var(--color-bg-card)", 
-              borderRadius: "var(--radius-lg)", 
-              padding: "2rem",
               display: "flex",
               justifyContent: "center",
               gap: "1rem",
-              border: "1px solid var(--color-border)",
               height: "500px",
-              position: "relative"
+              position: "relative",
+              width: "100%"
             }}>
               {Array.isArray(slide.imageSrc) ? (
                 <>
@@ -82,7 +79,7 @@ export default function ImageCarousel({ slides }: ImageCarouselProps) {
                 </>
               ) : (
                 <div style={{ position: "relative", width: "100%", height: "100%" }}>
-                  <Image src={slide.imageSrc} alt={slide.title} fill style={{ objectFit: 'contain' }} />
+                  <Image src={slide.imageSrc} alt={slide.title} fill style={{ objectFit: 'cover' }} />
                 </div>
               )}
             </div>

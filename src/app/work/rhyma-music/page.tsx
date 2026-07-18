@@ -15,12 +15,12 @@ export default function RhymaMusicWorkPage() {
           Client: Rhyma
         </div>
         
-        <div style={{ position: 'relative', width: '100%', height: '400px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginBottom: '3rem', border: '1px solid var(--color-border)' }}>
+        <div style={{ position: 'relative', width: '100%', height: '400px', marginBottom: '3rem' }}>
           <Image 
-            src="/images/work/rhyma(black).png" 
+            src="/images/work/work-img-2.png" 
             alt="Rhyma Music project preview" 
             fill
-            style={{ objectFit: 'contain', backgroundColor: '#ffffff' }}
+            style={{ objectFit: 'cover' }}
           />
         </div>
 
