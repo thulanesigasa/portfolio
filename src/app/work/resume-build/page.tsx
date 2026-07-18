@@ -20,7 +20,7 @@ export default function ResumeBuildWorkPage() {
             src="/images/work/work-img-1.jpg" 
             alt="Resume Build project preview" 
             fill
-            style={{ objectFit: 'contain', background: 'var(--color-bg-card)' }}
+            style={{ objectFit: 'contain', backgroundColor: 'rgb(104, 47, 226)' }}
           />
         </div>
 
