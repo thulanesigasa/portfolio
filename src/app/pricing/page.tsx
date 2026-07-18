@@ -1,29 +1,77 @@
+"use client";
+import { useEffect, useState } from "react";
 import BackButton from "@/app/components/ui/back-button";
 import Link from "next/link";
 
+const SOUTHERN_AFRICA_COUNTRIES = ['ZA', 'NA', 'BW', 'LS', 'SZ', 'ZW', 'MZ', 'AO', 'ZM', 'MW'];
+
 export default function Pricing() {
-  const pricingPlans = [
+  const [region, setRegion] = useState<"loading" | "southern_africa" | "international">("loading");
+
+  useEffect(() => {
+    async function fetchLocation() {
+      try {
+        const res = await fetch("https://ipapi.co/json/");
+        const data = await res.json();
+        if (data && data.country_code && SOUTHERN_AFRICA_COUNTRIES.includes(data.country_code)) {
+          setRegion("southern_africa");
+        } else {
+          setRegion("international");
+        }
+      } catch (error) {
+        console.error("Error fetching location", error);
+        // Default to international if fetch fails
+        setRegion("international");
+      }
+    }
+    fetchLocation();
+  }, []);
+
+  const pricingPlans = region === "southern_africa" ? [
     {
-      price: "150",
+      currency: "R",
+      price: "200",
       title: "Graphic Design",
       description: "Eye-catching and impactful designs tailored to your brand identity. From logos to full branding kits, we ensure your visuals leave a lasting impression.",
     },
     {
-      price: "1,500",
+      currency: "R",
+      price: "22,500",
       title: "Mobile App Development",
       description: "Custom mobile applications for Android and iOS, built to deliver seamless user experiences and meet your business needs.",
     },
     {
-      price: "800",
+      currency: "R",
+      price: "6,500",
       title: "Web App Development",
       description: "Modern, responsive, and secure web applications designed to enhance productivity and engage users.",
+    }
+  ] : [
+    {
+      currency: "£",
+      price: "20",
+      title: "Graphic Design",
+      description: "Eye-catching and impactful designs tailored to your brand identity. From logos to full branding kits, we ensure your visuals leave a lasting impression.",
     },
+    {
+      currency: "£",
+      price: "2,000",
+      title: "Mobile App Development",
+      description: "Custom mobile applications for Android and iOS, built to deliver seamless user experiences and meet your business needs.",
+    },
+    {
+      currency: "£",
+      price: "900",
+      title: "Web App Development",
+      description: "Modern, responsive, and secure web applications designed to enhance productivity and engage users.",
+    }
   ];
 
   return (
     <main className="pricing-page" style={{ paddingTop: "150px", paddingBottom: "120px" }}>
       <div className="container">
-        <div style={{ textAlign: "center", marginBottom: "5rem" }}>
+        <BackButton />
+        <div style={{ textAlign: "center", marginBottom: "5rem", marginTop: "1rem" }}>
           <h2 style={{ fontSize: "3rem", fontFamily: "var(--font-heading)", fontWeight: 600, lineHeight: 1.2, marginBottom: "1.5rem" }}>
             Reasonable <span style={{ fontWeight: 300 }}>prices</span> <br />
             for innovative <span style={{ fontWeight: 300 }}>solutions</span>
@@ -46,11 +94,17 @@ export default function Pricing() {
               borderBottom: i === pricingPlans.length - 1 ? "1px solid var(--color-border)" : "none",
               textDecoration: "none",
               color: "inherit",
-              transition: "all 0.3s ease"
+              transition: "all 0.3s ease",
+              opacity: region === "loading" ? 0.4 : 1,
+              pointerEvents: region === "loading" ? "none" : "auto"
             }}>
               <div style={{ display: "flex", alignItems: "baseline", gap: "5px" }}>
-                <span style={{ fontSize: "1.2rem", color: "var(--color-text-muted)" }}>R</span>
-                <span style={{ fontSize: "2.5rem", color: "var(--color-primary)", fontWeight: 600 }}>{plan.price}</span>
+                <span style={{ fontSize: "1.2rem", color: "var(--color-text-muted)" }}>
+                  {region === "loading" ? "-" : plan.currency}
+                </span>
+                <span style={{ fontSize: "2.5rem", color: "var(--color-primary)", fontWeight: 600 }}>
+                  {region === "loading" ? "..." : plan.price}
+                </span>
               </div>
               <h5 style={{ fontSize: "1.2rem", fontFamily: "var(--font-heading)", fontWeight: 600 }}>{plan.title}</h5>
               <p style={{ color: "var(--color-text-muted)", fontSize: "0.95rem", lineHeight: 1.6, margin: 0 }}>{plan.description}</p>
