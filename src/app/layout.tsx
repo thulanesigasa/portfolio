@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/layout/header";
 import Footer from "./components/layout/footer";
 import ScrollArrow from "./components/layout/scroll-arrow";
+import ScrollRestorationHandler from "./components/ui/scroll-restoration-handler";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -56,6 +57,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://formsubmit.co" />
       </head>
       <body>
+        <ScrollRestorationHandler />
         <Header />
         {children}
         <Footer />

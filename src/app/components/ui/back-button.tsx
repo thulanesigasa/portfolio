@@ -4,9 +4,17 @@ import React from "react";
 
 export default function BackButton() {
   const router = useRouter();
+
+  const handleBack = () => {
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("scrollToTop", "true");
+    }
+    router.back();
+  };
+
   return (
     <button 
-      onClick={() => router.back()} 
+      onClick={handleBack} 
       style={{ 
         background: 'none', border: 'none', color: 'var(--color-primary)', 
         cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px',
