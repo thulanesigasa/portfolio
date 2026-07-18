@@ -5,7 +5,7 @@ import { getImgPath } from "@/utils/image";
 import Image from "next/image";
 import Link from "next/link";
 
-const categories = ["All", "SaaS", "App", "Web"];
+const categories = ["All", "SaaS", "App", "Web", "Design"];
 
 const catMap: Record<string, string> = {
   "Ndivhu&Mpho": "Web",
@@ -13,7 +13,7 @@ const catMap: Record<string, string> = {
   "Resume Build": "SaaS",
   "Bible Diaries": "App",
   "Service Link": "App",
-  "MedSync": "App",
+  "MedSync": "Design",
 };
 
 const staticWorkData = [
