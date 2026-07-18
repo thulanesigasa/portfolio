@@ -6,37 +6,37 @@ import ImageCarousel from "@/app/components/ui/image-carousel";
 export default function ServiceLinkWorkPage() {
   const slides = [
     {
-      imageSrc: "/images/work/service_link/discover.jpeg",
+      imageSrc: "/images/work/service_link/discover.webp",
       title: "Interactive Discovery Map",
       description: "A dynamic map interface that allows users to seamlessly discover nearby service professionals based on their current location and filter criteria."
     },
     {
-      imageSrc: "/images/work/service_link/discover-view_rating.jpeg",
+      imageSrc: "/images/work/service_link/discover-view_rating.webp",
       title: "Provider Profiles & Ratings",
       description: "Detailed provider profiles showcasing hourly rates, experience scores, specialized skills, and verified community reviews."
     },
     {
-      imageSrc: "/images/work/service_link/discover-book_appointment.jpeg",
+      imageSrc: "/images/work/service_link/discover-book_appointment.webp",
       title: "Seamless Booking Flow",
       description: "An intuitive booking system that takes the hassle out of scheduling, allowing users to select dates, times, and specific service needs instantly."
     },
     {
-      imageSrc: "/images/work/service_link/feed.jpeg",
+      imageSrc: "/images/work/service_link/feed.webp",
       title: "Service Feed & Activity",
       description: "A categorized list view of available professionals and recent community activity, providing an alternative to the map-based discovery."
     },
     {
-      imageSrc: "/images/work/service_link/messages.jpeg",
+      imageSrc: "/images/work/service_link/messages.webp",
       title: "In-App Messaging",
       description: "Direct, real-time chat functionality empowering users to communicate securely with providers to coordinate logistics and ask questions before booking."
     },
     {
-      imageSrc: "/images/work/service_link/news.jpeg",
+      imageSrc: "/images/work/service_link/news.webp",
       title: "Platform Updates & News",
       description: "A dedicated news section keeping users informed about platform updates, new features, and tips for finding the best local services."
     },
     {
-      imageSrc: "/images/work/service_link/profile.jpeg",
+      imageSrc: "/images/work/service_link/profile.webp",
       title: "User Profile Management",
       description: "A comprehensive profile hub where users can manage their dark/light theme preferences, view past bookings, and update account settings."
     }
@@ -56,7 +56,7 @@ export default function ServiceLinkWorkPage() {
         
         <div style={{ position: 'relative', width: '100%', height: '400px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginBottom: '3rem', border: '1px solid var(--color-border)' }}>
           <Image 
-            src="/images/work/work-img-5.png" 
+            src="/images/work/work-img-5.webp" 
             alt="Service Link Thumbnail" 
             fill
             style={{ objectFit: 'contain', backgroundColor: 'rgb(7, 7, 7)' }}

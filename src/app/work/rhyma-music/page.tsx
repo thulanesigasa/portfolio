@@ -17,7 +17,7 @@ export default function RhymaMusicWorkPage() {
         
         <div style={{ position: 'relative', width: '100%', height: '400px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginBottom: '3rem', border: '1px solid var(--color-border)' }}>
           <Image 
-            src="/images/work/work-img-2.png" 
+            src="/images/work/work-img-2.webp" 
             alt="Rhyma Music project preview" 
             fill
             style={{ objectFit: 'contain', backgroundColor: '#ffffff' }}

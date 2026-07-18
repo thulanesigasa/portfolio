@@ -21,9 +21,9 @@
   --color-surface:      #f9f9f9;
   --color-surface-2:    #f0f0f0;
   --color-white:        #ffffff;
-
-  --font-heading: 'Outfit', sans-serif;
-  --font-body:    'Outfit', sans-serif;
+  --font-heading: var(--font-outfit), sans-serif;
+  --font-body:    var(--font-outfit), sans-serif;
+  --font-body-alt: var(--font-inter), sans-serif;
 
   --radius-sm:  8px;
   --radius-md:  14px;

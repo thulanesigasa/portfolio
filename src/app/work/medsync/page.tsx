@@ -6,22 +6,22 @@ import ImageCarousel from "@/app/components/ui/image-carousel";
 export default function MedSyncWorkPage() {
   const slides = [
     {
-      imageSrc: "/images/work/hokmatech/hokma-1.jpeg",
+      imageSrc: "/images/work/hokmatech/hokma-1.webp",
       title: "Splash & Onboarding",
       description: "A premium splash screen and guided onboarding experience that communicates MedSync's brand identity, adhering to a strict 60-30-10 colour rule for visual hierarchy and a polished first impression."
     },
     {
-      imageSrc: "/images/work/hokmatech/hokma-2.jpeg",
+      imageSrc: "/images/work/hokmatech/hokma-2.webp",
       title: "Login & Authentication",
       description: "A clean, secure login screen with elegant form handling and validation. The interface prioritises ease of access for medical staff while maintaining strict data security standards."
     },
     {
-      imageSrc: "/images/work/hokmatech/hokma-3.jpeg",
+      imageSrc: "/images/work/hokmatech/hokma-3.webp",
       title: "Home Dashboard",
       description: "The central hub of MedSync, offering medical staff a clear overview of active sessions, appointment queues, and system notifications — all surfaced in a calm, readable layout designed for high-pressure clinical environments."
     },
     {
-      imageSrc: "/images/work/hokmatech/hokma-4.jpeg",
+      imageSrc: "/images/work/hokmatech/hokma-4.webp",
       title: "Booking & Confirmation",
       description: "A streamlined booking flow that interfaces directly with the Delphi-powered REST API backend. Staff can schedule, modify, and confirm appointments with minimal taps, reducing admin overhead significantly."
     }
@@ -44,7 +44,7 @@ export default function MedSyncWorkPage() {
 
         <div style={{ position: 'relative', width: '100%', height: '400px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginBottom: '3rem', border: '1px solid var(--color-border)' }}>
           <Image
-            src="/images/work/work-img-6.jpeg"
+            src="/images/work/work-img-6.webp"
             alt="MedSync - Hokma Tech project preview"
             fill
             style={{ objectFit: 'contain', backgroundColor: 'rgb(254, 254, 254)' }}

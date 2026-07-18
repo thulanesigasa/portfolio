@@ -17,7 +17,7 @@ export default function ResumeBuildWorkPage() {
         
         <div style={{ position: 'relative', width: '100%', height: '400px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginBottom: '3rem', border: '1px solid var(--color-border)' }}>
           <Image 
-            src="/images/work/work-img-1.jpg" 
+            src="/images/work/work-img-1.webp" 
             alt="Resume Build project preview" 
             fill
             style={{ objectFit: 'contain', backgroundColor: 'rgb(104, 47, 226)' }}

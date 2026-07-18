@@ -7,32 +7,32 @@ export default function BibleDiariesWorkPage() {
   const slides = [
     {
       imageSrc: [
-        "/images/work/bible_diaries/feed-boy.jpeg",
-        "/images/work/bible_diaries/feed-girl.jpeg"
+        "/images/work/bible_diaries/feed-boy.webp",
+        "/images/work/bible_diaries/feed-girl.webp"
       ],
       title: "Global Reflections Feed",
       description: "A beautifully categorized timeline of daily diaries, prayers, and reflections. Users can seamlessly scroll, like, comment, and share spiritual insights."
     },
     {
       imageSrc: [
-        "/images/work/bible_diaries/filter-boy.jpeg",
-        "/images/work/bible_diaries/filter-girl.jpeg"
+        "/images/work/bible_diaries/filter-boy.webp",
+        "/images/work/bible_diaries/filter-girl.webp"
       ],
       title: "Category Filtering",
       description: "Intuitive filtering allows members to easily navigate content by specific spiritual themes such as Hope, Faith, Love, and Gratitude to find exactly what uplifts them."
     },
     {
       imageSrc: [
-        "/images/work/bible_diaries/connect-boy.jpeg",
-        "/images/work/bible_diaries/connect-girl.jpeg"
+        "/images/work/bible_diaries/connect-boy.webp",
+        "/images/work/bible_diaries/connect-girl.webp"
       ],
       title: "Connect Directory",
       description: "Discover and interact with community members. The directory showcases detailed spiritual profiles, favorite verses, and personal journey stories."
     },
     {
       imageSrc: [
-        "/images/work/bible_diaries/chat-boy.jpeg",
-        "/images/work/bible_diaries/chat-girl.jpeg"
+        "/images/work/bible_diaries/chat-boy.webp",
+        "/images/work/bible_diaries/chat-girl.webp"
       ],
       title: "Real-Time Chat",
       description: "Secure, real-time messaging allows users to connect deeply and meaningfully. An AI moderation layer ensures all interactions remain respectful and uplifting."
@@ -53,7 +53,7 @@ export default function BibleDiariesWorkPage() {
         
         <div style={{ position: 'relative', width: '100%', height: '400px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginBottom: '3rem', border: '1px solid var(--color-border)' }}>
           <Image 
-            src="/images/work/work-img-4.png" 
+            src="/images/work/work-img-4.webp" 
             alt="Bible Diaries Thumbnail" 
             fill
             style={{ objectFit: 'contain', backgroundColor: 'rgb(255, 255, 255)' }}

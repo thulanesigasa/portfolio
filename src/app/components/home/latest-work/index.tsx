@@ -17,12 +17,12 @@ const catMap: Record<string, string> = {
 };
 
 const staticWorkData = [
-  { image: "/images/work/work-img-3.png", title: "Ndivhu&Mpho", client: "Ndivhuwo & Mpho", slug: "ndivhu-mpho" },
-  { image: "/images/work/work-img-2.png", title: "Rhyma Music", client: "Rhyma", slug: "rhyma-music" },
-  { image: "/images/work/work-img-1.jpg", title: "Resume Build", client: "rbptech", slug: "resume-build" },
-  { image: "/images/work/work-img-4.png", title: "Bible Diaries", client: "Internal Project", slug: "bible-diaries" },
-  { image: "/images/work/work-img-5.png", title: "Service Link", client: "Internal Project", slug: "service-link" },
-  { image: "/images/work/work-img-6.jpeg", title: "MedSync", client: "Hokma Tech", slug: "medsync" },
+  { image: "/images/work/work-img-3.webp", title: "Ndivhu&Mpho", client: "Ndivhuwo & Mpho", slug: "ndivhu-mpho" },
+  { image: "/images/work/work-img-2.webp", title: "Rhyma Music", client: "Rhyma", slug: "rhyma-music" },
+  { image: "/images/work/work-img-1.webp", title: "Resume Build", client: "rbptech", slug: "resume-build" },
+  { image: "/images/work/work-img-4.webp", title: "Bible Diaries", client: "Internal Project", slug: "bible-diaries" },
+  { image: "/images/work/work-img-5.webp", title: "Service Link", client: "Internal Project", slug: "service-link" },
+  { image: "/images/work/work-img-6.webp", title: "MedSync", client: "Hokma Tech", slug: "medsync" },
 ];
 
 const LatestWork = () => {
