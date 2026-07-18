@@ -36,11 +36,10 @@ const LatestWork = () => {
     return () => observer.disconnect();
   }, [workData]);
 
-  // Category tag map
   const catMap: Record<string, string> = {
     "Ndivhu&Mpho": "Web",
     "Rhyma Music": "Web",
-    "Resume Build": "Web",
+    "Resume Build": "SaaS",
     "Bible Diaries": "Mobile",
     "Service Link": "Mobile",
     "Corporate Design System": "Design",

@@ -20,7 +20,7 @@ export default function RhymaMusicWorkPage() {
             src="/images/work/work-img-2.png" 
             alt="Rhyma Music project preview" 
             fill
-            style={{ objectFit: 'contain', backgroundColor: '#000000' }}
+            style={{ objectFit: 'contain', backgroundColor: '#ffffff' }}
           />
         </div>
 
