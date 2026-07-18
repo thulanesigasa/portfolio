@@ -5,7 +5,7 @@ import { getDataPath, getImgPath } from "@/utils/image";
 import Image from "next/image";
 import Link from "next/link";
 
-const categories = ["All", "SaaS", "Mobile", "Web", "Design"];
+const categories = ["All", "SaaS", "App", "Web", "Design"];
 
 const LatestWork = () => {
   const [workData, setWorkData] = useState<any[]>([]);
@@ -15,7 +15,7 @@ const LatestWork = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(getDataPath("/data/work-data.json"));
+        const res = await fetch(getDataPath("/data/work-data.json") + "?t=" + Date.now());
         if (!res.ok) throw new Error("Failed to fetch");
         const data = await res.json();
         setWorkData(data?.workData || []);
@@ -40,8 +40,8 @@ const LatestWork = () => {
     "Ndivhu&Mpho": "Web",
     "Rhyma Music": "Web",
     "Resume Build": "SaaS",
-    "Bible Diaries": "Mobile",
-    "Service Link": "Mobile",
+    "Bible Diaries": "App",
+    "Service Link": "App",
     "Corporate Design System": "Design",
   };
 
