@@ -34,7 +34,7 @@ const LatestWork = () => {
     );
     sectionRef.current?.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, [workData]);
+  }, [workData, activeFilter]);
 
   const catMap: Record<string, string> = {
     "Ndivhu&Mpho": "Web",
