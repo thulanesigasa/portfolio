@@ -41,8 +41,8 @@ const LatestWork = () => {
     "Ndivhu&Mpho": "Web",
     "Rhyma Music": "Web",
     "Resume Build": "Web",
-    "Real Estate Web Portal": "Web",
-    "AI Content Generator App": "SaaS",
+    "Bible Diaries": "Mobile",
+    "Service Link": "Mobile",
     "Corporate Design System": "Design",
   };
 

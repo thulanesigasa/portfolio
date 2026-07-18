@@ -1,13 +1,13 @@
 {
   "workData": [
     {
-      "image": "/images/work/ndivhu-mpho.png",
+      "image": "/images/work/work-img-3.png",
       "title": "Ndivhu&Mpho",
       "client": "Ndivhuwo & Mpho",
       "slug": "ndivhu-mpho"
     },
     {
-      "image": "/images/work/rhyma(black).png",
+      "image": "/images/work/work-img-2.png",
       "title": "Rhyma Music",
       "client": "Rhyma",
       "slug": "rhyma-music"
@@ -19,16 +19,16 @@
       "slug": "resume-build"
     },
     {
-      "image": "/images/work/work-img-4.jpg",
-      "title": "Real Estate Web Portal",
-      "client": "Prime Realty",
-      "slug": "real-estate-web-portal"
+      "image": "/images/work/work-img-4.png",
+      "title": "Bible Diaries",
+      "client": "Internal Project",
+      "slug": "bible-diaries"
     },
     {
-      "image": "/images/work/work-img-5.jpg",
-      "title": "AI Content Generator App",
-      "client": "ScribeAI",
-      "slug": "ai-content-generator-app"
+      "image": "/images/work/work-img-5.png",
+      "title": "Service Link",
+      "client": "Internal Project",
+      "slug": "service-link"
     },
     {
       "image": "/images/work/work-img-6.jpg",
