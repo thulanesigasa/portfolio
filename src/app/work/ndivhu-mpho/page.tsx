@@ -27,13 +27,16 @@ export default function NdivhuMphoWorkPage() {
         <div style={{ color: 'var(--color-text-muted)', lineHeight: 1.8, fontSize: '1.1rem' }}>
           <h3 style={{ color: 'var(--color-text)', marginTop: '2.5rem', fontSize: '1.5rem', marginBottom: '1rem' }}>Project Overview</h3>
           <p style={{ marginBottom: '1.5rem' }}>
-            The Ndivhu&amp;Mpho project is a bespoke, elegantly designed wedding reservation and RSVP management system created to celebrate and organize a very special day. Traditional wedding invitations often struggle with tracking RSVPs and dietary requirements in real time. We built this dedicated platform to offer a seamless, fully digital experience for the couple's guests, allowing them to easily confirm their attendance, access event details, and leave personal messages of congratulations.
+            The Ndivhu&amp;Mpho project is a bespoke, elegantly designed wedding reservation and RSVP management system created to celebrate and organize a very special day. Traditional wedding invitations often struggle with tracking RSVPs and dietary requirements in real time, leading to unnecessary stress for the couple. Recognizing this pain point, we built a dedicated, secure platform to offer a seamless, fully digital experience. Guests can easily confirm their attendance, access intricate event details such as venue locations and timelines, and leave personal messages of congratulations directly on the site.
           </p>
           <p style={{ marginBottom: '1.5rem' }}>
-            To ensure the highest level of reliability and speed, the application was engineered using a robust backend paired with a modern, responsive frontend framework. The architecture seamlessly handles user sessions, secures personal data, and processes RSVP submissions instantly. A custom administrative dashboard provides the couple with a real-time overview of their guest list, greatly reducing the stress associated with wedding planning and headcount management.
+            To ensure the highest level of reliability and speed, the application was engineered using a robust backend paired with a modern, responsive frontend framework. The architecture handles complex user sessions effortlessly, secures personal data with industry-standard encryption, and processes RSVP submissions instantly without page reloads. A custom-built administrative dashboard provides the couple with a real-time, comprehensive overview of their guest list, allowing them to filter responses, manage plus-ones, and track dietary restrictions in an incredibly intuitive interface.
+          </p>
+          <p style={{ marginBottom: '1.5rem' }}>
+            Aesthetically, the platform was meticulously crafted to reflect the couple's unique personality and the romantic theme of their wedding. Warm, elegant color palettes—such as the distinctive beige and earthy tones used in the branding—are perfectly complemented by refined, modern typography. This thoughtful design strategy creates an inviting and premium digital atmosphere from the very first click, setting the perfect tone for the upcoming celebration. 
           </p>
           <p>
-            Aesthetically, the platform was meticulously crafted to reflect the couple's unique personality and wedding theme. Warm, elegant color palettes (such as the distinctive beige used in the branding) and refined typography create an inviting and premium digital atmosphere. The platform performs flawlessly across all devices, ensuring that older relatives and tech-savvy friends alike can navigate the site with absolute ease. This project perfectly highlights how tailored web solutions can elevate personal events into memorable digital experiences.
+            Beyond its visual appeal, the platform was optimized to perform flawlessly across all devices and network conditions. Whether accessed from a desktop computer by tech-savvy friends or a smartphone by older relatives, the navigation remains exceptionally intuitive. The platform also integrates automated email confirmations, ensuring guests are constantly kept in the loop. This project perfectly highlights how tailored web solutions can elevate personal events into highly organized, memorable digital experiences.
           </p>
           
           <div style={{ 
@@ -52,22 +55,9 @@ export default function NdivhuMphoWorkPage() {
               target="_blank" 
               rel="noopener noreferrer"
               className="btn"
-              style={{ display: 'inline-block', marginBottom: '2.5rem' }}
+              style={{ display: 'inline-block' }}
             >
               Visit ndivhuandmpho.co.za
-            </a>
-
-            <h3 style={{ color: 'var(--color-text)', fontSize: '1.5rem', marginBottom: '1rem' }}>Study the Concept</h3>
-            <p style={{ marginBottom: '1rem' }}>
-              Interested in the technical architecture behind this reservation system? Use the link below to dive into the source code and study the full implementation:
-            </p>
-            <a 
-              href="https://github.com/thulanesigasa/wedding_reservation.git" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ color: 'var(--color-primary)', textDecoration: 'underline', fontWeight: 600, wordBreak: 'break-all' }}
-            >
-              https://github.com/thulanesigasa/wedding_reservation.git
             </a>
           </div>
         </div>
