@@ -1654,14 +1654,11 @@ section {
   z-index: 1000;
   height: 36px;
   background: transparent;
-  border: 1px solid var(--color-border);
+  border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
   padding: 6px;
-  transition: border-color var(--transition-base);
 }
-
-.hamburger:hover { border-color: var(--color-primary); }
 
 .hamburger span {
   display: block;

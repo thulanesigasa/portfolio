@@ -26,6 +26,14 @@ const fullMenuData = [
     ]
   },
   {
+    title: "Pricing",
+    links: [
+      { label: "Web App Development", href: "/pricing" },
+      { label: "Mobile App Development", href: "/pricing" },
+      { label: "Graphic Design", href: "/pricing" },
+    ]
+  },
+  {
     title: "Contact",
     links: [
       { label: "Get in Touch", href: "/#contact" },

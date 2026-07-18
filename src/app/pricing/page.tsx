@@ -119,12 +119,12 @@ export default function Pricing() {
         </div>
 
         <div style={{ textAlign: "center", marginTop: "4rem" }}>
-          <Link href="#contact" style={{
+          <Link href="/#contact" style={{
             display: "inline-flex", alignItems: "center", gap: "10px", 
             background: "var(--color-primary)", color: "#fff", padding: "1rem 2.5rem", 
             borderRadius: "var(--radius-full)", textDecoration: "none", fontWeight: 600, fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.1em"
           }}>
-            Individual Solution
+            Let's Talk
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </Link>
         </div>
