@@ -79,7 +79,7 @@ export default function ImageCarousel({ slides }: ImageCarouselProps) {
                 </>
               ) : (
                 <div style={{ position: "relative", width: "100%", height: "100%" }}>
-                  <Image src={slide.imageSrc} alt={slide.title} fill style={{ objectFit: 'cover' }} />
+                  <Image src={slide.imageSrc} alt={slide.title} fill style={{ objectFit: 'contain' }} />
                 </div>
               )}
             </div>

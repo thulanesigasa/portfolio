@@ -51,12 +51,12 @@ export default function BibleDiariesWorkPage() {
           Mobile Application
         </div>
         
-        <div style={{ position: 'relative', width: '100%', height: '400px', marginBottom: '3rem' }}>
+        <div style={{ position: 'relative', width: '100%', height: '400px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginBottom: '3rem', border: '1px solid var(--color-border)' }}>
           <Image 
             src="/images/work/work-img-4.png" 
             alt="Bible Diaries Thumbnail" 
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: 'contain', backgroundColor: 'rgb(255, 255, 255)' }}
           />
         </div>
 
