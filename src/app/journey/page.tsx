@@ -1,7 +1,5 @@
-"use client";
-
-import { useRef, useState } from "react";
-import useReveal from "@/app/hooks/useReveal";
+import React from "react";
+import BackButton from "@/app/components/ui/back-button";
 
 const allMilestones = [
   {
@@ -62,27 +60,22 @@ const allMilestones = [
   },
 ];
 
-import Link from "next/link";
-
-const INITIAL_COUNT = 3;
-
-const ExperienceSec = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  useReveal(sectionRef);
-
-  const visible = allMilestones.slice(0, INITIAL_COUNT);
-
+export default function JourneyPage() {
   return (
-    <section id="journey" className="journey-section" ref={sectionRef}>
-      <div className="container">
-        <div className="section-header reveal">
-          <h2>Our Journey</h2>
-          <span className="section-number">02</span>
-        </div>
+    <main className="container" style={{ paddingTop: "150px", paddingBottom: "120px", minHeight: "100vh" }}>
+      <BackButton />
+
+      <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+        <h1 className="hero-title" style={{ fontSize: "3.5rem", marginBottom: "1rem" }}>
+          Our <span style={{ fontWeight: 300 }}>Journey</span>
+        </h1>
+        <p style={{ color: "var(--color-text-muted)", fontSize: "1.15rem", marginBottom: "4rem", lineHeight: 1.8 }}>
+          T.S Industries has been designing, developing, and architecting solutions since 2024. Explore the milestones, products, and clients that have shaped our story from inception to the present day.
+        </p>
 
         <div className="journey-timeline">
-          {visible.map((m, i) => (
-            <div key={i} className="timeline-item reveal">
+          {allMilestones.map((m, i) => (
+            <div key={i} className="timeline-item reveal visible" style={{ opacity: 1, transform: "none" }}>
               <div className="timeline-year">
                 <div className="timeline-year-text">{m.date}</div>
                 <div className="timeline-year-label">{m.type}</div>
@@ -97,20 +90,7 @@ const ExperienceSec = () => {
             </div>
           ))}
         </div>
-
-        <div style={{ textAlign: "center", marginTop: "3rem" }}>
-          <Link
-            href="/journey"
-            className="btn"
-            style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", textDecoration: "none" }}
-          >
-            See Full Journey
-            <span style={{ fontSize: "1.1rem" }}>→</span>
-          </Link>
-        </div>
       </div>
-    </section>
+    </main>
   );
-};
-
-export default ExperienceSec;
+}
