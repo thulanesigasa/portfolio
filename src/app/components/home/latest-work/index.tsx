@@ -50,7 +50,7 @@ const LatestWork = () => {
     "Resume Build": "SaaS",
     "Bible Diaries": "App",
     "Service Link": "App",
-    "Corporate Design System": "Design",
+    "MedSync": "App",
   };
 
   const filtered =
