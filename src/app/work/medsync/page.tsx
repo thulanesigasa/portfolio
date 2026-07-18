@@ -67,29 +67,46 @@ export default function MedSyncWorkPage() {
           <div style={{
             background: 'var(--color-bg-card)',
             borderRadius: 'var(--radius-md)',
-            padding: '2rem 2.5rem',
+            padding: '2.5rem 3rem',
             marginTop: '4rem',
             border: '1px solid var(--color-border)'
           }}>
-            <h3 style={{ color: 'var(--color-text)', fontSize: '1.3rem', marginBottom: '1.5rem' }}>Credits & Rights</h3>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
-              <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                <span style={{ color: 'var(--color-primary)', fontWeight: 700, minWidth: '8px' }}>©</span>
-                <span>All rights and intellectual property belong to <strong style={{ color: 'var(--color-text)' }}>Hokma Tech</strong>. This project is proprietary and was developed exclusively on their behalf.</span>
-              </li>
-              <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                <span style={{ color: 'var(--color-primary)', fontWeight: 700, minWidth: '8px' }}>🎨</span>
-                <span><strong style={{ color: 'var(--color-text)' }}>UI/UX Design & Development:</strong> rbptech — We designed and implemented the full user interface and experience from the ground up.</span>
-              </li>
-              <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                <span style={{ color: 'var(--color-primary)', fontWeight: 700, minWidth: '8px' }}>⚙️</span>
-                <span><strong style={{ color: 'var(--color-text)' }}>Backend Contribution:</strong> rbptech — We contributed to the backend development, defining API boundaries and ensuring a decoupled, scalable architecture.</span>
-              </li>
-              <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                <span style={{ color: 'var(--color-primary)', fontWeight: 700, minWidth: '8px' }}>💻</span>
-                <span><strong style={{ color: 'var(--color-text)' }}>Front-end Development:</strong> <strong style={{ color: 'var(--color-primary)' }}>Mpho</strong> — Front-end development lead and implementation.</span>
-              </li>
-            </ul>
+            <h3 style={{ color: 'var(--color-text)', fontSize: '1.5rem', marginBottom: '0.5rem' }}>Credits & Rights</h3>
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', marginBottom: '2rem', lineHeight: 1.7 }}>
+              This section transparently outlines the ownership, contributions, and professional responsibilities of every party involved in the design, development, and delivery of MedSync.
+            </p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+
+              <div style={{ borderLeft: '3px solid var(--color-primary)', paddingLeft: '1.5rem' }}>
+                <div style={{ color: 'var(--color-text)', fontWeight: 700, fontSize: '1.1rem', marginBottom: '0.4rem' }}>Intellectual Property & Ownership</div>
+                <p style={{ margin: 0, lineHeight: 1.8 }}>
+                  All intellectual property, branding, business logic, and data associated with MedSync are the exclusive property of <strong style={{ color: 'var(--color-text)' }}>Hokma Tech</strong>. This includes, but is not limited to, the product name, application concept, client data structures, and any proprietary workflows. T.S Industries was engaged as a development partner and does not claim any ownership over the product or its commercial rights.
+                </p>
+              </div>
+
+              <div style={{ borderLeft: '3px solid var(--color-primary)', paddingLeft: '1.5rem' }}>
+                <div style={{ color: 'var(--color-text)', fontWeight: 700, fontSize: '1.1rem', marginBottom: '0.4rem' }}>UI/UX Design & Development — T.S Industries</div>
+                <p style={{ margin: 0, lineHeight: 1.8 }}>
+                  <strong style={{ color: 'var(--color-text)' }}>T.S Industries</strong> was responsible for the full end-to-end UI/UX design and implementation of MedSync. This encompassed creating the design system, defining the 60-30-10 colour hierarchy, architecting all navigation flows, and building every screen — Splash, Login, Home Dashboard, Booking, and Confirmation — to pixel-perfect accuracy against the approved specification. All component architecture decisions, screen transitions, and responsive layout considerations were handled by T.S Industries.
+                </p>
+              </div>
+
+              <div style={{ borderLeft: '3px solid var(--color-primary)', paddingLeft: '1.5rem' }}>
+                <div style={{ color: 'var(--color-text)', fontWeight: 700, fontSize: '1.1rem', marginBottom: '0.4rem' }}>Backend Contribution — T.S Industries</div>
+                <p style={{ margin: 0, lineHeight: 1.8 }}>
+                  In addition to the front-end scope, <strong style={{ color: 'var(--color-text)' }}>T.S Industries</strong> contributed to backend development by defining the API boundary contracts, establishing the decoupled component architecture, and ensuring the application is fully prepared for Context API or Redux integration upon live endpoint deployment. Our backend contribution focused on ensuring the long-term scalability and maintainability of the product for Hokma Tech's engineering team.
+                </p>
+              </div>
+
+              <div style={{ borderLeft: '3px solid var(--color-primary)', paddingLeft: '1.5rem' }}>
+                <div style={{ color: 'var(--color-text)', fontWeight: 700, fontSize: '1.1rem', marginBottom: '0.4rem' }}>Front-end Development — Mpho</div>
+                <p style={{ margin: 0, lineHeight: 1.8 }}>
+                  Front-end development was led and executed by <strong style={{ color: 'var(--color-text)' }}>Mpho</strong>, who was responsible for translating the designs produced by T.S Industries into fully functional React Native components. Mpho's contribution covers the implementation of the component codebase, state management using local hooks, and the integration layer connecting the UI to MedSync's Delphi-powered REST API backend.
+                </p>
+              </div>
+
+            </div>
           </div>
 
           <h3 style={{ color: 'var(--color-text)', marginTop: '4rem', fontSize: '1.5rem', marginBottom: '1rem', textAlign: 'center' }}>App Showcase</h3>

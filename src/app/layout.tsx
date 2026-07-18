@@ -5,8 +5,13 @@ import Footer from "./components/layout/footer";
 import ScrollArrow from "./components/layout/scroll-arrow";
 
 export const metadata: Metadata = {
-  title: "T.s Indurstries | Premium Web Development",
-  description: "T.s Indurstires specializes in modern web development, custom software engineering, and premium digital solutions.",
+  title: "T.s Industries | Premium Web Development",
+  description: "T.s Industries specializes in modern web development, custom software engineering, and premium digital solutions.",
+  icons: {
+    icon: "/images/icon/icon.png",
+    shortcut: "/images/icon/icon.png",
+    apple: "/images/icon/icon.png",
+  },
 };
 
 export default function RootLayout({
