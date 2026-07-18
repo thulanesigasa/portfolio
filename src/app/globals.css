@@ -3,7 +3,7 @@
    Dark Glassmorphism + Neon Accent Tech Portfolio
    =================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+/* Google Fonts loaded via preconnect <link> in layout.tsx for performance */
 
 /* ─── CSS VARIABLES ─────────────────────────────── */
 :root {
@@ -1002,88 +1002,116 @@ section {
 }
 
 .work-card {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: all var(--transition-base);
-  opacity: 1;
-}
-
-.work-card.hidden {
-  display: none;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  cursor: pointer;
+  position: relative;
+  display: block;
 }
 
 .work-card:hover {
-  border-color: var(--color-border-glow);
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-6px);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18);
 }
 
 .work-card-img-wrap {
   position: relative;
   overflow: hidden;
-  height: 220px;
+  height: 300px;
+  background: var(--color-surface-2);
 }
 
 .work-card-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-slow);
+  transition: transform 600ms cubic-bezier(0.4,0,0.2,1);
+  display: block;
 }
 
 .work-card:hover .work-card-img-wrap img {
-  transform: scale(1.06);
+  transform: scale(1.07);
 }
 
+/* Category badge top-left */
+.work-card-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(255,255,255,0.95);
+  color: var(--color-text);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  z-index: 2;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Gradient footer overlay — always slightly visible, more on hover */
 .work-card-overlay {
   position: absolute;
   inset: 0;
-  background: var(--color-primary-dim);
-  backdrop-filter: blur(2px);
-  opacity: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.82) 0%,
+    rgba(0,0,0,0.3) 40%,
+    transparent 70%
+  );
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 1.5rem;
+  opacity: 0;
   transition: opacity var(--transition-base);
 }
 
-.work-card:hover .work-card-overlay { opacity: 1; }
+.work-card:hover .work-card-overlay {
+  opacity: 1;
+}
+
+.work-card-overlay-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.work-card-overlay-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.work-card-overlay-client {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 400;
+}
 
 .work-card-overlay-icon {
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: var(--color-primary);
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 1.3rem;
-  box-shadow: 0 0 24px var(--color-primary-glow);
-}
-
-.work-card-body {
-  padding: 1.5rem;
-}
-
-.work-card-title {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 700;
   color: var(--color-text);
-  margin-bottom: 0.35rem;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: background var(--transition-fast), transform var(--transition-fast);
 }
 
-.work-card-client {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-}
-
-.work-card-client span {
-  color: var(--color-primary);
-  font-weight: 500;
+.work-card:hover .work-card-overlay-icon {
+  background: var(--color-primary);
+  color: #fff;
+  transform: rotate(45deg);
 }
 
 /* ─── CONTACT SECTION ────────────────────────────── */

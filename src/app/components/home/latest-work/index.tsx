@@ -1,31 +1,35 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { getDataPath, getImgPath } from "@/utils/image";
+import { getImgPath } from "@/utils/image";
 import Image from "next/image";
 import Link from "next/link";
 
-const categories = ["All", "SaaS", "App", "Web", "Design"];
+const categories = ["All", "SaaS", "App", "Web"];
+
+const catMap: Record<string, string> = {
+  "Ndivhu&Mpho": "Web",
+  "Rhyma Music": "Web",
+  "Resume Build": "SaaS",
+  "Bible Diaries": "App",
+  "Service Link": "App",
+  "MedSync": "App",
+};
+
+const staticWorkData = [
+  { image: "/images/work/work-img-3.png", title: "Ndivhu&Mpho", client: "Ndivhuwo & Mpho", slug: "ndivhu-mpho" },
+  { image: "/images/work/work-img-2.png", title: "Rhyma Music", client: "Rhyma", slug: "rhyma-music" },
+  { image: "/images/work/work-img-1.jpg", title: "Resume Build", client: "rbptech", slug: "resume-build" },
+  { image: "/images/work/work-img-4.png", title: "Bible Diaries", client: "Internal Project", slug: "bible-diaries" },
+  { image: "/images/work/work-img-5.png", title: "Service Link", client: "Internal Project", slug: "service-link" },
+  { image: "/images/work/work-img-6.jpeg", title: "MedSync", client: "Hokma Tech", slug: "medsync" },
+];
 
 const LatestWork = () => {
-  const [workData, setWorkData] = useState<any[]>([]);
   const [activeFilter, setActiveFilter] = useState("All");
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(getDataPath("/data/work-data.json") + "?t=" + Date.now());
-        if (!res.ok) throw new Error("Failed to fetch");
-        const data = await res.json();
-        setWorkData(data?.workData || []);
-      } catch (error) {
-        console.error("Error fetching work data:", error);
-      }
-    };
-    fetchData();
-  }, []);
-
+  // Reveal on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) =>
@@ -34,9 +38,9 @@ const LatestWork = () => {
     );
     sectionRef.current?.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, [workData]);
+  }, []);
 
-  // When filter changes, mark all newly rendered cards as visible immediately
+  // Mark all visible immediately on filter change
   useEffect(() => {
     const timer = setTimeout(() => {
       sectionRef.current?.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
@@ -44,19 +48,10 @@ const LatestWork = () => {
     return () => clearTimeout(timer);
   }, [activeFilter]);
 
-  const catMap: Record<string, string> = {
-    "Ndivhu&Mpho": "Web",
-    "Rhyma Music": "Web",
-    "Resume Build": "SaaS",
-    "Bible Diaries": "App",
-    "Service Link": "App",
-    "MedSync": "App",
-  };
-
   const filtered =
     activeFilter === "All"
-      ? workData
-      : workData.filter((w) => catMap[w.title] === activeFilter);
+      ? staticWorkData
+      : staticWorkData.filter((w) => catMap[w.title] === activeFilter);
 
   return (
     <section id="works" className="works-section" ref={sectionRef}>
@@ -88,17 +83,19 @@ const LatestWork = () => {
                   src={getImgPath(value?.image)}
                   alt={value?.title}
                   width={570}
-                  height={220}
+                  height={320}
+                  loading="lazy"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
+                {/* Category badge */}
+                <div className="work-card-badge">{catMap[value?.title] || "Work"}</div>
+                {/* Gradient footer overlay */}
                 <div className="work-card-overlay">
+                  <div className="work-card-overlay-meta">
+                    <div className="work-card-overlay-title">{value?.title}</div>
+                    <div className="work-card-overlay-client">{value?.client}</div>
+                  </div>
                   <div className="work-card-overlay-icon">↗</div>
-                </div>
-              </div>
-              <div className="work-card-body">
-                <div className="work-card-title">{value?.title}</div>
-                <div className="work-card-client">
-                  Client: <span>{value?.client}</span>
                 </div>
               </div>
             </Link>
