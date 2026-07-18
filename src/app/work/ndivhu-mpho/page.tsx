@@ -46,19 +46,10 @@ export default function NdivhuMphoWorkPage() {
             marginTop: '4rem',
             border: '1px solid var(--color-border)'
           }}>
-            <h3 style={{ color: 'var(--color-text)', fontSize: '1.5rem', marginBottom: '1.5rem' }}>View the Live Project</h3>
-            <p style={{ marginBottom: '1rem' }}>
-              We invite you to explore the live deployment of this beautiful project. Click the button below to visit the official website:
+            <h3 style={{ color: 'var(--color-text)', fontSize: '1.5rem', marginBottom: '1.5rem' }}>Project Confidentiality</h3>
+            <p style={{ marginBottom: 0, fontStyle: 'italic' }}>
+              Due to a strict client agreement and NDA signed, we are unable to disclose the live website URL for this project.
             </p>
-            <a 
-              href="https://www.ndivhuandmpho.co.za" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="btn"
-              style={{ display: 'inline-block' }}
-            >
-              Visit ndivhuandmpho.co.za
-            </a>
           </div>
         </div>
       </div>
