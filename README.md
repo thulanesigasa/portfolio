@@ -4,7 +4,7 @@ A high-performance, visually stunning Next.js and Vanilla CSS portfolio agency w
 
 ---
 
-## 🌟 Core Features
+## Core Features
 
 - **Performance-Optimised Architecture:** Built using Next.js 15, with zero runtime fetch requests. Dynamic client data is statically inlined at build time, achieving near-instant load speeds.
 - **Self-Hosted Assets:** Complete Google Fonts optimization (`next/font/google`), removing third-party DNS overhead, preventing Cumulative Layout Shift (CLS), and improving privacy.
@@ -16,7 +16,7 @@ A high-performance, visually stunning Next.js and Vanilla CSS portfolio agency w
 
 ---
 
-## 📁 Project Portfolio Showcase
+## Project Portfolio Showcase
 
 The repository houses detailed case studies and UI/UX reviews for several active client projects:
 - **MedSync (Hokma Tech)** — Clinical session & appointment booking app designed for Delphi REST API backends.
@@ -28,7 +28,7 @@ The repository houses detailed case studies and UI/UX reviews for several active
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Installation
 Clone the repository and install all dependencies:
@@ -54,7 +54,7 @@ The compiled HTML, CSS, and JS assets will be exported directly into the `/out` 
 
 ---
 
-## 🛡️ Production Deployment Checklist
+## Production Deployment Checklist
 
 To ensure this site stays fully production-ready when deploying live:
 
@@ -67,7 +67,7 @@ To ensure this site stays fully production-ready when deploying live:
 
 ---
 
-## 📄 License & Credits
+## License & Credits
 
 - **Copyright:** All rights, designs, source code, and assets are owned by **T.S Industries** and the respective client IP owners (Hokma Tech, rbptech, Rhyma).
 - **Development & Design:** Built with excellence by the T.S Industries engineering team, with front-end implementation contributions from Mpho.
