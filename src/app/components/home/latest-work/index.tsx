@@ -39,7 +39,7 @@ const LatestWork = () => {
   // Category tag map
   const catMap: Record<string, string> = {
     "SaaS Dashboard & Analytics": "SaaS",
-    "Mobile E-Commerce App": "Mobile",
+    "Rhyma Music": "Web",
     "Resume Build": "Web",
     "Real Estate Web Portal": "Web",
     "AI Content Generator App": "SaaS",
