@@ -38,6 +38,17 @@ export const metadata: Metadata = {
     siteName: "T.s Industries",
     type: "website",
     locale: "en_ZA",
+    images: [
+      {
+        url: "/images/icon/icon.png",
+        width: 800,
+        height: 600,
+        alt: "T.s Industries Portfolio",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "/",
   },
   robots: {
     index: true,
@@ -58,6 +69,23 @@ export default function RootLayout({
     <html lang="en" className={`${outfit.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         <link rel="dns-prefetch" href="https://formsubmit.co" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "T.s Industries",
+              "url": "https://ts-industries.co.za",
+              "logo": "https://ts-industries.co.za/images/logo/logo.svg",
+              "description": "Forward-thinking tech startup specializing in modern web development.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "ZA"
+              }
+            })
+          }}
+        />
       </head>
       <body>
         <ScrollRestorationHandler />
