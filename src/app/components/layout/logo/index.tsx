@@ -8,7 +8,7 @@ const Logo = () => {
       <Link href="/">
         <Image
           src={getImgPath("/images/logo/logo.svg")}
-          alt="logo"
+          alt="T.s Industries Web Development Portfolio Logo"
           width={70}
           height={70}
         />
