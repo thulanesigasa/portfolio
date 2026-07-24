@@ -146,23 +146,23 @@ export const allCertificates = [
   },
   {
     id: 21,
-    title: "Vodacom Group Certification I",
-    issuer: "Vodacom Group",
-    description: "Official certificate of completion.",
+    title: "Explore AI for All",
+    issuer: "Vodacom Group / Microsoft Learn",
+    description: "Official certificate of completion in AI basics.",
     pdfLink: "/images/certificates/certificate-thulane-sigasa.pdf",
   },
   {
     id: 22,
-    title: "Vodacom Group Certification II",
-    issuer: "Vodacom Group",
-    description: "Official certificate of completion.",
+    title: "Participate Safely and Responsibly Online",
+    issuer: "Vodacom Group / Microsoft Learn",
+    description: "Official certificate of completion in digital safety.",
     pdfLink: "/images/certificates/certificate-thulane-sigasa-1.pdf",
   },
   {
     id: 23,
-    title: "Vodacom Group Certification III",
-    issuer: "Vodacom Group",
-    description: "Official certificate of completion.",
+    title: "Communicate Online",
+    issuer: "Vodacom Group / Microsoft Learn",
+    description: "Official certificate of completion in online communication.",
     pdfLink: "/images/certificates/certificate-thulane-sigasa-2.pdf",
   }
 ];
