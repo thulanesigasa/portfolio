@@ -111,7 +111,7 @@ export const allCertificates = [
     title: "AI+ Foundation™",
     issuer: "AI Certification",
     description: "Foundational knowledge in Artificial Intelligence principles and applications.",
-    pdfLink: "/images/certificates/null_AI+_Foundation™__certificate.pdf",
+    pdfLink: "/images/certificates/ai-foundation-certificate.pdf",
   },
   {
     id: 15,

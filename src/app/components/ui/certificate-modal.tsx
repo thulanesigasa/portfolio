@@ -2,8 +2,6 @@
 
 import React, { useEffect, useCallback, useState } from "react";
 
-const PRODUCTION_BASE = "https://ts-industries.co.za";
-
 interface CertificateModalProps {
   pdfLink: string;
   title: string;
@@ -12,9 +10,8 @@ interface CertificateModalProps {
 }
 
 export default function CertificateModal({ pdfLink, title, issuer, onClose }: CertificateModalProps) {
-  const [iframeSrc, setIframeSrc] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
-  const [iframeError, setIframeError] = useState(false);
+  const [useGoogleFallback, setUseGoogleFallback] = useState(false);
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") onClose();
@@ -24,26 +21,19 @@ export default function CertificateModal({ pdfLink, title, issuer, onClose }: Ce
     document.addEventListener("keydown", handleKeyDown);
     document.body.style.overflow = "hidden";
 
-    // Use Google Docs Viewer in production (GitHub Pages blocks direct iframes
-    // via frame-ancestors 'none' on all responses), use direct src on localhost
-    const isLocalhost =
-      typeof window !== "undefined" &&
-      (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
-
-    if (isLocalhost) {
-      setIframeSrc(`${pdfLink}#toolbar=0&navpanes=0&scrollbar=0`);
-    } else {
-      const absoluteUrl = `${PRODUCTION_BASE}${pdfLink}`;
-      setIframeSrc(
-        `https://docs.google.com/viewer?embedded=true&url=${encodeURIComponent(absoluteUrl)}`
-      );
-    }
-
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
     };
-  }, [handleKeyDown, pdfLink]);
+  }, [handleKeyDown]);
+
+  const fullPdfUrl = typeof window !== "undefined" 
+    ? `${window.location.origin}${pdfLink}`
+    : `https://ts-industries.co.za${pdfLink}`;
+
+  const iframeSrc = useGoogleFallback
+    ? `https://docs.google.com/viewer?embedded=true&url=${encodeURIComponent(fullPdfUrl)}`
+    : `${pdfLink}#toolbar=0&navpanes=0&scrollbar=0`;
 
   return (
     <div
@@ -79,7 +69,7 @@ export default function CertificateModal({ pdfLink, title, issuer, onClose }: Ce
               Download
             </a>
             <a
-              href={`${PRODUCTION_BASE}${pdfLink}`}
+              href={pdfLink}
               target="_blank"
               rel="noopener noreferrer"
               className="cert-modal-open-btn"
@@ -113,34 +103,26 @@ export default function CertificateModal({ pdfLink, title, issuer, onClose }: Ce
               <p>Loading certificate…</p>
             </div>
           )}
-          {iframeSrc && !iframeError && (
+          
+          <object
+            data={`${pdfLink}#toolbar=0&navpanes=0&scrollbar=0`}
+            type="application/pdf"
+            className="cert-modal-iframe"
+            style={{ display: isLoading ? "none" : "block", width: "100%", height: "100%" }}
+            onLoad={() => setIsLoading(false)}
+          >
             <iframe
-              key={iframeSrc}
               src={iframeSrc}
               title={title}
               className="cert-modal-iframe"
-              style={{ display: isLoading ? "none" : "block" }}
+              style={{ width: "100%", height: "100%", border: "none" }}
               onLoad={() => setIsLoading(false)}
-              onError={() => { setIframeError(true); setIsLoading(false); }}
+              onError={() => {
+                if (!useGoogleFallback) setUseGoogleFallback(true);
+                setIsLoading(false);
+              }}
             />
-          )}
-          {iframeError && (
-            <div className="cert-modal-error">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.4, marginBottom: "1rem" }}>
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-              </svg>
-              <p>Preview unavailable</p>
-              <a
-                href={pdfLink}
-                download
-                className="cert-modal-download-btn"
-                style={{ marginTop: "1rem" }}
-              >
-                Download PDF
-              </a>
-            </div>
-          )}
+          </object>
         </div>
       </div>
     </div>
