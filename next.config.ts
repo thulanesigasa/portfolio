@@ -45,7 +45,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            value: `default-src 'self'; script-src 'self' ${process.env.NODE_ENV === "development" ? "'unsafe-inline' 'unsafe-eval'" : ""} https://formsubmit.co; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https:; connect-src 'self' https://formsubmit.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;`,
+            value: `default-src 'self'; script-src 'self' 'unsafe-inline' ${process.env.NODE_ENV === "development" ? "'unsafe-eval'" : ""} https://formsubmit.co; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https:; connect-src 'self' https://formsubmit.co; frame-src 'self' blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;`,
           },
         ],
       },
