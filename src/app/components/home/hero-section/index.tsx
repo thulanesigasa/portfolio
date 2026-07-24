@@ -104,7 +104,7 @@ const HeroSection = () => {
             T.s Indurstries
           </h1>
           <h2 className="hero-subtitle">
-            Web Development Specialists
+            Portfolio
           </h2>
 
           <p className="hero-desc">
