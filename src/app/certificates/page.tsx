@@ -6,7 +6,7 @@ import Link from "next/link";
 import CertificatesSec, { allCertificates, getIssuerIcon } from "../components/home/certificates-sec";
 import Image from "next/image";
 
-const TABS = ["All", "Cisco", "Huawei", "freeCodeCamp", "Vodacom Group"];
+const TABS = ["All", "Cisco", "Huawei", "freeCodeCamp", "Vodacom Group", "Other"];
 
 export default function CertificatesPage() {
   const [activeTab, setActiveTab] = useState("All");
@@ -16,7 +16,11 @@ export default function CertificatesPage() {
     if (activeTab === "Cisco") return cert.issuer.includes("Cisco");
     if (activeTab === "Huawei") return cert.issuer.includes("Huawei");
     if (activeTab === "freeCodeCamp") return cert.issuer.includes("freeCodeCamp");
-    if (activeTab === "Vodacom Group") return cert.issuer.includes("Vodacom Group");
+    if (activeTab === "Vodacom Group") return cert.issuer.includes("Vodacom");
+    if (activeTab === "Other") {
+      const mainIssuers = ["Cisco", "Huawei", "freeCodeCamp", "Vodacom"];
+      return !mainIssuers.some((issuer) => cert.issuer.includes(issuer));
+    }
     return true;
   });
 
