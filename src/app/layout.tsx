@@ -22,19 +22,22 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ts-industries.co.za"),
-  title: "T.s Industries | Premium Web Development",
-  description: "T.s Industries specializes in modern web development, custom software engineering, and premium digital solutions.",
+  title: "T.s Industries - Web Development Specialists",
+  description: "T.s Industries is a forward-thinking tech startup specializing in modern web development.",
+  keywords: ["Web Development", "Tech Startup", "Custom Software", "South Africa", "React", "Next.js"],
+  authors: [{ name: "T.s Industries" }],
   icons: {
     icon: "/images/icon/icon.png",
     shortcut: "/images/icon/icon.png",
     apple: "/images/icon/icon.png",
   },
   openGraph: {
-    title: "T.s Industries | Premium Web Development",
+    title: "T.s Industries - Web Development Specialists",
     description: "T.s Industries specializes in modern web development, custom software engineering, and premium digital solutions.",
     url: "https://ts-industries.co.za",
     siteName: "T.s Industries",
     type: "website",
+    locale: "en_ZA",
   },
   robots: {
     index: true,
