@@ -2,14 +2,17 @@
 
 import BackButton from "@/app/components/ui/back-button";
 import React, { useState } from "react";
-import Link from "next/link";
-import CertificatesSec, { allCertificates, getIssuerIcon } from "../components/home/certificates-sec";
+import { allCertificates, getIssuerIcon } from "../components/home/certificates-sec";
+import CertificateModal from "../components/ui/certificate-modal";
 import Image from "next/image";
 
 const TABS = ["All", "Cisco", "Huawei", "freeCodeCamp", "Vodacom Group", "Other"];
 
+type Cert = typeof allCertificates[0];
+
 export default function CertificatesPage() {
   const [activeTab, setActiveTab] = useState("All");
+  const [activeCert, setActiveCert] = useState<Cert | null>(null);
 
   const filteredCertificates = allCertificates.filter((cert) => {
     if (activeTab === "All") return true;
@@ -26,7 +29,7 @@ export default function CertificatesPage() {
 
   return (
     <main className="container" style={{ paddingTop: '150px', paddingBottom: '120px', minHeight: '100vh' }}>
-        <BackButton />
+      <BackButton />
 
       <div className="section-heading">
         <span className="section-eyebrow">Milestones</span>
@@ -34,10 +37,11 @@ export default function CertificatesPage() {
           All <span style={{ fontWeight: 300 }}>Certifications</span>
         </h2>
         <p className="section-desc">
-          A complete showcase of my professional certifications and technical achievements.
+          A complete showcase of my professional certifications. Click any card to preview the certificate.
         </p>
       </div>
 
+      {/* Filter Tabs */}
       <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '3rem' }}>
         {TABS.map((tab) => (
           <button
@@ -59,14 +63,16 @@ export default function CertificatesPage() {
         ))}
       </div>
 
+      {/* Certificate Grid */}
       <div className="cert-grid">
         {filteredCertificates.map((cert) => (
-          <Link 
-            key={cert.id} 
-            href={cert.pdfLink} 
-            target="_blank" 
-            rel="noopener noreferrer"
+          <button
+            key={cert.id}
+            type="button"
             className="cert-card"
+            onClick={() => setActiveCert(cert)}
+            style={{ cursor: "pointer", textAlign: "left", width: "100%", background: "none", border: "none", padding: 0 }}
+            aria-label={`View certificate: ${cert.title}`}
           >
             <div className="cert-img-wrap">
               <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--color-bg-alt)', borderRadius: 'var(--radius-md) var(--radius-md) 0 0', position: 'relative' }}>
@@ -88,14 +94,24 @@ export default function CertificatesPage() {
               <h4 className="cert-issuer">{cert.issuer}</h4>
               <p className="cert-desc">{cert.description}</p>
             </div>
-          </Link>
+          </button>
         ))}
       </div>
-      
+
       {filteredCertificates.length === 0 && (
         <div style={{ textAlign: 'center', color: 'var(--color-text-muted)', marginTop: '2rem' }}>
           No certificates found for this category yet.
         </div>
+      )}
+
+      {/* Certificate Lightbox Modal */}
+      {activeCert && (
+        <CertificateModal
+          pdfLink={activeCert.pdfLink}
+          title={activeCert.title}
+          issuer={activeCert.issuer}
+          onClose={() => setActiveCert(null)}
+        />
       )}
     </main>
   );
