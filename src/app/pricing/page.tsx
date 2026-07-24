@@ -37,12 +37,14 @@ export default function Pricing() {
 
   const pricingPlans = region === "southern_africa" ? [
     {
+      prefix: "From",
       currency: "R",
       price: "200",
       title: "Graphic Design",
       description: "Eye-catching and impactful designs tailored to your brand identity. From logos to full branding kits, we ensure your visuals leave a lasting impression.",
     },
     {
+      prefix: "From",
       currency: "R",
       price: "22,500",
       title: "Mobile App Development",
@@ -57,12 +59,14 @@ export default function Pricing() {
     }
   ] : [
     {
+      prefix: "From",
       currency: "£",
       price: "20",
       title: "Graphic Design",
       description: "Eye-catching and impactful designs tailored to your brand identity. From logos to full branding kits, we ensure your visuals leave a lasting impression.",
     },
     {
+      prefix: "From",
       currency: "£",
       price: "2,000",
       title: "Mobile App Development",
@@ -108,18 +112,18 @@ export default function Pricing() {
               opacity: region === "loading" ? 0.4 : 1,
               pointerEvents: region === "loading" ? "none" : "auto"
             }}>
-              <div style={{ display: "flex", alignItems: "baseline", gap: "5px" }}>
-                {'prefix' in plan && plan.prefix && (
-                  <span style={{ fontSize: "1rem", color: "var(--color-text-muted)", marginRight: "4px" }}>
-                    {region === "loading" ? "" : plan.prefix}
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px" }}>
+                <span style={{ fontSize: "0.9rem", color: "var(--color-text-muted)", textTransform: "uppercase", letterSpacing: "0.05em", lineHeight: 1 }}>
+                  {region === "loading" ? "" : plan.prefix}
+                </span>
+                <div style={{ display: "flex", alignItems: "baseline", gap: "5px", lineHeight: 1 }}>
+                  <span style={{ fontSize: "1.2rem", color: "var(--color-text-muted)" }}>
+                    {region === "loading" ? "-" : plan.currency}
                   </span>
-                )}
-                <span style={{ fontSize: "1.2rem", color: "var(--color-text-muted)" }}>
-                  {region === "loading" ? "-" : plan.currency}
-                </span>
-                <span style={{ fontSize: "2.5rem", color: "var(--color-primary)", fontWeight: 600 }}>
-                  {region === "loading" ? "..." : plan.price}
-                </span>
+                  <span style={{ fontSize: "2.5rem", color: "var(--color-primary)", fontWeight: 600 }}>
+                    {region === "loading" ? "..." : plan.price}
+                  </span>
+                </div>
               </div>
               <h5 style={{ fontSize: "1.2rem", fontFamily: "var(--font-heading)", fontWeight: 600 }}>{plan.title}</h5>
               <p style={{ color: "var(--color-text-muted)", fontSize: "0.95rem", lineHeight: 1.6, margin: 0 }}>{plan.description}</p>
