@@ -1,9 +1,6 @@
 User-agent: *
 Allow: /
-
-# Block sensitive paths
-Disallow: /api/
-Disallow: /_next/
-Disallow: /data/
+Disallow: /private/
+Disallow: /dashboard/
 
 Sitemap: https://ts-industries.co.za/sitemap.xml
