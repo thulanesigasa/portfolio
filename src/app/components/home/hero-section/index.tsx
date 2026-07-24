@@ -98,10 +98,7 @@ const HeroSection = () => {
 
       <div className="container">
         <div className="hero-content-single">
-          <div className="hero-eyebrow">
-            <span className="hero-eyebrow-dot" />
-            Tech Startup · Web Development
-          </div>
+
 
           <h1 className="hero-title gradient-text">
             T.s Indurstries
