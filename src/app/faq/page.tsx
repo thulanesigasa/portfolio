@@ -1,5 +1,17 @@
 import BackButton from "@/app/components/ui/back-button";
 import React from 'react';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "FAQ | T.s Industries",
+  description: "Frequently asked questions about T.s Industries services, pricing, technical process, and design approach.",
+  alternates: { canonical: "/faq" },
+  openGraph: {
+    title: "FAQ | T.s Industries",
+    description: "Find answers to common questions about our web development and design services.",
+    url: "https://ts-industries.co.za/faq",
+  },
+};
 
 export default function FAQ() {
   const categories = [

@@ -1,5 +1,17 @@
 import React from "react";
 import BackButton from "@/app/components/ui/back-button";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Journey | T.s Industries",
+  description: "Explore the milestones, products, and clients that have shaped T.s Industries from inception in 2024 to the present day.",
+  alternates: { canonical: "/journey" },
+  openGraph: {
+    title: "Our Journey | T.s Industries",
+    description: "Milestones and products from T.s Industries — South African tech startup since 2024.",
+    url: "https://ts-industries.co.za/journey",
+  },
+};
 
 const allMilestones = [
   {
