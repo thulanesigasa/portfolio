@@ -12,17 +12,25 @@ export default function Pricing() {
     async function fetchLocation() {
       try {
         const res = await fetch("https://ipapi.co/json/");
+        if (!res.ok) throw new Error("Rate limited");
         const data = await res.json();
         if (data && data.country_code && SOUTHERN_AFRICA_COUNTRIES.includes(data.country_code)) {
           setRegion("southern_africa");
-        } else {
-          setRegion("international");
+          return;
         }
       } catch (error) {
-        console.error("Error fetching location", error);
-        // Default to international if fetch fails
-        setRegion("international");
+        try {
+          const res2 = await fetch("https://ipwho.is/");
+          const data2 = await res2.json();
+          if (data2 && data2.country_code && SOUTHERN_AFRICA_COUNTRIES.includes(data2.country_code)) {
+            setRegion("southern_africa");
+            return;
+          }
+        } catch (fallbackError) {
+          console.error("Geolocation failed, defaulting to international", fallbackError);
+        }
       }
+      setRegion("international");
     }
     fetchLocation();
   }, []);
@@ -41,8 +49,9 @@ export default function Pricing() {
       description: "Custom mobile applications for Android and iOS, built to deliver seamless user experiences and meet your business needs.",
     },
     {
+      prefix: "From",
       currency: "R",
-      price: "6,500",
+      price: "2,000",
       title: "Web App Development",
       description: "Modern, responsive, and secure web applications designed to enhance productivity and engage users.",
     }
@@ -60,8 +69,9 @@ export default function Pricing() {
       description: "Custom mobile applications for Android and iOS, built to deliver seamless user experiences and meet your business needs.",
     },
     {
+      prefix: "From",
       currency: "£",
-      price: "900",
+      price: "1,000",
       title: "Web App Development",
       description: "Modern, responsive, and secure web applications designed to enhance productivity and engage users.",
     }
@@ -99,6 +109,11 @@ export default function Pricing() {
               pointerEvents: region === "loading" ? "none" : "auto"
             }}>
               <div style={{ display: "flex", alignItems: "baseline", gap: "5px" }}>
+                {'prefix' in plan && plan.prefix && (
+                  <span style={{ fontSize: "1rem", color: "var(--color-text-muted)", marginRight: "4px" }}>
+                    {region === "loading" ? "" : plan.prefix}
+                  </span>
+                )}
                 <span style={{ fontSize: "1.2rem", color: "var(--color-text-muted)" }}>
                   {region === "loading" ? "-" : plan.currency}
                 </span>
