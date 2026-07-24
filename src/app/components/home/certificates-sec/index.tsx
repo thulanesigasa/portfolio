@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const getIssuerIcon = (issuer: string) => {
+export const getIssuerIcon = (issuer: string) => {
   if (issuer.includes("Cisco")) return "/images/icon/cisco-svgrepo-com.svg";
   if (issuer.includes("Vodacom")) return "/images/icon/Vodacom-Logo.wine.svg";
   if (issuer.includes("freeCodeCamp")) return "/images/icon/freecodecamp-svgrepo-com.svg";
