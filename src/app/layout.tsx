@@ -38,6 +38,21 @@ export const metadata: Metadata = {
     siteName: "T.s Industries",
     type: "website",
     locale: "en_ZA",
+    images: [
+      {
+        url: "https://ts-industries.co.za/og",
+        width: 1200,
+        height: 630,
+        type: "image/png",
+        alt: "T.s Industries Logo Preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "T.s Industries - Portfolio",
+    description: "T.s Industries specializes in modern web development, custom software engineering, and premium digital solutions.",
+    images: ["https://ts-industries.co.za/og"],
   },
   alternates: {
     canonical: "/",
