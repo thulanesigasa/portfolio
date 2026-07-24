@@ -146,10 +146,24 @@ export const allCertificates = [
   },
   {
     id: 21,
-    title: "Enterprise Architecture & Design",
+    title: "Vodacom Group Certification I",
     issuer: "Vodacom Group",
-    description: "Certification in enterprise scale network and software architecture.",
-    pdfLink: "#",
+    description: "Official certificate of completion.",
+    pdfLink: "/images/certificates/certificate-thulane-sigasa.pdf",
+  },
+  {
+    id: 22,
+    title: "Vodacom Group Certification II",
+    issuer: "Vodacom Group",
+    description: "Official certificate of completion.",
+    pdfLink: "/images/certificates/certificate-thulane-sigasa-1.pdf",
+  },
+  {
+    id: 23,
+    title: "Vodacom Group Certification III",
+    issuer: "Vodacom Group",
+    description: "Official certificate of completion.",
+    pdfLink: "/images/certificates/certificate-thulane-sigasa-2.pdf",
   }
 ];
 
