@@ -57,9 +57,12 @@ const Contact = () => {
   return (
     <section id="contact" className="contact-section" ref={sectionRef}>
       <div className="container contact-container reveal">
-        <h3 className="contact-title">
-          Let&apos;s <span className="contact-title-thin">Talk</span>
-        </h3>
+        <div className="section-header reveal" style={{ marginBottom: '2.5rem' }}>
+          <h2 className="contact-title" style={{ margin: 0, border: 'none', padding: 0 }}>
+            Let&apos;s <span className="contact-title-thin">Talk</span>
+          </h2>
+          <span className="section-number">06</span>
+        </div>
         
         {submitted ? (
           <div className="form-success">

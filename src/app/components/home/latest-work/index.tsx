@@ -58,7 +58,7 @@ const LatestWork = () => {
       <div className="container">
         <div className="section-header reveal">
           <h2>Latest Works</h2>
-          <span className="section-number">04</span>
+          <span className="section-number">05</span>
         </div>
 
         {/* Filters */}
