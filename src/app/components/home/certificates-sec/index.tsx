@@ -7,6 +7,7 @@ export const getIssuerIcon = (issuer: string) => {
   if (issuer.includes("Vodacom")) return "/images/icon/Vodacom-Logo.wine.svg";
   if (issuer.includes("freeCodeCamp")) return "/images/icon/freecodecamp-svgrepo-com.svg";
   if (issuer.includes("Huawei")) return "/images/icon/huawei-seeklogo.svg";
+  if (issuer.includes("AI")) return "/images/icon/ai-certs.svg";
   return null;
 };
 
