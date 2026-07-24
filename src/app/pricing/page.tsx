@@ -27,7 +27,7 @@ export default function Pricing() {
             return;
           }
         } catch (fallbackError) {
-          console.error("Geolocation failed, defaulting to international", fallbackError);
+          console.warn("Geolocation failed, defaulting to international pricing.");
         }
       }
       setRegion("international");
