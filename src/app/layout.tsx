@@ -40,11 +40,11 @@ export const metadata: Metadata = {
     locale: "en_ZA",
     images: [
       {
-        url: "https://ts-industries.co.za/images/og-preview.png",
+        url: "https://ts-industries.co.za/images/icon/icon.png",
         width: 1200,
         height: 630,
         type: "image/png",
-        alt: "T.s Industries - Portfolio Preview",
+        alt: "T.s Industries Logo",
       },
     ],
   },
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "T.s Industries - Portfolio",
     description: "T.s Industries specializes in modern web development, custom software engineering, and premium digital solutions.",
-    images: ["https://ts-industries.co.za/images/og-preview.png"],
+    images: ["https://ts-industries.co.za/images/icon/icon.png"],
   },
   alternates: {
     canonical: "/",
