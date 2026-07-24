@@ -1,4 +1,16 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Services | T.s Industries",
+  description: "T.s Industries offers custom web applications, SaaS solutions, and premium UI/UX design systems built for modern businesses in South Africa and beyond.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Services | T.s Industries",
+    description: "Custom web apps, SaaS solutions, and design systems built by T.s Industries.",
+    url: "https://ts-industries.co.za/services",
+  },
+};
 
 export default function Services() {
   const services = [
