@@ -11,6 +11,20 @@ export default function Pricing() {
   useEffect(() => {
     async function fetchLocation() {
       try {
+        // 1. Instant local check using browser timezone (Bypasses adblockers & network latency)
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const southernAfricaTimezones = [
+          'Africa/Johannesburg', 'Africa/Windhoek', 'Africa/Gaborone', 
+          'Africa/Maseru', 'Africa/Mbabane', 'Africa/Harare', 
+          'Africa/Maputo', 'Africa/Luanda', 'Africa/Lusaka', 'Africa/Blantyre'
+        ];
+        
+        if (southernAfricaTimezones.includes(tz)) {
+          setRegion("southern_africa");
+          return;
+        }
+
+        // 2. Fallback to IP Geolocation if timezone is ambiguous or foreign
         const res = await fetch("https://ipapi.co/json/");
         if (!res.ok) throw new Error("Rate limited");
         const data = await res.json();
@@ -46,7 +60,7 @@ export default function Pricing() {
     {
       prefix: "From",
       currency: "R",
-      price: "22,500",
+      price: "11,500",
       title: "Mobile App Development",
       description: "Custom mobile applications for Android and iOS, built to deliver seamless user experiences and meet your business needs.",
     },

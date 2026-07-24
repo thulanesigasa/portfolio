@@ -38,14 +38,6 @@ export const metadata: Metadata = {
     siteName: "T.s Industries",
     type: "website",
     locale: "en_ZA",
-    images: [
-      {
-        url: "/images/icon/icon.png",
-        width: 800,
-        height: 600,
-        alt: "T.s Industries Portfolio",
-      },
-    ],
   },
   alternates: {
     canonical: "/",
