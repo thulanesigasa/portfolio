@@ -22,7 +22,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ts-industries.co.za"),
-  title: "T.s Industries - Web Development Specialists",
+  title: "T.s Industries - Portfolio",
   description: "T.s Industries is a forward-thinking tech startup specializing in modern web development.",
   keywords: ["Web Development", "Tech Startup", "Custom Software", "South Africa", "React", "Next.js"],
   authors: [{ name: "T.s Industries" }],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     apple: "/images/icon/icon.png",
   },
   openGraph: {
-    title: "T.s Industries - Web Development Specialists",
+    title: "T.s Industries - Portfolio",
     description: "T.s Industries specializes in modern web development, custom software engineering, and premium digital solutions.",
     url: "https://ts-industries.co.za",
     siteName: "T.s Industries",
