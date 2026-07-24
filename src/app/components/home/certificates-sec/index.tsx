@@ -159,11 +159,11 @@ const CertificatesSec = () => {
   return (
     <section id="certificates" className="section-padding">
       <div className="container">
-        <div className="section-heading">
-          <span className="section-eyebrow">Milestones</span>
-          <h2 className="section-title">
-            Certifications <span style={{ fontWeight: 300 }}>& Achievements</span>
-          </h2>
+        <div className="section-header reveal">
+          <h2>Certifications <span style={{ fontWeight: 300 }}>& Achievements</span></h2>
+          <span className="section-number">04</span>
+        </div>
+        <div className="section-heading" style={{ marginTop: '-2rem' }}>
           <p className="section-desc">
             A showcase of my professional certifications. Click on any card to view the official PDF certificate.
           </p>
