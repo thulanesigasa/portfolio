@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import useReveal from "@/app/hooks/useReveal";
 
 const Contact = () => {
+  const [contactType, setContactType] = useState<"say-hi" | "get-quote">("say-hi");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -34,7 +35,7 @@ const Contact = () => {
       const res = await fetch("https://formsubmit.co/ajax/924a2bfaa2f2c2d8303baad475cd0a2b", {
         method: "POST",
         headers: { "Content-type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, inquiryType: contactType }),
       });
       const data = await res.json();
       if (data.success) {
@@ -55,71 +56,101 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="contact-section" ref={sectionRef}>
-      <div className="container contact-container reveal">
-        <div className="section-header reveal" style={{ marginBottom: '2.5rem' }}>
-          <h2 className="contact-title" style={{ margin: 0, border: 'none', padding: 0 }}>
-            Let&apos;s <span className="contact-title-thin">Talk</span>
-          </h2>
-          <span className="section-number">06</span>
+    <section id="contact" className="section-padding" ref={sectionRef}>
+      <div className="container">
+        {/* Section Header */}
+        <div className="positivus-header-row reveal">
+          <div className="positivus-badge-title">Contact Us</div>
+          <p className="positivus-header-desc">
+            Connect with us: Let&apos;s discuss your software development and digital marketing needs.
+          </p>
         </div>
-        
-        {submitted ? (
-          <div className="form-success">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2ecc71" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <p>Message sent successfully! We will be in touch soon.</p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} noValidate className="contact-form">
-            <div className="contact-form-row">
-              <div className="contact-form-group">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="What's your name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={`contact-input ${errors.name ? 'invalid' : ''}`}
-                />
-                {errors.name && <span className="error-text">{errors.name}</span>}
-              </div>
-              <div className="contact-form-group">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={`contact-input ${errors.email ? 'invalid' : ''}`}
-                />
-                {errors.email && <span className="error-text">{errors.email}</span>}
-              </div>
-            </div>
-            
-            <div className="contact-form-group full-width">
-              <textarea
-                name="message"
-                placeholder="Tell us about our project"
-                value={formData.message}
-                onChange={handleChange}
-                className={`contact-textarea ${errors.message ? 'invalid' : ''}`}
-              />
-              {errors.message && <span className="error-text">{errors.message}</span>}
-            </div>
 
-            <div className="contact-form-footer">
-              <div className="contact-disclaimer">
-                <span className="accent-asterisk">*</span> We promise not to disclose your personal information to third parties.
+        {/* Positivus Contact Container */}
+        <div className="positivus-contact-card reveal">
+          <div className="positivus-contact-left">
+            {submitted ? (
+              <div className="form-success">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B9FF66" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <p>Message sent successfully! We will be in touch soon.</p>
               </div>
-              <button type="submit" className="contact-submit-btn" disabled={submitting}>
-                <span>{submitting ? "Sending..." : "Send message"}</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M14 5.3418C13.7441 5.3418 13.488 5.44122 13.293 5.63672L13.207 5.72266C12.816 6.11366 12.816 6.74672 13.207 7.13672L17.0703 11H4C3.448 11 3 11.448 3 12C3 12.552 3.448 13 4 13H17.0703L13.207 16.8633C12.816 17.2543 12.816 17.8873 13.207 18.2773L13.293 18.3633C13.684 18.7543 14.317 18.7543 14.707 18.3633L20.3633 12.707C20.7543 12.316 20.7543 11.683 20.3633 11.293L14.707 5.63672C14.5115 5.44122 14.2559 5.3418 14 5.3418Z" fill="currentColor"/>
-                </svg>
-              </button>
-            </div>
-          </form>
-        )}
+            ) : (
+              <form onSubmit={handleSubmit} noValidate>
+                {/* Radio Selectors */}
+                <div className="positivus-radio-group">
+                  <label className="positivus-radio-label">
+                    <input
+                      type="radio"
+                      name="inquiryType"
+                      checked={contactType === "say-hi"}
+                      onChange={() => setContactType("say-hi")}
+                    />
+                    <span>Say Hi</span>
+                  </label>
+                  <label className="positivus-radio-label">
+                    <input
+                      type="radio"
+                      name="inquiryType"
+                      checked={contactType === "get-quote"}
+                      onChange={() => setContactType("get-quote")}
+                    />
+                    <span>Get a Quote</span>
+                  </label>
+                </div>
+
+                <div className="positivus-form-group">
+                  <label>Name*</label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className={errors.name ? 'invalid' : ''}
+                  />
+                  {errors.name && <span className="error-text">{errors.name}</span>}
+                </div>
+
+                <div className="positivus-form-group">
+                  <label>Email*</label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={errors.email ? 'invalid' : ''}
+                  />
+                  {errors.email && <span className="error-text">{errors.email}</span>}
+                </div>
+
+                <div className="positivus-form-group">
+                  <label>Message*</label>
+                  <textarea
+                    name="message"
+                    placeholder="Message"
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    className={errors.message ? 'invalid' : ''}
+                  />
+                  {errors.message && <span className="error-text">{errors.message}</span>}
+                </div>
+
+                <button type="submit" className="btn-positivus-dark full-width" disabled={submitting}>
+                  {submitting ? "Sending..." : "Send Message"}
+                </button>
+              </form>
+            )}
+          </div>
+
+          <div className="positivus-contact-right">
+            <svg width="260" height="260" viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="130" cy="130" r="100" fill="#191A23"/>
+              <path d="M90 100L170 180M170 100L90 180" stroke="#B9FF66" strokeWidth="16" strokeLinecap="round"/>
+            </svg>
+          </div>
+        </div>
       </div>
     </section>
   );
