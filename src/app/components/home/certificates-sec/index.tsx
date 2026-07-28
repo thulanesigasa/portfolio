@@ -216,12 +216,10 @@ const CertificatesSec = () => {
   return (
     <section id="certificates" className="section-padding">
       <div className="container">
-        <div className="section-header reveal">
-          <h2>Certifications <span style={{ fontWeight: 300 }}>&amp; Achievements</span></h2>
+        <div className="positivus-header-row reveal">
+          <div className="positivus-badge-title">Certifications &amp; Achievements</div>
           <span className="section-number">04</span>
-        </div>
-        <div className="section-heading" style={{ marginTop: '-2rem' }}>
-          <p className="section-desc">
+          <p className="positivus-header-desc">
             A showcase of my professional certifications. Click on any card to preview the official certificate.
           </p>
         </div>

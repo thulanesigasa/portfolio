@@ -7,8 +7,9 @@
 
 /* ─── CSS VARIABLES ─────────────────────────────── */
 :root {
-  /* Positivus Design System Tokens */
-  --color-positivus-green: #B9FF66;
+  /* Positivus Design System Tokens — Brand Orange Palette */
+  --color-positivus-green: #FE4300;
+  --color-positivus-orange: #FE4300;
   --color-positivus-dark: #191A23;
   --color-positivus-gray: #F3F3F3;
   --color-positivus-border: #191A23;
@@ -17,9 +18,9 @@
   --color-bg: #FFFFFF;
   --color-bg-card: #F3F3F3;
   --color-bg-card-hover: #e8e8e8;
-  --color-primary: #B9FF66;
-  --color-primary-glow: rgba(185, 255, 102, 0.4);
-  --color-primary-dim: rgba(185, 255, 102, 0.15);
+  --color-primary: #FE4300;
+  --color-primary-glow: rgba(254, 67, 0, 0.4);
+  --color-primary-dim: rgba(254, 67, 0, 0.15);
   --color-secondary: #191A23;
   --color-text: #191A23;
   --color-text-muted: #292A32;
@@ -2133,8 +2134,8 @@ section {
   text-decoration: none;
 }
 .btn-positivus-dark:hover {
-  background-color: #B9FF66;
-  color: #191A23;
+  background-color: #FE4300;
+  color: #FFFFFF;
   border-color: #191A23;
 }
 
