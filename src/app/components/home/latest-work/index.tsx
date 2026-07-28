@@ -29,6 +29,7 @@ const LatestWork = () => {
   const [activeFilter, setActiveFilter] = useState("All");
   const sectionRef = useRef<HTMLDivElement>(null);
 
+  // Reveal on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) =>
@@ -39,21 +40,25 @@ const LatestWork = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Mark all visible immediately on filter change
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      sectionRef.current?.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
+    }, 50);
+    return () => clearTimeout(timer);
+  }, [activeFilter]);
+
   const filtered =
     activeFilter === "All"
       ? staticWorkData
       : staticWorkData.filter((w) => catMap[w.title] === activeFilter);
 
   return (
-    <section id="works" className="section-padding" ref={sectionRef}>
+    <section id="works" className="works-section" ref={sectionRef}>
       <div className="container">
-        {/* Section Header */}
-        <div className="positivus-header-row reveal">
-          <div className="positivus-badge-title">Latest Works</div>
+        <div className="section-header reveal">
+          <h2>Latest Works</h2>
           <span className="section-number">05</span>
-          <p className="positivus-header-desc">
-            Explore our portfolio of web applications, mobile platforms, and custom software systems.
-          </p>
         </div>
 
         {/* Filters */}
@@ -72,7 +77,7 @@ const LatestWork = () => {
         {/* Work grid */}
         <div className="works-grid">
           {filtered.map((value: any, index: number) => (
-            <Link key={index} href={`/work/${value?.slug}`} className="positivus-work-card reveal" style={{ textDecoration: 'none' }}>
+            <Link key={index} href={`/work/${value?.slug}`} className="work-card reveal" style={{ textDecoration: 'none' }}>
               <div className="work-card-img-wrap">
                 <Image
                   src={getImgPath(value?.image)}
@@ -82,7 +87,9 @@ const LatestWork = () => {
                   loading="lazy"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
-                <div className="work-card-badge" style={{ backgroundColor: "#FE4300", color: "#FFFFFF" }}>{catMap[value?.title] || "Work"}</div>
+                {/* Category badge */}
+                <div className="work-card-badge">{catMap[value?.title] || "Work"}</div>
+                {/* Gradient footer overlay */}
                 <div className="work-card-overlay">
                   <div className="work-card-overlay-meta">
                     <div className="work-card-overlay-title">{value?.title}</div>

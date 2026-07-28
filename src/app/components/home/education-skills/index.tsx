@@ -78,12 +78,9 @@ const EducationSkills = () => {
   return (
     <section id="services" className="services-section" ref={sectionRef}>
       <div className="container">
-        <div className="positivus-header-row reveal">
-          <div className="positivus-badge-title">Tech Stack &amp; Skills</div>
+        <div className="section-header reveal">
+          <h2>Services & Tech Stack</h2>
           <span className="section-number">03</span>
-          <p className="positivus-header-desc">
-            The core tools, languages, and frameworks we use to build scalable web applications and SaaS platforms.
-          </p>
         </div>
 
         {/* Services list */}
