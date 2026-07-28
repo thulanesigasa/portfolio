@@ -5,6 +5,24 @@ import { getImgPath } from "@/utils/image";
 import Image from "next/image";
 import Link from "next/link";
 
+const caseStudies = [
+  {
+    title: "SaaS Resume Builder Platform",
+    desc: "For rbptech, we developed a dynamic resume builder platform with real-time PDF compilation, custom template engines, and 45% increased conversion.",
+    link: "/work/resume-build",
+  },
+  {
+    title: "Healthcare Appointment System",
+    desc: "For Hokma Tech (MedSync), we engineered an intuitive clinical scheduling mobile app connecting patients to provider REST APIs seamlessly.",
+    link: "/work/medsync",
+  },
+  {
+    title: "Local Service Marketplace",
+    desc: "For Service Link, we built an Expo/React Native marketplace connecting users with nearby providers via location maps and real-time chat.",
+    link: "/work/service-link",
+  },
+];
+
 const categories = ["All", "SaaS", "App", "Web", "Design"];
 
 const catMap: Record<string, string> = {
@@ -29,7 +47,6 @@ const LatestWork = () => {
   const [activeFilter, setActiveFilter] = useState("All");
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Reveal on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) =>
@@ -40,25 +57,38 @@ const LatestWork = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Mark all visible immediately on filter change
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      sectionRef.current?.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
-    }, 50);
-    return () => clearTimeout(timer);
-  }, [activeFilter]);
-
   const filtered =
     activeFilter === "All"
       ? staticWorkData
       : staticWorkData.filter((w) => catMap[w.title] === activeFilter);
 
   return (
-    <section id="works" className="works-section" ref={sectionRef}>
+    <section id="works" className="section-padding" ref={sectionRef}>
       <div className="container">
-        <div className="section-header reveal">
-          <h2>Latest Works</h2>
-          <span className="section-number">05</span>
+        {/* Section Header */}
+        <div className="positivus-header-row reveal">
+          <div className="positivus-badge-title">Case Studies</div>
+          <p className="positivus-header-desc">
+            Explore our real-world examples of proven success and digital transformation through tailored software engineering.
+          </p>
+        </div>
+
+        {/* Positivus Featured Case Studies Banner */}
+        <div className="positivus-case-banner reveal">
+          {caseStudies.map((cs, idx) => (
+            <div key={idx} className="positivus-case-item">
+              <p className="positivus-case-text">{cs.desc}</p>
+              <Link href={cs.link} className="positivus-case-link">
+                <span>Learn more</span>
+                <span className="positivus-green-arrow">↗</span>
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        {/* Secondary Header for Portfolio Grid */}
+        <div className="positivus-header-row reveal" style={{ marginTop: "4rem" }}>
+          <div className="positivus-badge-title" style={{ backgroundColor: "#FFFFFF" }}>All Projects</div>
         </div>
 
         {/* Filters */}
@@ -77,7 +107,7 @@ const LatestWork = () => {
         {/* Work grid */}
         <div className="works-grid">
           {filtered.map((value: any, index: number) => (
-            <Link key={index} href={`/work/${value?.slug}`} className="work-card reveal" style={{ textDecoration: 'none' }}>
+            <Link key={index} href={`/work/${value?.slug}`} className="positivus-work-card reveal" style={{ textDecoration: 'none' }}>
               <div className="work-card-img-wrap">
                 <Image
                   src={getImgPath(value?.image)}
@@ -87,9 +117,7 @@ const LatestWork = () => {
                   loading="lazy"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
-                {/* Category badge */}
                 <div className="work-card-badge">{catMap[value?.title] || "Work"}</div>
-                {/* Gradient footer overlay */}
                 <div className="work-card-overlay">
                   <div className="work-card-overlay-meta">
                     <div className="work-card-overlay-title">{value?.title}</div>
