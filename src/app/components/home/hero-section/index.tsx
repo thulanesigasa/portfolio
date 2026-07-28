@@ -122,9 +122,9 @@ const HeroSection = () => {
           <div className="hero-positivus-right">
             <div className="hero-positivus-illustration">
               <svg width="100%" height="100%" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="50" y="50" width="360" height="280" rx="30" fill="#B9FF66" stroke="#191A23" strokeWidth="4"/>
+                <rect x="50" y="50" width="360" height="280" rx="30" fill="#FE4300" stroke="#191A23" strokeWidth="4"/>
                 <circle cx="230" cy="190" r="70" fill="#191A23"/>
-                <path d="M200 160L270 230M270 160L200 230" stroke="#B9FF66" strokeWidth="12" strokeLinecap="round"/>
+                <path d="M200 160L270 230M270 160L200 230" stroke="#FE4300" strokeWidth="12" strokeLinecap="round"/>
                 <rect x="300" y="240" width="120" height="90" rx="20" fill="#FFFFFF" stroke="#191A23" strokeWidth="4"/>
                 <path d="M330 285L390 285" stroke="#191A23" strokeWidth="6" strokeLinecap="round"/>
                 <circle cx="110" cy="110" r="25" fill="#FFFFFF" stroke="#191A23" strokeWidth="4"/>

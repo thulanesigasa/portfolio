@@ -5,24 +5,6 @@ import { getImgPath } from "@/utils/image";
 import Image from "next/image";
 import Link from "next/link";
 
-const caseStudies = [
-  {
-    title: "SaaS Resume Builder Platform",
-    desc: "For rbptech, we developed a dynamic resume builder platform with real-time PDF compilation, custom template engines, and 45% increased conversion.",
-    link: "/work/resume-build",
-  },
-  {
-    title: "Healthcare Appointment System",
-    desc: "For Hokma Tech (MedSync), we engineered an intuitive clinical scheduling mobile app connecting patients to provider REST APIs seamlessly.",
-    link: "/work/medsync",
-  },
-  {
-    title: "Local Service Marketplace",
-    desc: "For Service Link, we built an Expo/React Native marketplace connecting users with nearby providers via location maps and real-time chat.",
-    link: "/work/service-link",
-  },
-];
-
 const categories = ["All", "SaaS", "App", "Web", "Design"];
 
 const catMap: Record<string, string> = {
@@ -67,28 +49,11 @@ const LatestWork = () => {
       <div className="container">
         {/* Section Header */}
         <div className="positivus-header-row reveal">
-          <div className="positivus-badge-title">Case Studies</div>
+          <div className="positivus-badge-title">Latest Works</div>
+          <span className="section-number">05</span>
           <p className="positivus-header-desc">
-            Explore our real-world examples of proven success and digital transformation through tailored software engineering.
+            Explore our portfolio of web applications, mobile platforms, and custom software systems.
           </p>
-        </div>
-
-        {/* Positivus Featured Case Studies Banner */}
-        <div className="positivus-case-banner reveal">
-          {caseStudies.map((cs, idx) => (
-            <div key={idx} className="positivus-case-item">
-              <p className="positivus-case-text">{cs.desc}</p>
-              <Link href={cs.link} className="positivus-case-link">
-                <span>Learn more</span>
-                <span className="positivus-green-arrow">↗</span>
-              </Link>
-            </div>
-          ))}
-        </div>
-
-        {/* Secondary Header for Portfolio Grid */}
-        <div className="positivus-header-row reveal" style={{ marginTop: "4rem" }}>
-          <div className="positivus-badge-title" style={{ backgroundColor: "#FFFFFF" }}>All Projects</div>
         </div>
 
         {/* Filters */}
@@ -117,7 +82,7 @@ const LatestWork = () => {
                   loading="lazy"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
-                <div className="work-card-badge">{catMap[value?.title] || "Work"}</div>
+                <div className="work-card-badge" style={{ backgroundColor: "#FE4300", color: "#FFFFFF" }}>{catMap[value?.title] || "Work"}</div>
                 <div className="work-card-overlay">
                   <div className="work-card-overlay-meta">
                     <div className="work-card-overlay-title">{value?.title}</div>

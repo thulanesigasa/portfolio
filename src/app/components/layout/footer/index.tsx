@@ -14,9 +14,9 @@ const Footer = () => {
             <nav className="positivus-footer-nav">
               <Link href="/#about">About Us</Link>
               <Link href="/services/custom-web-applications">Services</Link>
-              <Link href="/#works">Use Cases</Link>
+              <Link href="/#works">Our Work</Link>
               <Link href="/pricing">Pricing</Link>
-              <Link href="/#journey">Blog</Link>
+              <Link href="/#journey">Journey</Link>
             </nav>
 
             <div className="positivus-footer-socials">
@@ -29,18 +29,12 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Middle Row: Contact Info & Subscription Box */}
+          {/* Middle Row: Contact Info */}
           <div className="positivus-footer-middle">
             <div className="positivus-footer-info">
-              <span className="positivus-footer-info-badge">Contact us:</span>
+              <span className="positivus-footer-info-badge" style={{ backgroundColor: "#FE4300", color: "#FFFFFF" }}>Contact us:</span>
               <p>Email: pharezsigasa@gmail.com</p>
               <p>Phone: +44 75 4435 7979</p>
-              <p>Address: South Africa / United Kingdom</p>
-            </div>
-
-            <div className="positivus-footer-subscribe">
-              <input type="email" placeholder="Email" className="positivus-subscribe-input" />
-              <button className="btn-positivus-green">Subscribe to news</button>
             </div>
           </div>
 
@@ -52,6 +46,8 @@ const Footer = () => {
             <div className="positivus-footer-legal-links">
               <Link href="/privacy-policy">Privacy Policy</Link>
               <Link href="/terms-of-service">Terms of Service</Link>
+              <Link href="/shipping-delivery">Shipping &amp; Delivery</Link>
+              <Link href="/refund-policy">Refund Policy</Link>
             </div>
           </div>
         </div>
