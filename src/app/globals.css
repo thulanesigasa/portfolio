@@ -356,9 +356,9 @@ section {
 .fs-nav-dot {
   width: 8px;
   height: 8px;
-  background: #ffb800;
+  background: var(--color-primary);
   border-radius: 50%;
-  box-shadow: 0 0 10px #ffb800;
+  box-shadow: 0 0 10px var(--color-primary-glow);
 }
 
 .fs-sub-nav {
@@ -2420,13 +2420,66 @@ html.light-theme {
   --color-primary-glow: rgba(15, 23, 42, 0.15);
   --color-secondary: #475569;
   --color-text: #0f172a;
-  --color-text-muted: #64748b;
+  --color-text-muted: #475569;
   --color-border: rgba(15, 23, 42, 0.15);
   --color-border-glow: rgba(15, 23, 42, 0.25);
   --color-surface: #ffffff;
   --color-surface-2: #f1f5f9;
 }
 
+/* Header & Scrolled Navbar */
+html.light-theme .navbar.scrolled {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+/* Hamburger Floating Button */
+html.light-theme .hamburger {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(15, 23, 42, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light-theme .hamburger span {
+  background: #0f172a !important;
+}
+
+/* Full-Screen Hamburger Menu Overlay */
+html.light-theme .fs-menu-overlay {
+  background: rgba(248, 250, 252, 0.98) !important;
+  color: #0f172a !important;
+}
+
+html.light-theme .fs-nav-title {
+  color: #0f172a !important;
+}
+
+html.light-theme .fs-nav-title:hover,
+html.light-theme .fs-nav-item.active .fs-nav-title {
+  color: #0284c7 !important;
+}
+
+html.light-theme .fs-sub-nav a,
+html.light-theme .fs-menu-list a,
+html.light-theme .fs-menu-text {
+  color: #475569 !important;
+}
+
+html.light-theme .fs-sub-nav a:hover,
+html.light-theme .fs-menu-list a:hover {
+  color: #0f172a !important;
+}
+
+html.light-theme .fs-menu-heading {
+  color: #0f172a !important;
+}
+
+html.light-theme .fs-menu-divider {
+  background: rgba(15, 23, 42, 0.12) !important;
+}
+
+/* Hero Section & Text */
 html.light-theme .eternal-hero-section,
 html.light-theme .orbital-hero-wrapper {
   background-color: #f8fafc !important;
@@ -2443,18 +2496,30 @@ html.light-theme .eternal-subtitle {
 html.light-theme .eternal-btn-primary {
   background: #0f172a !important;
   color: #ffffff !important;
+  box-shadow: 0 0 24px rgba(15, 23, 42, 0.2) !important;
+}
+
+html.light-theme .eternal-btn-primary:hover {
+  background: #1e293b !important;
+  color: #ffffff !important;
 }
 
 html.light-theme .eternal-btn-outline {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border-color: rgba(15, 23, 42, 0.25) !important;
+  color: #0f172a !important;
+}
+
+html.light-theme .eternal-btn-outline:hover {
   border-color: #0f172a !important;
   color: #0f172a !important;
 }
 
-html.light-theme .hamburger {
-  background: rgba(255, 255, 255, 0.8) !important;
-  border-color: rgba(15, 23, 42, 0.2) !important;
+/* Scroll Hint / Scroll to Bottom */
+html.light-theme .eternal-scroll-hint {
+  color: #475569 !important;
 }
 
-html.light-theme .hamburger span {
-  background: #0f172a !important;
+html.light-theme .eternal-scroll-hint:hover {
+  color: #0f172a !important;
 }
