@@ -8,7 +8,7 @@ const AnimatedStat = ({ endValue, suffix }: { endValue: number, suffix: string }
 
   useEffect(() => {
     let startTime: number | null = null;
-    const duration = 2000; // 2 seconds
+    const duration = 2000;
     let animationFrame: number;
     let observer: IntersectionObserver;
 
@@ -16,8 +16,6 @@ const AnimatedStat = ({ endValue, suffix }: { endValue: number, suffix: string }
       if (!startTime) startTime = timestamp;
       const progress = timestamp - startTime;
       const percentage = Math.min(progress / duration, 1);
-      
-      // Easing function (easeOutExpo)
       const easeOut = percentage === 1 ? 1 : 1 - Math.pow(2, -10 * percentage);
       
       setCount(Math.floor(endValue * easeOut));
@@ -67,7 +65,6 @@ const AboutMe = () => {
 
     const els = sectionRef.current?.querySelectorAll(".reveal");
     els?.forEach((el) => {
-      // If already in viewport on mount, show immediately
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight) {
         el.classList.add("visible");
@@ -96,29 +93,31 @@ const AboutMe = () => {
           <span className="section-number">01</span>
         </div>
 
-        <p className="reveal about-intro">
-          T.s Indurstries is a forward-thinking tech startup specializing in
-          modern web development. We help brands, startups, and established
-          enterprises build high-performance web applications, seamless SaaS
-          integrations, and intuitive, conversion-focused user interfaces.
-          Our team combines creative design with cutting-edge technologies to
-          deliver software that scales.
-        </p>
+        <div className="about-glass-card reveal">
+          <p className="about-intro">
+            T.s Industries is a forward-thinking tech startup specializing in
+            modern web development. We help brands, startups, and established
+            enterprises build high-performance web applications, seamless SaaS
+            integrations, and intuitive, conversion-focused user interfaces.
+            Our team combines creative design with cutting-edge technologies to
+            deliver software that scales.
+          </p>
 
-        <div className="about-stats-row reveal">
-          {stats.map((s, i) => (
-            <div key={i} className="about-stat">
-              <AnimatedStat endValue={s.target} suffix={s.suffix} />
-              <div className="about-stat-label">{s.label}</div>
-            </div>
-          ))}
-        </div>
+          <div className="about-stats-row">
+            {stats.map((s, i) => (
+              <div key={i} className="about-stat">
+                <AnimatedStat endValue={s.target} suffix={s.suffix} />
+                <div className="about-stat-label">{s.label}</div>
+              </div>
+            ))}
+          </div>
 
-        <div className="focus-areas-row reveal">
-          <span className="focus-label">Focus:</span>
-          {focusAreas.map((area) => (
-            <span key={area} className="badge badge-primary">{area}</span>
-          ))}
+          <div className="focus-areas-row">
+            <span className="focus-label">Focus Areas:</span>
+            {focusAreas.map((area) => (
+              <span key={area} className="badge badge-primary">{area}</span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

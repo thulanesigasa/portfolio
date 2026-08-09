@@ -45,7 +45,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            value: `default-src 'self'; script-src 'self' 'unsafe-inline' ${process.env.NODE_ENV === "development" ? "'unsafe-eval'" : ""} https://formsubmit.co https://my.spline.design; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://formsubmit.co https://my.spline.design https://*.spline.design; frame-src 'self' blob: https://docs.google.com https://my.spline.design https://*.spline.design; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formsubmit.co;`,
+            value: `default-src 'self'; script-src 'self' 'unsafe-inline' ${process.env.NODE_ENV === "development" ? "'unsafe-eval'" : ""} https://formsubmit.co https://my.spline.design https://cdn.spline.design; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://formsubmit.co https://my.spline.design https://cdn.spline.design https://prod.spline.design https://*.spline.design; frame-src 'self' blob: https://docs.google.com https://my.spline.design https://cdn.spline.design https://*.spline.design; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formsubmit.co;`,
           },
         ],
       },
