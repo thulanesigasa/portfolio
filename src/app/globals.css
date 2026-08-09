@@ -10,14 +10,16 @@
   --color-bg:           #09090b;
   --color-bg-card:      rgba(18, 18, 22, 0.65);
   --color-bg-card-hover: rgba(28, 28, 35, 0.85);
-  --color-primary:      #FE4300;
-  --color-primary-glow: rgba(254, 67, 0, 0.28);
-  --color-primary-dim:  rgba(254, 67, 0, 0.12);
+  --color-primary:      #e4e4e7;
+  --color-primary-glow: rgba(228, 228, 231, 0.25);
+  --color-primary-dim:  rgba(255, 255, 255, 0.08);
+  --color-accent:       #38bdf8;
+  --color-accent-glow:  rgba(56, 189, 248, 0.3);
   --color-secondary:    #a1a1aa;
   --color-text:         #f4f4f5;
   --color-text-muted:   #90909c;
   --color-border:       rgba(255, 255, 255, 0.12);
-  --color-border-glow:  rgba(254, 67, 0, 0.35);
+  --color-border-glow:  rgba(255, 255, 255, 0.25);
   --color-surface:      #121215;
   --color-surface-2:    #18181b;
   --color-white:        #ffffff;
@@ -31,9 +33,9 @@
   --radius-xl:  32px;
   --radius-full: 9999px;
 
-  --shadow-glow:  0 0 40px rgba(254, 67, 0, 0.22), 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow:  0 0 40px rgba(255, 255, 255, 0.15), 0 8px 32px rgba(0, 0, 0, 0.5);
   --shadow-card:  0 8px 32px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
-  --shadow-hover: 0 0 50px rgba(254, 67, 0, 0.3), 0 16px 48px rgba(0, 0, 0, 0.7);
+  --shadow-hover: 0 0 50px rgba(255, 255, 255, 0.25), 0 16px 48px rgba(0, 0, 0, 0.7);
 
   --transition-fast:   150ms cubic-bezier(0.4,0,0.2,1);
   --transition-base:   280ms cubic-bezier(0.4,0,0.2,1);
@@ -47,6 +49,10 @@
   padding: 0;
 }
 
+body, button, input, textarea, select, option, a, span, p, h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-outfit), sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -54,7 +60,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-outfit), sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
@@ -63,7 +69,7 @@ body {
 
 /* ─── TYPOGRAPHY ─────────────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
+  font-family: var(--font-outfit), sans-serif;
   color: var(--color-text);
   line-height: 1.15;
   font-weight: 700;
@@ -429,8 +435,7 @@ section {
 
 .h-100 { height: 100%; }
 
-/* ─── HERO SECTION ───────────────────────────────── */
-/* ─── ETERNAL 3D HERO SECTION (100vw x 100vh Full-Bleed) ─── */
+/* ─── ETERNAL 3D HERO SECTION ─── */
 .eternal-hero-section {
   position: relative;
   width: 100vw;
@@ -442,8 +447,8 @@ section {
   background-color: #09090b;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 2.5rem 4vw;
+  justify-content: flex-end;
+  padding: 3rem 5vw;
   box-sizing: border-box;
 }
 
@@ -454,6 +459,9 @@ section {
   height: 100vh !important;
   z-index: 0;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 hana-viewer {
@@ -461,6 +469,58 @@ hana-viewer {
   height: 100vh !important;
   display: block;
   border: none;
+  transform: scale(0.92);
+  transform-origin: center center;
+}
+
+.eternal-hero-overlay-content {
+  position: relative;
+  z-index: 10;
+  max-width: 680px;
+  margin-bottom: 2rem;
+  pointer-events: auto;
+}
+
+.badge-pulse-cyan {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 12px var(--color-accent);
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+/* Glass Floating Hamburger Button */
+.hamburger {
+  background: rgba(18, 18, 22, 0.7) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 50% !important;
+  width: 48px !important;
+  height: 48px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  padding: 0 !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+  transition: all var(--transition-base) !important;
+}
+
+.hamburger:hover {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 8px 36px rgba(255, 255, 255, 0.15) !important;
+  transform: scale(1.05) !important;
+}
+
+.hamburger span {
+  width: 20px !important;
+  height: 2px !important;
+  background: #ffffff !important;
+  border-radius: 2px !important;
+  transition: all 0.3s ease !important;
 }
 
 .eternal-overlay-gradient {
