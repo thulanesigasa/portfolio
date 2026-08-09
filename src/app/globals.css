@@ -2415,113 +2415,121 @@ label:has(.bubble) {
 
 /* ─── LIGHT THEME OVERRIDES ─── */
 html.light-theme {
-  --color-bg: #f8fafc;
-  --color-bg-card: rgba(255, 255, 255, 0.85);
-  --color-bg-card-hover: rgba(241, 245, 249, 0.95);
-  --color-primary: #0f172a;
-  --color-primary-glow: rgba(15, 23, 42, 0.15);
-  --color-secondary: #475569;
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-  --color-border: rgba(15, 23, 42, 0.15);
-  --color-border-glow: rgba(15, 23, 42, 0.25);
+  --color-bg: #ffffff;
+  --color-bg-card: rgba(255, 255, 255, 0.95);
+  --color-bg-card-hover: rgba(244, 244, 245, 0.95);
+  --color-primary: #000000;
+  --color-primary-glow: rgba(0, 0, 0, 0.15);
+  --color-secondary: #3f3f46;
+  --color-text: #000000;
+  --color-text-muted: #52525b;
+  --color-border: rgba(0, 0, 0, 0.12);
+  --color-border-glow: rgba(0, 0, 0, 0.25);
   --color-surface: #ffffff;
-  --color-surface-2: #f1f5f9;
+  --color-surface-2: #f4f4f5;
 }
 
 /* Header & Scrolled Navbar */
 html.light-theme .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.88) !important;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
   backdrop-filter: blur(20px) !important;
 }
 
 /* Hamburger Floating Button */
 html.light-theme .hamburger {
-  background: rgba(255, 255, 255, 0.85) !important;
-  border-color: rgba(15, 23, 42, 0.2) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
 }
 
 html.light-theme .hamburger span {
-  background: #0f172a !important;
+  background: #000000 !important;
 }
 
 /* Full-Screen Hamburger Menu Overlay */
 html.light-theme .fs-menu-overlay {
-  background: rgba(248, 250, 252, 0.98) !important;
-  color: #0f172a !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+  color: #000000 !important;
 }
 
 html.light-theme .fs-nav-title {
-  color: #0f172a !important;
+  color: #000000 !important;
 }
 
 html.light-theme .fs-nav-title:hover,
 html.light-theme .fs-nav-item.active .fs-nav-title {
-  color: #0284c7 !important;
+  color: #000000 !important;
+  text-decoration: underline;
 }
 
 html.light-theme .fs-sub-nav a,
 html.light-theme .fs-menu-list a,
 html.light-theme .fs-menu-text {
-  color: #475569 !important;
+  color: #52525b !important;
 }
 
 html.light-theme .fs-sub-nav a:hover,
 html.light-theme .fs-menu-list a:hover {
-  color: #0f172a !important;
+  color: #000000 !important;
 }
 
 html.light-theme .fs-menu-heading {
-  color: #0f172a !important;
+  color: #000000 !important;
 }
 
 html.light-theme .fs-menu-divider {
-  background: rgba(15, 23, 42, 0.12) !important;
+  background: rgba(0, 0, 0, 0.12) !important;
 }
 
 /* Hero Section & Text */
 html.light-theme .eternal-hero-section,
 html.light-theme .orbital-hero-wrapper {
-  background-color: #f8fafc !important;
+  background-color: #ffffff !important;
 }
 
 html.light-theme .eternal-title {
-  color: #0f172a !important;
+  color: #000000 !important;
 }
 
 html.light-theme .eternal-subtitle {
-  color: #475569 !important;
+  color: #3f3f46 !important;
 }
 
 html.light-theme .eternal-btn-primary {
-  background: #0f172a !important;
+  background: #000000 !important;
   color: #ffffff !important;
-  box-shadow: 0 0 24px rgba(15, 23, 42, 0.2) !important;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.25) !important;
 }
 
 html.light-theme .eternal-btn-primary:hover {
-  background: #1e293b !important;
+  background: #27272a !important;
   color: #ffffff !important;
 }
 
 html.light-theme .eternal-btn-outline {
-  background: rgba(15, 23, 42, 0.04) !important;
-  border-color: rgba(15, 23, 42, 0.25) !important;
-  color: #0f172a !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  color: #000000 !important;
 }
 
 html.light-theme .eternal-btn-outline:hover {
-  border-color: #0f172a !important;
-  color: #0f172a !important;
+  border-color: #000000 !important;
+  color: #000000 !important;
 }
 
 /* Scroll Hint / Scroll to Bottom */
 html.light-theme .eternal-scroll-hint {
-  color: #475569 !important;
+  color: #52525b !important;
 }
 
 html.light-theme .eternal-scroll-hint:hover {
-  color: #0f172a !important;
+  color: #000000 !important;
+}
+
+/* Site Footer */
+html.light-theme .site-footer {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+  color: #000000 !important;
 }

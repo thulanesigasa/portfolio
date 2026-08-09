@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Column 1: Branding and Social */}
           <div className="footer-col footer-col-brand">
             <div className="footer-logo-wrap">
-              <span className="footer-logo-text">T.s Indurstries</span>
+              <span className="footer-logo-text">T.s Industries</span>
             </div>
             <p className="footer-desc">
               Empowering modern businesses with Next-Gen web development to bypass digital roadblocks and scale faster.
