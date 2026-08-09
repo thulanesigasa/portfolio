@@ -28,8 +28,8 @@ const HeroSection = () => {
     <section className="eternal-hero-section">
       <OrbitalHeroSection
         focus={narrow ? [0.5, 0.82] : [0.72, 0.45]}
-        scrim={narrow ? "top" : "left"}
-        scrimStrength={narrow ? 0.94 : 0.88}
+        scrim="none"
+        scrimStrength={0}
         viewRadius={narrow ? 2.2 : 3.2}
         lead={narrow ? 0.05 : 0.12}
         glow={narrow ? 0.6 : 1}

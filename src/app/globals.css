@@ -626,7 +626,8 @@ section {
   font-weight: 700;
   line-height: 1.02;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: #ffffff !important;
+  opacity: 1 !important;
   margin-bottom: 1.25rem;
   cursor: pointer;
   text-shadow: none !important;
@@ -635,14 +636,15 @@ section {
 }
 
 .eternal-title:hover {
-  color: #ffffff;
+  color: #ffffff !important;
   text-shadow: none !important;
 }
 
 .eternal-subtitle {
   font-size: clamp(1.1rem, 2.2vw, 1.4rem);
   line-height: 1.6;
-  color: #a1a1aa;
+  color: #e4e4e7 !important;
+  opacity: 0.92 !important;
   font-weight: 400;
   max-width: 540px;
   margin-bottom: 2.5rem;
@@ -662,9 +664,9 @@ section {
   align-items: center;
   gap: 0.75rem;
   padding: 0.95rem 2.2rem;
-  background: #ffffff;
-  color: #09090b;
-  font-family: var(--font-heading);
+  background: #ffffff !important;
+  color: #09090b !important;
+  font-family: var(--font-poppins), sans-serif;
   font-size: 0.88rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -677,8 +679,8 @@ section {
 }
 
 .eternal-btn-primary:hover {
-  background: #e4e4e7;
-  color: #09090b;
+  background: #e4e4e7 !important;
+  color: #09090b !important;
   box-shadow: 0 0 45px rgba(255, 255, 255, 0.4);
   transform: translateY(-2px);
 }
@@ -697,14 +699,14 @@ section {
   align-items: center;
   gap: 0.5rem;
   padding: 0.95rem 2.2rem;
-  background: rgba(255, 255, 255, 0.04);
-  color: #f4f4f5;
-  font-family: var(--font-heading);
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  font-family: var(--font-poppins), sans-serif;
   font-size: 0.88rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
   border-radius: var(--radius-full);
   cursor: pointer;
   backdrop-filter: blur(12px);
@@ -712,17 +714,17 @@ section {
 }
 
 .eternal-btn-outline:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  box-shadow: 0 0 24px var(--color-primary-glow);
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
 }
 
 .eternal-scroll-hint {
   background: transparent;
   border: none;
-  color: #71717a;
-  font-family: var(--font-heading);
+  color: #a1a1aa !important;
+  font-family: var(--font-poppins), sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -732,7 +734,7 @@ section {
 }
 
 .eternal-scroll-hint:hover {
-  color: var(--color-primary);
+  color: #ffffff !important;
 }
 
 .hero-img-wrap {
