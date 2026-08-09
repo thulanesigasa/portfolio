@@ -2529,6 +2529,27 @@ html.light-theme .eternal-scroll-hint:hover {
   color: #000000 !important;
 }
 
+/* Scroll Arrow Floating Action Button */
+html.light-theme .scroll-arrow-btn {
+  background: #000000 !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+html.light-theme .scroll-arrow-btn svg,
+html.light-theme .scroll-arrow-btn polyline {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
+
+html.light-theme .scroll-arrow-btn:hover {
+  background: #27272a !important;
+  border-color: #000000 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35) !important;
+}
+
 /* Site Footer */
 html.light-theme .site-footer {
   background: #ffffff !important;
