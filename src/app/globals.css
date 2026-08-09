@@ -2389,14 +2389,11 @@ label:has(.bubble) {
   border-radius: 50%;
 }
 
-.bubble:focus, .bubble:hover {
-  transform: scale(1.08);
+.bubble:focus, .bubble:hover, .bubble:focus:active, .bubble:hover:active {
+  transform: none !important;
+  width: 2.6em !important;
+  height: 2.6em !important;
   outline: none;
-}
-
-.bubble:focus:active, .bubble:hover:active {
-  width: 3.1em;
-  height: 2.2em;
 }
 
 .bubble:checked {
