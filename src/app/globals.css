@@ -2414,7 +2414,10 @@ label:has(.bubble) {
 }
 
 /* ─── LIGHT THEME OVERRIDES ─── */
-html.light-theme {
+html.light-theme,
+html.light-theme body {
+  background-color: #ffffff !important;
+  color: #000000 !important;
   --color-bg: #ffffff;
   --color-bg-card: rgba(255, 255, 255, 0.95);
   --color-bg-card-hover: rgba(244, 244, 245, 0.95);
@@ -2484,7 +2487,8 @@ html.light-theme .fs-menu-divider {
 
 /* Hero Section & Text */
 html.light-theme .eternal-hero-section,
-html.light-theme .orbital-hero-wrapper {
+html.light-theme .orbital-hero-wrapper,
+html.light-theme .orbital-canvas {
   background-color: #ffffff !important;
 }
 
@@ -2530,6 +2534,12 @@ html.light-theme .eternal-scroll-hint:hover {
 /* Site Footer */
 html.light-theme .site-footer {
   background: #ffffff !important;
+  background-color: #ffffff !important;
   border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-bottom: none !important;
   color: #000000 !important;
+}
+
+html.light-theme .site-footer * {
+  border-color: rgba(0, 0, 0, 0.1) !important;
 }

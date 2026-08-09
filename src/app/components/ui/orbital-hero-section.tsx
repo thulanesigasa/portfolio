@@ -153,7 +153,7 @@ export function OrbitalHeroSection({
     const host = hostRef.current;
     const canvas = canvasRef.current;
     if (!host || !canvas) return;
-    const ctx = canvas.getContext("2d", { alpha: false });
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
     const reduced =
@@ -382,8 +382,9 @@ export function OrbitalHeroSection({
     }
 
     const glowCache = new Map<string, HTMLCanvasElement>();
-    function glowSprite(color: string): HTMLCanvasElement {
-      const hit = glowCache.get(color);
+    function glowSprite(color: string, isLight: boolean): HTMLCanvasElement {
+      const cacheKey = color + (isLight ? "-light" : "-dark");
+      const hit = glowCache.get(cacheKey);
       if (hit) return hit;
       const R = 64;
       const c = document.createElement("canvas");
@@ -391,14 +392,22 @@ export function OrbitalHeroSection({
       const g2 = c.getContext("2d")!;
       const [r, g, b] = parseRGB(color);
       const grad = g2.createRadialGradient(R, R, 0, R, R, R);
-      grad.addColorStop(0, "rgba(255,255,255,1)");
-      grad.addColorStop(0.15, `rgba(${r},${g},${b},0.95)`);
-      grad.addColorStop(0.36, `rgba(${r},${g},${b},0.26)`);
-      grad.addColorStop(0.66, `rgba(${r},${g},${b},0.05)`);
-      grad.addColorStop(1, `rgba(${r},${g},${b},0)`);
+      if (isLight) {
+        grad.addColorStop(0, "rgba(0,0,0,0.85)");
+        grad.addColorStop(0.18, `rgba(${r},${g},${b},0.5)`);
+        grad.addColorStop(0.4, `rgba(${r},${g},${b},0.15)`);
+        grad.addColorStop(0.7, `rgba(${r},${g},${b},0.03)`);
+        grad.addColorStop(1, "rgba(0,0,0,0)");
+      } else {
+        grad.addColorStop(0, "rgba(255,255,255,1)");
+        grad.addColorStop(0.15, `rgba(${r},${g},${b},0.95)`);
+        grad.addColorStop(0.36, `rgba(${r},${g},${b},0.26)`);
+        grad.addColorStop(0.66, `rgba(${r},${g},${b},0.05)`);
+        grad.addColorStop(1, "rgba(0,0,0,0)");
+      }
       g2.fillStyle = grad;
       g2.fillRect(0, 0, R * 2, R * 2);
-      glowCache.set(color, c);
+      glowCache.set(cacheKey, c);
       return c;
     }
 
@@ -673,7 +682,7 @@ export function OrbitalHeroSection({
         const R = size * 3.3;
         const activeSpriteColor = isLight ? (o.el.p.lightColor || "#000000") : o.el.p.color;
         ctx!.globalAlpha = Math.min(1, 0.9 * bright);
-        ctx!.drawImage(glowSprite(activeSpriteColor), o.x - R, o.y - R, R * 2, R * 2);
+        ctx!.drawImage(glowSprite(activeSpriteColor, isLight), o.x - R, o.y - R, R * 2, R * 2);
         ctx!.globalAlpha = 1;
         ctx!.fillStyle = isLight ? "rgba(0,0,0,0.95)" : "rgba(255,255,255,0.95)";
         ctx!.beginPath();
@@ -738,10 +747,16 @@ export function OrbitalHeroSection({
     host.addEventListener("pointermove", onPointer);
     host.addEventListener("pointerleave", onLeave);
 
-    const themeObserver = new MutationObserver(() => {
+    const handleThemeChange = () => {
       glowCache.clear();
       elemsKey = "";
       render(years);
+    };
+
+    window.addEventListener("themeChange", handleThemeChange);
+
+    const themeObserver = new MutationObserver(() => {
+      handleThemeChange();
     });
     themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
 
@@ -751,6 +766,7 @@ export function OrbitalHeroSection({
       ro.disconnect();
       io.disconnect();
       themeObserver.disconnect();
+      window.removeEventListener("themeChange", handleThemeChange);
       document.removeEventListener("visibilitychange", onVisibility);
       host.removeEventListener("pointermove", onPointer);
       host.removeEventListener("pointerleave", onLeave);

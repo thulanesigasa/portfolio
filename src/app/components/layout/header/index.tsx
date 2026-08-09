@@ -63,6 +63,9 @@ const Header = () => {
     if (savedTheme === "light") {
       setIsLightMode(true);
       document.documentElement.classList.add("light-theme");
+    } else {
+      setIsLightMode(false);
+      document.documentElement.classList.remove("light-theme");
     }
   }, []);
 
@@ -94,6 +97,7 @@ const Header = () => {
       document.documentElement.classList.remove("light-theme");
       localStorage.setItem("theme", "dark");
     }
+    window.dispatchEvent(new CustomEvent("themeChange", { detail: { isLight: checked } }));
   };
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
