@@ -12,7 +12,6 @@ export type Planet = {
   peri: number;
   M0: number;
   color: string;
-  lightColor?: string;
   size: number;
   glow?: number;
 };
@@ -48,14 +47,14 @@ export interface OrbitalHeroSectionProps
 }
 
 export const SOLAR_SYSTEM: Planet[] = [
-  { name: "Mercury", a: 0.38710, e: 0.20563, i: 7.005, node: 48.331, peri: 29.125, M0: 174.796, color: "#fff0d0", lightColor: "#52525b", size: 2.2 },
-  { name: "Venus",   a: 0.72333, e: 0.00677, i: 3.395, node: 76.680, peri: 54.853, M0: 50.115,  color: "#ffc65a", lightColor: "#3f3f46", size: 3.4 },
-  { name: "Earth",   a: 1.00000, e: 0.01671, i: 0.000, node: 348.739, peri: 114.208, M0: 357.517, color: "#ffffff", lightColor: "#000000", size: 3.8, glow: 1.1 },
-  { name: "Mars",    a: 1.52371, e: 0.09339, i: 1.850, node: 49.558, peri: 286.483, M0: 19.373, color: "#e4e4e7", lightColor: "#27272a", size: 2.9 },
-  { name: "Jupiter", a: 5.20290, e: 0.04839, i: 1.303, node: 100.464, peri: 273.867, M0: 20.020, color: "#ffa62e", lightColor: "#3f3f46", size: 5.4 },
-  { name: "Saturn",  a: 9.53700, e: 0.05386, i: 2.485, node: 113.665, peri: 339.392, M0: 317.020, color: "#ffd884", lightColor: "#52525b", size: 4.8 },
-  { name: "Uranus",  a: 19.1913, e: 0.04726, i: 0.773, node: 74.006, peri: 98.999, M0: 142.238, color: "#f4f4f5", lightColor: "#27272a", size: 4.2 },
-  { name: "Neptune", a: 30.0690, e: 0.00859, i: 1.770, node: 131.784, peri: 276.336, M0: 256.228, color: "#e4e4e7", lightColor: "#18181b", size: 4.4 },
+  { name: "Mercury", a: 0.38710, e: 0.20563, i: 7.005, node: 48.331, peri: 29.125, M0: 174.796, color: "#fff0d0", size: 2.2 },
+  { name: "Venus",   a: 0.72333, e: 0.00677, i: 3.395, node: 76.680, peri: 54.853, M0: 50.115,  color: "#ffc65a", size: 3.4 },
+  { name: "Earth",   a: 1.00000, e: 0.01671, i: 0.000, node: 348.739, peri: 114.208, M0: 357.517, color: "#ffffff", size: 3.8, glow: 1.1 },
+  { name: "Mars",    a: 1.52371, e: 0.09339, i: 1.850, node: 49.558, peri: 286.483, M0: 19.373, color: "#e4e4e7", size: 2.9 },
+  { name: "Jupiter", a: 5.20290, e: 0.04839, i: 1.303, node: 100.464, peri: 273.867, M0: 20.020, color: "#ffa62e", size: 5.4 },
+  { name: "Saturn",  a: 9.53700, e: 0.05386, i: 2.485, node: 113.665, peri: 339.392, M0: 317.020, color: "#ffd884", size: 4.8 },
+  { name: "Uranus",  a: 19.1913, e: 0.04726, i: 0.773, node: 74.006, peri: 98.999, M0: 142.238, color: "#f4f4f5", size: 4.2 },
+  { name: "Neptune", a: 30.0690, e: 0.00859, i: 1.770, node: 131.784, peri: 276.336, M0: 256.228, color: "#e4e4e7", size: 4.4 },
 ];
 
 const PLANE_FAN: Array<[number, number]> = [
@@ -236,7 +235,7 @@ export function OrbitalHeroSection({
     };
 
     function elementsOf(
-      p: Planet, index: number, gamma: number, spread: number, ecc: number, align: number, isLight: boolean
+      p: Planet, index: number, gamma: number, spread: number, ecc: number, align: number
     ): Elements {
       const aDraw = Math.pow(p.a, gamma);
       const period = Math.pow(aDraw, 1.5);
@@ -246,10 +245,9 @@ export function OrbitalHeroSection({
       const target = ECC_FAN[index % ECC_FAN.length];
       const ci = Math.cos(inc), si = Math.sin(inc);
       const cn = Math.cos(node), sn = Math.sin(node);
-      const activeColor = isLight ? (p.lightColor || "#000000") : p.color;
       return {
         p,
-        rgb: parseRGB(activeColor),
+        rgb: parseRGB(p.color),
         e: Math.min(0.85, p.e + ecc * (target - p.e)),
         aDraw,
         period,
@@ -319,16 +317,15 @@ export function OrbitalHeroSection({
 
     let elems: Elements[] = [];
     let elemsKey = "";
-    function syncElements(isLight: boolean) {
+    function syncElements() {
       const C = props.current;
       const key =
-        (isLight ? "light" : "dark") + "/" +
         C.compress + "/" + C.planeSpread + "/" + C.eccentricity + "/" +
         C.alignToCourse + "/" + C.apex[0] + "," + C.apex[1] + "/" +
-        C.planets.map((p) => p.name + p.a + p.e + (isLight ? p.lightColor : p.color)).join("|");
+        C.planets.map((p) => p.name + p.a + p.e + p.color).join("|");
       if (key === elemsKey) return;
       elemsKey = key;
-      elems = C.planets.map((p, idx) => elementsOf(p, idx, C.compress, C.planeSpread, C.eccentricity, C.alignToCourse, isLight));
+      elems = C.planets.map((p, idx) => elementsOf(p, idx, C.compress, C.planeSpread, C.eccentricity, C.alignToCourse));
     }
 
     let D_NEAR = 60;
@@ -382,9 +379,8 @@ export function OrbitalHeroSection({
     }
 
     const glowCache = new Map<string, HTMLCanvasElement>();
-    function glowSprite(color: string, isLight: boolean): HTMLCanvasElement {
-      const cacheKey = color + (isLight ? "-light" : "-dark");
-      const hit = glowCache.get(cacheKey);
+    function glowSprite(color: string): HTMLCanvasElement {
+      const hit = glowCache.get(color);
       if (hit) return hit;
       const R = 64;
       const c = document.createElement("canvas");
@@ -392,22 +388,14 @@ export function OrbitalHeroSection({
       const g2 = c.getContext("2d")!;
       const [r, g, b] = parseRGB(color);
       const grad = g2.createRadialGradient(R, R, 0, R, R, R);
-      if (isLight) {
-        grad.addColorStop(0, "rgba(0,0,0,0.85)");
-        grad.addColorStop(0.18, `rgba(${r},${g},${b},0.5)`);
-        grad.addColorStop(0.4, `rgba(${r},${g},${b},0.15)`);
-        grad.addColorStop(0.7, `rgba(${r},${g},${b},0.03)`);
-        grad.addColorStop(1, "rgba(0,0,0,0)");
-      } else {
-        grad.addColorStop(0, "rgba(255,255,255,1)");
-        grad.addColorStop(0.15, `rgba(${r},${g},${b},0.95)`);
-        grad.addColorStop(0.36, `rgba(${r},${g},${b},0.26)`);
-        grad.addColorStop(0.66, `rgba(${r},${g},${b},0.05)`);
-        grad.addColorStop(1, "rgba(0,0,0,0)");
-      }
+      grad.addColorStop(0, "rgba(255,255,255,1)");
+      grad.addColorStop(0.15, `rgba(${r},${g},${b},0.95)`);
+      grad.addColorStop(0.36, `rgba(${r},${g},${b},0.26)`);
+      grad.addColorStop(0.66, `rgba(${r},${g},${b},0.05)`);
+      grad.addColorStop(1, "rgba(0,0,0,0)");
       g2.fillStyle = grad;
       g2.fillRect(0, 0, R * 2, R * 2);
-      glowCache.set(cacheKey, c);
+      glowCache.set(color, c);
       return c;
     }
 
@@ -445,15 +433,14 @@ export function OrbitalHeroSection({
     }
     function onLeave() { pointerX = 0; pointerY = 0; }
 
-    function drawSun(k: number, t: number, isLight: boolean) {
-      const sunRgb = isLight ? "0,0,0" : "255,255,255";
-      const [r, g, b] = parseRGB(isLight ? "#000000" : props.current.sunColor);
+    function drawSun(k: number, t: number) {
+      const [r, g, b] = parseRGB(props.current.sunColor);
       const pulse = 1 + Math.sin(t * 2.1) * 0.02;
       const R = Math.max(5, Math.min(width, height) * 0.013) * pulse;
 
       const haze = ctx!.createRadialGradient(cx, cy, 0, cx, cy, R * 14);
-      haze.addColorStop(0, `rgba(${sunRgb},${0.05 * k})`);
-      haze.addColorStop(0.4, isLight ? "rgba(0,0,0,0.014)" : "rgba(255,190,110,0.014)");
+      haze.addColorStop(0, `rgba(255,255,255,${0.05 * k})`);
+      haze.addColorStop(0.4, "rgba(255,190,110,0.014)");
       haze.addColorStop(1, "rgba(0,0,0,0)");
       ctx!.fillStyle = haze;
       ctx!.beginPath();
@@ -461,9 +448,9 @@ export function OrbitalHeroSection({
       ctx!.fill();
 
       const outer = ctx!.createRadialGradient(cx, cy, 0, cx, cy, R * 4.6);
-      outer.addColorStop(0, `rgba(${sunRgb},${0.34 * k})`);
-      outer.addColorStop(0.3, isLight ? "rgba(0,0,0,0.1)" : "rgba(255,222,160,0.1)");
-      outer.addColorStop(0.62, isLight ? "rgba(0,0,0,0.025)" : "rgba(255,196,110,0.025)");
+      outer.addColorStop(0, `rgba(255,255,255,${0.34 * k})`);
+      outer.addColorStop(0.3, "rgba(255,222,160,0.1)");
+      outer.addColorStop(0.62, "rgba(255,196,110,0.025)");
       outer.addColorStop(1, "rgba(0,0,0,0)");
       ctx!.fillStyle = outer;
       ctx!.beginPath();
@@ -471,8 +458,8 @@ export function OrbitalHeroSection({
       ctx!.fill();
 
       const bloom = ctx!.createRadialGradient(cx, cy, 0, cx, cy, R * 2.3);
-      bloom.addColorStop(0, isLight ? "rgba(0,0,0,1)" : "rgba(255,255,255,1)");
-      bloom.addColorStop(0.42, isLight ? "rgba(24,24,27,0.7)" : "rgba(255,252,240,0.7)");
+      bloom.addColorStop(0, "rgba(255,255,255,1)");
+      bloom.addColorStop(0.42, "rgba(255,252,240,0.7)");
       bloom.addColorStop(0.72, `rgba(${r},${g},${b},${0.22 * k})`);
       bloom.addColorStop(1, "rgba(0,0,0,0)");
       ctx!.fillStyle = bloom;
@@ -480,7 +467,7 @@ export function OrbitalHeroSection({
       ctx!.arc(cx, cy, R * 2.3, 0, TAU);
       ctx!.fill();
 
-      ctx!.fillStyle = isLight ? "rgba(0,0,0,1)" : "rgba(255,255,255,1)";
+      ctx!.fillStyle = "rgba(255,255,255,1)";
       ctx!.beginPath();
       ctx!.arc(cx, cy, R, 0, TAU);
       ctx!.fill();
@@ -492,7 +479,7 @@ export function OrbitalHeroSection({
       const isLight = typeof document !== "undefined" && document.documentElement.classList.contains("light-theme");
       
       layout();
-      syncElements(isLight);
+      syncElements();
 
       camX += (pointerX - camX) * 0.04;
       camY += (pointerY - camY) * 0.04;
@@ -543,7 +530,7 @@ export function OrbitalHeroSection({
         let a = (0.2 + sMag[s] * 1.05) * Math.pow(dRef / P.depth, 0.8) * near * far;
         if (a <= 0.012) continue;
         a *= 0.82 + 0.18 * Math.sin(t * 9 + sPhase[s]);
-        const col = isLight ? "0,0,0" : (sTint[s] === 1 ? "255,255,255" : sTint[s] === 2 ? "255,214,170" : "255,255,255");
+        const col = sTint[s] === 1 ? "255,255,255" : sTint[s] === 2 ? "255,214,170" : "255,255,255";
         const size = Math.min(2.3, 0.55 + sMag[s] * 1.5 * Math.pow(dRef / P.depth, 0.5));
         ctx!.fillStyle = `rgba(${col},${Math.min(1, a).toFixed(3)})`;
         if (size < 1.05) {
@@ -562,15 +549,9 @@ export function OrbitalHeroSection({
         project(-DIR.x * back, -DIR.y * back, -DIR.z * back);
         if (P.ok) {
           const grad = ctx!.createLinearGradient(hx, hy, P.x, P.y);
-          if (isLight) {
-            grad.addColorStop(0, `rgba(0,0,0,${k})`);
-            grad.addColorStop(0.45, `rgba(39,39,42,${0.55 * k})`);
-            grad.addColorStop(1, "rgba(0,0,0,0)");
-          } else {
-            grad.addColorStop(0, `rgba(255,246,214,${k})`);
-            grad.addColorStop(0.45, `rgba(255,206,110,${0.55 * k})`);
-            grad.addColorStop(1, "rgba(255,180,80,0)");
-          }
+          grad.addColorStop(0, `rgba(255,246,214,${k})`);
+          grad.addColorStop(0.45, `rgba(255,206,110,${0.55 * k})`);
+          grad.addColorStop(1, "rgba(255,180,80,0)");
           ctx!.strokeStyle = grad;
           ctx!.lineCap = "round";
           ctx!.beginPath();
@@ -680,11 +661,10 @@ export function OrbitalHeroSection({
         const size = o.el.p.size * depth * sizeScale;
         const bright = (o.el.p.glow ?? 1) * k;
         const R = size * 3.3;
-        const activeSpriteColor = isLight ? (o.el.p.lightColor || "#000000") : o.el.p.color;
         ctx!.globalAlpha = Math.min(1, 0.9 * bright);
-        ctx!.drawImage(glowSprite(activeSpriteColor, isLight), o.x - R, o.y - R, R * 2, R * 2);
+        ctx!.drawImage(glowSprite(o.el.p.color), o.x - R, o.y - R, R * 2, R * 2);
         ctx!.globalAlpha = 1;
-        ctx!.fillStyle = isLight ? "rgba(0,0,0,0.95)" : "rgba(255,255,255,0.95)";
+        ctx!.fillStyle = "rgba(255,255,255,0.95)";
         ctx!.beginPath();
         ctx!.arc(o.x, o.y, size * 0.5, 0, TAU);
         ctx!.fill();
@@ -692,7 +672,7 @@ export function OrbitalHeroSection({
 
       let idx = 0;
       while (idx < shots.length && shots[idx].depth > camDist) drawShot(shots[idx++]);
-      drawSun(k, t, isLight);
+      drawSun(k, t);
       while (idx < shots.length) drawShot(shots[idx++]);
 
       ctx!.globalCompositeOperation = "source-over";
@@ -748,8 +728,6 @@ export function OrbitalHeroSection({
     host.addEventListener("pointerleave", onLeave);
 
     const handleThemeChange = () => {
-      glowCache.clear();
-      elemsKey = "";
       render(years);
     };
 
