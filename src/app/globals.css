@@ -1,11 +1,11 @@
 /* ===================================================
-   T.S INDUSTRIES — PREMIUM VANILLA CSS DESIGN SYSTEM
+   T.S INDUSTRIES  PREMIUM VANILLA CSS DESIGN SYSTEM
    Dark Glassmorphism + Neon Accent Tech Portfolio
    =================================================== */
 
 /* Google Fonts loaded via preconnect <link> in layout.tsx for performance */
 
-/* ─── CSS VARIABLES ─────────────────────────────── */
+/*  CSS VARIABLES  */
 :root {
   --color-bg:           #09090b;
   --color-bg-card:      rgba(18, 18, 22, 0.65);
@@ -19,13 +19,10 @@
   --color-text:         #f4f4f5;
   --color-text-muted:   #90909c;
   --color-border:       rgba(255, 255, 255, 0.12);
-  --color-border-glow:  rgba(255, 255, 255, 0.25);
-  --color-surface:      #121215;
-  --color-surface-2:    #18181b;
-  --color-white:        #ffffff;
-  --font-heading: var(--font-outfit), sans-serif;
-  --font-body:    var(--font-outfit), sans-serif;
-  --font-body-alt: var(--font-inter), sans-serif;
+  --color-border-glow:  rgba(255, 255, 255, 0.25);  --color-white:        #ffffff;
+  --font-heading: var(--font-poppins), sans-serif;
+  --font-body:    var(--font-poppins), sans-serif;
+  --font-body-alt: var(--font-poppins), sans-serif;
 
   --radius-sm:  8px;
   --radius-md:  14px;
@@ -42,7 +39,7 @@
   --transition-slow:   480ms cubic-bezier(0.4,0,0.2,1);
 }
 
-/* ─── RESET ─────────────────────────────────────── */
+/*  RESET  */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -50,7 +47,7 @@
 }
 
 body, button, input, textarea, select, option, a, span, p, h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-poppins), sans-serif;
 }
 
 html {
@@ -60,16 +57,16 @@ html {
 }
 
 body {
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* ─── TYPOGRAPHY ─────────────────────────────────── */
+/* TYPOGRAPHY */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-outfit), sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   color: var(--color-text);
   line-height: 1.15;
   font-weight: 700;
@@ -109,7 +106,7 @@ a {
   transition: color var(--transition-base);
 }
 
-/* ─── LAYOUT ─────────────────────────────────────── */
+/*  LAYOUT  */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -128,7 +125,7 @@ section {
   position: relative;
 }
 
-/* ─── GLASSMORPHIC CARDS ─────────────────────────── */
+/*  GLASSMORPHIC CARDS  */
 .glass-card {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
@@ -146,7 +143,7 @@ section {
   transform: translateY(-4px);
 }
 
-/* ─── BUTTONS ────────────────────────────────────── */
+/*  BUTTONS  */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -167,7 +164,8 @@ section {
 }
 
 .btn-primary:hover {
-  background: #ff6220;
+  background: #ffffff;
+  color: #09090b;
   box-shadow: 0 0 40px var(--color-primary-glow);
   transform: translateY(-2px);
 }
@@ -194,7 +192,7 @@ section {
   box-shadow: 0 0 20px var(--color-primary-glow);
 }
 
-/* ─── SECTION HEADERS ────────────────────────────── */
+/*  SECTION HEADERS  */
 .section-header {
   display: flex;
   align-items: center;
@@ -217,7 +215,7 @@ section {
   border: 1px solid var(--color-primary-glow);
 }
 
-/* ─── BADGE / PILL ───────────────────────────────── */
+/*  BADGE / PILL  */
 .badge {
   display: inline-block;
   padding: 0.35rem 1rem;
@@ -236,20 +234,20 @@ section {
   color: var(--color-primary);
 }
 
-/* ─── GLOW TEXT ──────────────────────────────────── */
+/*  GLOW TEXT  */
 .text-glow {
   color: var(--color-primary);
   text-shadow: 0 0 30px var(--color-primary-glow);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #FE4300 0%, #ff8c42 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ─── DIVIDER ────────────────────────────────────── */
+/*  DIVIDER  */
 .divider {
   width: 100%;
   height: 1px;
@@ -260,7 +258,7 @@ section {
   background: linear-gradient(90deg, transparent 0%, var(--color-primary-glow) 50%, transparent 100%);
 }
 
-/* ─── NAVBAR ─────────────────────────────────────── */
+/*  NAVBAR  */
 .navbar {
   position: fixed;
   top: 0;
@@ -435,7 +433,7 @@ section {
 
 .h-100 { height: 100%; }
 
-/* ─── ETERNAL 3D HERO SECTION ─── */
+/*  ETERNAL 3D HERO SECTION  */
 .eternal-hero-section {
   position: relative;
   width: 100vw;
@@ -445,32 +443,37 @@ section {
   margin-right: calc(-50vw + 50%);
   overflow: hidden;
   background-color: #09090b;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 3rem 5vw;
   box-sizing: border-box;
 }
 
-.hana-webgl-wrapper {
-  position: absolute;
-  inset: 0;
-  width: 100vw !important;
-  height: 100vh !important;
-  z-index: 0;
+.orbital-hero-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #09090b;
 }
 
-hana-viewer {
-  width: 100vw !important;
-  height: 100vh !important;
+.orbital-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
   display: block;
-  border: none;
-  transform: scale(0.92);
-  transform-origin: center center;
+}
+
+.orbital-children-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 4rem 5vw;
+  box-sizing: border-box;
 }
 
 .eternal-hero-overlay-content {
@@ -618,20 +621,22 @@ hana-viewer {
 }
 
 .eternal-title {
-  font-family: var(--font-heading);
+  font-family: var(--font-poppins), sans-serif;
   font-size: clamp(3rem, 7.5vw, 5.8rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.02;
   letter-spacing: -0.02em;
   color: #ffffff;
   margin-bottom: 1.25rem;
   cursor: pointer;
-  transition: text-shadow var(--transition-base), color var(--transition-base);
+  text-shadow: none !important;
+  text-transform: none !important;
+  transition: color var(--transition-base);
 }
 
 .eternal-title:hover {
   color: #ffffff;
-  text-shadow: 0 0 35px rgba(254, 67, 0, 0.4);
+  text-shadow: none !important;
 }
 
 .eternal-subtitle {
@@ -657,8 +662,8 @@ hana-viewer {
   align-items: center;
   gap: 0.75rem;
   padding: 0.95rem 2.2rem;
-  background: var(--color-primary);
-  color: #ffffff;
+  background: #ffffff;
+  color: #09090b;
   font-family: var(--font-heading);
   font-size: 0.88rem;
   font-weight: 700;
@@ -667,13 +672,14 @@ hana-viewer {
   border: none;
   border-radius: var(--radius-full);
   cursor: pointer;
-  box-shadow: 0 0 30px var(--color-primary-glow);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
   transition: all var(--transition-base);
 }
 
 .eternal-btn-primary:hover {
-  background: #ff5514;
-  box-shadow: 0 0 45px var(--color-primary-glow);
+  background: #e4e4e7;
+  color: #09090b;
+  box-shadow: 0 0 45px rgba(255, 255, 255, 0.4);
   transform: translateY(-2px);
 }
 
@@ -766,7 +772,7 @@ hana-viewer {
   display: block;
 }
 
-/* ─── CONTACT BAR ────────────────────────────────── */
+/*  CONTACT BAR  */
 .contact-bar {
   padding: 1.2rem 0;
   border-top: 1px solid var(--color-border);
@@ -837,7 +843,7 @@ hana-viewer {
   filter: brightness(0) saturate(100%) invert(35%) sepia(90%) saturate(600%) hue-rotate(10deg) brightness(1.1);
 }
 
-/* ─── ABOUT SECTION ──────────────────────────────── */
+/*  ABOUT SECTION  */
 .about-section {
   padding: 7rem 0;
   background: var(--color-surface);
@@ -928,7 +934,7 @@ hana-viewer {
   margin-right: 0.5rem;
 }
 
-/* ─── JOURNEY / EXPERIENCE ───────────────────────── */
+/*  JOURNEY / EXPERIENCE  */
 .journey-section {
   padding: 7rem 0;
   background: var(--color-bg);
@@ -1038,7 +1044,7 @@ hana-viewer {
   .timeline-line-col { display: none; }
 }
 
-/* ─── SERVICES / SKILLS ──────────────────────────── */
+/*  SERVICES / SKILLS  */
 .services-section {
   padding: 7rem 0;
   background: var(--color-surface);
@@ -1166,7 +1172,7 @@ hana-viewer {
 .skill-dot.filled { background: var(--color-primary); box-shadow: 0 0 6px var(--color-primary-glow); }
 .skill-dot.empty  { background: rgba(255,255,255,0.12); }
 
-/* ─── PORTFOLIO / WORKS ──────────────────────────── */
+/*  PORTFOLIO / WORKS  */
 .works-section {
   padding: 7rem 0;
   background: var(--color-bg);
@@ -1261,7 +1267,7 @@ hana-viewer {
   border: 1px solid rgba(0,0,0,0.08);
 }
 
-/* Gradient footer overlay — always slightly visible, more on hover */
+/* Gradient footer overlay  always slightly visible, more on hover */
 .work-card-overlay {
   position: absolute;
   inset: 0;
@@ -1323,7 +1329,7 @@ hana-viewer {
   transform: rotate(45deg);
 }
 
-/* ─── CONTACT SECTION ────────────────────────────── */
+/*  CONTACT SECTION  */
 .contact-section {
   padding: 7rem 0;
   background: var(--color-surface);
@@ -1467,7 +1473,7 @@ hana-viewer {
   cursor: not-allowed;
 }
 
-/* ─── FOOTER ─────────────────────────────────────── */
+/*  FOOTER  */
 .site-footer {
   padding: 4rem 0 2rem;
   background: var(--color-bg);
@@ -1581,7 +1587,7 @@ hana-viewer {
   }
 }
 
-/* ─── ANIMATIONS ─────────────────────────────────── */
+/*  ANIMATIONS  */
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--color-primary); }
   50% { opacity: 0.6; box-shadow: 0 0 16px var(--color-primary); }
@@ -1617,7 +1623,7 @@ hana-viewer {
   transform: translateY(0);
 }
 
-/* ─── HERO IMAGE FRAME ───────────────────────────── */
+/*  HERO IMAGE FRAME  */
 .hero-img-frame {
   position: relative;
   border-radius: var(--radius-xl);
@@ -1639,7 +1645,7 @@ hana-viewer {
   mix-blend-mode: screen;
 }
 
-/* ─── ABOUT VISUAL CARD ──────────────────────────── */
+/*  ABOUT VISUAL CARD  */
 .about-visual {
   display: flex;
   justify-content: center;
@@ -1732,7 +1738,7 @@ hana-viewer {
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
-/* ─── SKILL TAGS ─────────────────────────────────── */
+/*  SKILL TAGS  */
 .skill-tags-wrap {
   padding-top: 1rem;
 }
@@ -1788,7 +1794,7 @@ hana-viewer {
   background: var(--color-primary);
 }
 
-/* ─── WORK OVERLAY ICON FIX ──────────────────────── */
+/*  WORK OVERLAY ICON FIX  */
 .work-card-overlay-icon {
   width: 52px;
   height: 52px;
@@ -1813,7 +1819,7 @@ hana-viewer {
 }
 ::-webkit-scrollbar-thumb:hover { opacity: 1; }
 
-/* ─── NAV LINKS ──────────────────────────────────── */
+/*  NAV LINKS  */
 .nav-links {
   display: flex;
   align-items: center;
@@ -1880,7 +1886,7 @@ hana-viewer {
   .nav-cta { display: none; }
 }
 
-/* ─── HAMBURGER ────────────────────────────────────── */
+/*  HAMBURGER  */
 .hamburger {
   position: relative;
   display: flex;
@@ -1913,7 +1919,7 @@ hana-viewer {
 
 
 
-/* ─── MOBILE NAV ─────────────────────────────────── */
+/*  MOBILE NAV  */
 .mobile-nav {
   display: flex;
   flex-direction: column;
@@ -1940,7 +1946,7 @@ hana-viewer {
   padding-left: 1.4rem;
 }
 
-/* ─── PLAIN SOCIAL ICONS ─────────────────────────── */
+/*  PLAIN SOCIAL ICONS  */
 .social-icon-plain {
   display: flex;
   align-items: center;
@@ -1965,7 +1971,7 @@ hana-viewer {
   filter: brightness(0) invert(0.55);
 }
 
-/* ─── SCROLL ARROW BUTTON ────────────────────────── */
+/*  SCROLL ARROW BUTTON  */
 .scroll-arrow-btn {
   position: fixed;
   right: 1.75rem;
@@ -1996,7 +2002,7 @@ hana-viewer {
 }
 
 
-/* ─── UTILITIES ──────────────────────────────────── */
+/*  UTILITIES  */
 .sr-only {
   position: absolute;
   width: 1px; height: 1px;

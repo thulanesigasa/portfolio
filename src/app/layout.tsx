@@ -1,22 +1,15 @@
 import type { Metadata } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "./components/layout/header";
 import Footer from "./components/layout/footer";
 import ScrollArrow from "./components/layout/scroll-arrow";
 import ScrollRestorationHandler from "./components/ui/scroll-restoration-handler";
 
-const outfit = Outfit({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-poppins",
   weight: ["300", "400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["300", "400", "500", "600"],
   display: "swap",
 });
 
@@ -73,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html lang="en" className={poppins.variable} suppressHydrationWarning>
       <head>
         <link rel="dns-prefetch" href="https://formsubmit.co" />
         <script
