@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const fullMenuData = [
@@ -56,6 +56,15 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeMenuIndex, setActiveMenuIndex] = useState<number | null>(null);
+  const [isLightMode, setIsLightMode] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      setIsLightMode(true);
+      document.documentElement.classList.add("light-theme");
+    }
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -66,7 +75,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Prevent background scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
@@ -75,6 +83,18 @@ const Header = () => {
     }
     return () => { document.body.style.overflow = "auto"; };
   }, [menuOpen]);
+
+  const toggleTheme = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const checked = e.target.checked;
+    setIsLightMode(checked);
+    if (checked) {
+      document.documentElement.classList.add("light-theme");
+      localStorage.setItem("theme", "light");
+    } else {
+      document.documentElement.classList.remove("light-theme");
+      localStorage.setItem("theme", "dark");
+    }
+  };
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("#")) {
@@ -91,7 +111,17 @@ const Header = () => {
       <header className={`navbar${scrolled ? " scrolled" : ""}`}>
         <div className="container">
           <div className="nav-inner">
-            <div className="nav-right" style={{ width: "100%", justifyContent: "flex-end" }}>
+            <div className="nav-right" style={{ width: "100%", justifyContent: "flex-end", display: "flex", alignItems: "center", gap: "1.25rem" }}>
+              {/* Uiverse Black & White Bubble Theme Toggle */}
+              <label aria-label="Toggle Theme" style={{ display: "inline-flex", alignItems: "center", cursor: "pointer" }}>
+                <input
+                  type="checkbox"
+                  className="bubble"
+                  checked={isLightMode}
+                  onChange={toggleTheme}
+                />
+              </label>
+
               <button
                 className={`hamburger${menuOpen ? " open" : ""}`}
                 onClick={() => setMenuOpen((v) => !v)}
@@ -114,7 +144,6 @@ const Header = () => {
       >
         <div className="container h-100">
           <div className="fs-menu-content" onClick={(e) => e.stopPropagation()}>
-            {/* Left Column: Main Navigation (Accordion) */}
             <div className="fs-menu-left">
               <nav className="fs-main-nav">
                 <ul>
@@ -160,7 +189,6 @@ const Header = () => {
               </nav>
             </div>
 
-            {/* Right Column: Projects, Links, Addresses */}
             <div className="fs-menu-right">
               <div className="fs-menu-top-row">
                 <div className="fs-menu-block">
