@@ -1,10 +1,14 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+
+const SPLINE_SCENE_URL = "https://my.spline.design/theeternalarc-7fKloLQM5KzyMJontNr8hiEK-rma/";
 
 const HeroSection = () => {
+  const [isSplineLoaded, setIsSplineLoaded] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  // Particle background animation as fallback / ambient layer
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -13,8 +17,12 @@ const HeroSection = () => {
 
     let animId: number;
     const particles: Array<{
-      x: number; y: number; vx: number; vy: number;
-      radius: number; opacity: number;
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      radius: number;
+      opacity: number;
     }> = [];
 
     const resize = () => {
@@ -71,7 +79,10 @@ const HeroSection = () => {
     init();
     draw();
 
-    const handleResize = () => { resize(); init(); };
+    const handleResize = () => {
+      resize();
+      init();
+    };
     window.addEventListener("resize", handleResize);
     return () => {
       cancelAnimationFrame(animId);
@@ -92,25 +103,46 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="hero-section">
-      <canvas ref={canvasRef} id="particles-canvas" />
+    <section className="hero-section hero-spline-section">
+      {/* 3D Spline Background Canvas */}
+      <div className="hero-spline-container">
+        {!isSplineLoaded && (
+          <div className="hero-spline-loader">
+            <div className="spline-spinner" />
+            <span>Loading 3D Experience…</span>
+          </div>
+        )}
+        <iframe
+          src={SPLINE_SCENE_URL}
+          className={`hero-spline-iframe ${isSplineLoaded ? "loaded" : ""}`}
+          title="Eternal Arc 3D Scene"
+          onLoad={() => setIsSplineLoaded(true)}
+          allow="autoplay; fullscreen; vr"
+        />
+      </div>
+
+      {/* Particle Canvas & Radial Gradient Ambient Layer */}
+      <canvas ref={canvasRef} id="particles-canvas" className="hero-particles-layer" />
       <div className="hero-bg-gradient" />
 
-      <div className="container">
-        <div className="hero-content-single">
-
+      {/* Hero Glassmorphism Content Overlay */}
+      <div className="container hero-content-container">
+        <div className="hero-glass-card reveal">
+          <div className="hero-badge">
+            <span className="badge-pulse" />
+            <span>NEXT-GEN DIGITAL LAB</span>
+          </div>
 
           <h1 className="hero-title gradient-text">
-            T.s Indurstries
+            T.s Industries
           </h1>
           <h2 className="hero-subtitle">
-            Portfolio
+            Portfolio &amp; Engineering Showcase
           </h2>
 
           <p className="hero-desc">
-            We are a tech startup specializing in modern web development,
-            custom software engineering, and premium digital solutions that
-            help businesses scale.
+            Empowering modern businesses with high-performance web applications, 
+            custom software engineering, and state-of-the-art interactive 3D digital experiences.
           </p>
 
           <div className="hero-cta-row">
@@ -122,7 +154,7 @@ const HeroSection = () => {
               className="btn-outline"
               onClick={handleWorkScroll}
             >
-              Our Work
+              Explore Our Work
             </a>
           </div>
         </div>
