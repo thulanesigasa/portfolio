@@ -738,11 +738,19 @@ export function OrbitalHeroSection({
     host.addEventListener("pointermove", onPointer);
     host.addEventListener("pointerleave", onLeave);
 
+    const themeObserver = new MutationObserver(() => {
+      glowCache.clear();
+      elemsKey = "";
+      render(years);
+    });
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+
     return () => {
       running = false;
       cancelAnimationFrame(raf);
       ro.disconnect();
       io.disconnect();
+      themeObserver.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
       host.removeEventListener("pointermove", onPointer);
       host.removeEventListener("pointerleave", onLeave);
