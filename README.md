@@ -137,3 +137,9 @@ The journey inserts these ranges chronologically by first commit, preserving the
 existing studio milestones. These are repository activity dates, not launch dates.
 Each date links to its exact source commit; display uses Africa/Johannesburg time.
 The history is a checked snapshot and is not fetched at page load.
+
+Project stories include audience context, three practical strengths and an example
+use case, shared through `src/app/data/project-benefits.ts` for all 12 projects.
+Benefits describe how the documented features can help people, without claiming
+measured outcomes. Repository call-to-action links have been removed; the verified
+commit-date sources remain part of the development history.

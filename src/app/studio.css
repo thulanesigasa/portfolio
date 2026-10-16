@@ -2130,8 +2130,8 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
   isolation: isolate;
   overflow: hidden;
   margin: 0;
-  min-height: 310px;
-  aspect-ratio: 1.4;
+  min-height: 245px;
+  aspect-ratio: 1.75;
   padding: 24px 0 48px;
   border-top: 1px solid #d9c99d;
   display: flex;
@@ -2156,7 +2156,7 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
 .project-type-art .project-type-name {
   position: relative;
   margin: 26px 0;
-  font-size: clamp(46px, 5.4vw, 78px);
+  font-size: clamp(38px, 4.4vw, 64px);
   letter-spacing: -0.065em;
   font-weight: 600;
   line-height: 0.9;
@@ -2292,7 +2292,7 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
 }
 .type-rhyma-music .project-type-name {
   text-transform: uppercase;
-  font-size: clamp(45px, 5vw, 74px);
+  font-size: clamp(38px, 4.2vw, 62px);
   font-weight: 800;
   letter-spacing: -0.07em;
 }
@@ -2341,14 +2341,14 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
 }
 .studio-home .project-type-detail {
   aspect-ratio: auto;
-  min-height: 400px;
-  max-width: 900px;
+  min-height: 330px;
+  max-width: 760px;
   padding-left: 30px;
   padding-right: 30px;
   margin: 0 auto 70px;
 }
 .project-type-detail .project-type-name {
-  font-size: clamp(65px, 9vw, 120px);
+  font-size: clamp(54px, 7.5vw, 100px);
 }
 .project-story h2 {
   font-size: clamp(26px, 3vw, 38px);
@@ -2425,13 +2425,13 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
 }
 @media (max-width: 760px) {
   .project-type-art {
-    min-height: 270px;
+    min-height: 230px;
   }
   .project-type-art .project-type-name {
-    font-size: clamp(40px, 7.5vw, 62px);
+    font-size: clamp(34px, 6.3vw, 52px);
   }
   .project-type-detail .project-type-name {
-    font-size: clamp(65px, 12vw, 100px);
+    font-size: clamp(54px, 10vw, 84px);
   }
   .project-type-meta {
     font-size: 8px;
@@ -2444,16 +2444,16 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
 }
 @media (max-width: 500px) {
   .project-type-art {
-    min-height: 300px;
+    min-height: 240px;
   }
   .project-type-art .project-type-name {
-    font-size: clamp(46px, 13vw, 65px);
+    font-size: clamp(38px, 11vw, 54px);
   }
   .project-type-detail {
     padding-inline: 0;
   }
   .project-type-detail .project-type-name {
-    font-size: clamp(46px, 14vw, 70px);
+    font-size: clamp(40px, 12vw, 60px);
   }
   .project-story {
     padding-top: 35px;
@@ -2474,7 +2474,7 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
 }
 
 .type-geni .project-type-name {
-  font-size: clamp(75px, 10vw, 145px);
+  font-size: clamp(62px, 8.3vw, 120px);
   font-weight: 800;
   letter-spacing: -0.09em;
 }
@@ -2502,7 +2502,7 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
   transform: skewY(-12deg);
 }
 .type-rulership-erp .project-type-name {
-  font-size: clamp(40px, 4.6vw, 66px);
+  font-size: clamp(34px, 3.8vw, 55px);
 }
 .type-rulership-erp .project-type-name > span:last-child {
   font-size: 1.5em;
@@ -2610,14 +2610,74 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
 }
 @media (max-width: 760px) {
   .type-geni .project-type-name {
-    font-size: clamp(75px, 15vw, 115px);
+    font-size: clamp(62px, 12.5vw, 96px);
   }
   .type-rulership-erp .project-type-name {
-    font-size: clamp(35px, 6vw, 58px);
+    font-size: clamp(30px, 5vw, 48px);
   }
 }
 @media (max-width: 500px) {
   .type-rulership-erp .project-type-name {
-    font-size: clamp(36px, 10vw, 50px);
+    font-size: clamp(30px, 8.3vw, 42px);
+  }
+}
+
+.project-story-benefits {
+  margin-bottom: 65px;
+}
+.project-story-benefits > header {
+  max-width: 760px;
+}
+.project-story-benefits h2 {
+  margin-top: 18px;
+}
+.project-story-benefits > header > p:last-child {
+  color: var(--studio-muted);
+  font-size: 16px;
+  line-height: 1.85;
+  margin: 22px 0 32px;
+}
+.project-story-benefits ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 35px;
+}
+.project-story-benefits li {
+  border-top: 1px solid var(--studio-line);
+  padding-top: 20px;
+}
+.project-story-benefits li > span {
+  font-size: 11px;
+  color: var(--studio-accent);
+}
+.project-story-benefits h3 {
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.035em;
+  margin: 18px 0 14px;
+}
+.project-story-benefits li > p {
+  font-size: 14px;
+  color: var(--studio-muted);
+  line-height: 1.8;
+}
+@media (max-width: 760px) {
+  .project-story-benefits ol {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .project-story-benefits h3 {
+    margin-top: 12px;
+  }
+}
+
+.studio-project h3 {
+  font-size: 20px;
+  margin-top: 15px;
+}
+@media (max-width: 500px) {
+  .studio-project h3 {
+    font-size: 18px;
   }
 }
