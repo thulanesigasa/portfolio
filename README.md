@@ -114,3 +114,11 @@ First-page PDF previews are stored as WebP images, with dimensions in
 certificate, run `python scripts/render-certificate-previews.py` (Poppler and Pillow
 required). Commit the catalogue, previews and manifest together. Issuer/skill filters,
 search and counts derive from the catalogue; the viewer links to the original PDF.
+
+The homepage interface lab uses `InteractiveScreenOrbit`: six original app screens
+on a CSS 3D ring. Pointer dragging rotates the ring, mouse vertical dragging tilts
+it, and touch keeps normal vertical page scrolling. Arrow keys and buttons navigate;
+Home or Reset view restores the front view. Selecting a screen pauses rotation and
+opens its native lightbox. Automatic rotation pauses offscreen/in background tabs
+and is disabled when reduced motion is requested. Run the geometry checks with
+`node --test tests/screen-orbit.test.mjs`.

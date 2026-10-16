@@ -1996,3 +1996,234 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
     transform: none;
   }
 }
+/* Interactive interface lab: a CSS 3D orbit driven by pointer and keyboard input. */
+.orbit-showcase {
+  min-width: 0;
+  width: 100%;
+  color: var(--studio-ink);
+  isolation: isolate;
+}
+.orbit-showcase > header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 8px;
+  letter-spacing: 1.6px;
+  color: var(--studio-accent);
+  padding: 10px 0;
+}
+.orbit-stage {
+  position: relative;
+  height: 520px;
+  perspective: 950px;
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.orbit-stage.is-dragging,
+.orbit-stage.is-dragging .screen-preview-trigger {
+  cursor: grabbing;
+}
+.orbit-rotor {
+  position: absolute !important;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--orbit-x, -10deg)) rotateY(var(--orbit-y, 0deg));
+  will-change: transform;
+}
+.orbit-rotor > .orbit-card {
+  position: absolute;
+  left: -75px;
+  top: -170px;
+  width: 150px;
+  list-style: none;
+  transform: rotateY(var(--screen-angle)) translateZ(175px);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.orbit-card > .screen-preview-trigger {
+  cursor: grab;
+}
+.orbit-card > .screen-preview-trigger .screen-print:after {
+  display: none;
+}
+.orbit-card > .screen-preview-trigger .screen-image {
+  box-shadow: 0 14px 30px #30291d24;
+  filter: none;
+  transform: none;
+  border-radius: 0;
+}
+.orbit-card .screen-enlarge-hint {
+  display: none;
+}
+.orbit-card-caption {
+  display: block;
+  margin-top: 12px;
+  font-size: 6px;
+  letter-spacing: 0.7px;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--studio-muted);
+  pointer-events: none;
+}
+.orbit-card.is-active > .orbit-card-caption {
+  color: var(--studio-accent);
+}
+.orbit-ground {
+  position: absolute;
+  left: 50%;
+  bottom: 65px;
+  width: 350px;
+  height: 95px;
+  transform: translateX(-50%);
+  border: 1px solid #d9c99d77;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #d9c99d22, transparent 70%);
+  pointer-events: none;
+}
+.orbit-instructions {
+  text-align: center;
+  font-size: 9px !important;
+  color: var(--studio-muted);
+  margin: 0 0 22px;
+}
+.orbit-instructions > span {
+  padding: 0 10px;
+  color: var(--studio-accent);
+}
+.orbit-showcase > footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.orbit-showcase > footer > nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.orbit-showcase > footer button {
+  min-height: 44px;
+  min-width: 40px;
+  border: 0;
+  border-bottom: 1px solid var(--studio-line);
+  padding: 10px 8px;
+  background: transparent;
+  color: var(--studio-ink);
+  font: inherit;
+  font-size: 9px;
+  cursor: pointer;
+}
+.orbit-showcase > footer button[aria-pressed="true"] {
+  border-color: var(--studio-accent);
+  color: var(--studio-accent);
+}
+.orbit-showcase > footer button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.orbit-selected {
+  margin: 0;
+  font-size: 11px !important;
+  line-height: 1.5 !important;
+}
+.orbit-selected > a {
+  color: var(--studio-accent);
+}
+.orbit-selected > span {
+  display: block;
+  font-size: 8px;
+  color: var(--studio-muted);
+  margin-top: 5px;
+}
+.orbit-showcase :focus-visible {
+  outline: 2px solid var(--studio-accent);
+  outline-offset: 5px;
+}
+@media (max-width: 1050px) {
+  .orbit-rotor > .orbit-card {
+    transform: rotateY(var(--screen-angle)) translateZ(140px);
+  }
+  .orbit-stage {
+    height: 480px;
+  }
+  .orbit-ground {
+    width: 285px;
+  }
+  .orbit-showcase > footer {
+    justify-content: center;
+  }
+  .orbit-selected {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media (max-width: 760px) {
+  .orbit-showcase {
+    max-width: 600px;
+    margin: auto;
+  }
+  .orbit-stage {
+    height: 490px;
+  }
+  .orbit-showcase > footer {
+    justify-content: space-between;
+  }
+  .orbit-selected {
+    width: auto;
+    text-align: left;
+  }
+}
+@media (max-width: 500px) {
+  .orbit-stage {
+    height: 420px;
+    perspective: 800px;
+  }
+  .orbit-rotor > .orbit-card {
+    width: 130px;
+    left: -65px;
+    top: -150px;
+    transform: rotateY(var(--screen-angle)) translateZ(112px);
+  }
+  .orbit-ground {
+    width: 250px;
+    height: 70px;
+    bottom: 55px;
+  }
+  .orbit-showcase > header {
+    font-size: 7px;
+  }
+  .orbit-showcase > footer {
+    gap: 20px;
+    justify-content: center;
+  }
+  .orbit-selected {
+    width: 100%;
+    text-align: center;
+  }
+  .orbit-instructions {
+    font-size: 8px !important;
+  }
+  .orbit-showcase > footer button {
+    font-size: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orbit-rotor {
+    will-change: auto;
+  }
+  .orbit-showcase * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
