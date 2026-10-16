@@ -11,7 +11,7 @@ export default function RefundPolicy() {
           Refund <span style={{ fontWeight: 300 }}>Policy</span>
         </h1>
         <div style={{ color: 'var(--color-text-muted)', lineHeight: 1.8, fontSize: '1.1rem' }}>
-          <p>At TS Industries, we pride ourselves on delivering the highest quality digital products, custom software architectures, and comprehensive design services. Because of the highly bespoke and custom nature of software development, our refund policy is strictly structured and designed to protect both the intellectual property of our agency and the financial commitment of our clients.</p>
+          <p>At Ts Industries, we pride ourselves on delivering the highest quality digital products, custom software architectures, and comprehensive design services. Because of the highly bespoke and custom nature of software development, our refund policy is strictly structured and designed to protect both the intellectual property of our agency and the financial commitment of our clients.</p>
 
           <h3 style={{ color: 'var(--color-text)', marginTop: '2.5rem', fontSize: '1.5rem' }}>1. Custom Services & Software Development</h3>
           <p>For custom web applications, robust SaaS solutions, enterprise design systems, and any consulting services, refunds are generally not provided once tangible work has commenced. Our development process is highly collaborative, requiring client approval at various critical milestones to ensure the project meets expectations before continuing.</p>

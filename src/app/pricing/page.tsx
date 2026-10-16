@@ -138,7 +138,7 @@ export default function Pricing() {
     <main className="site-services pricing-page">
       <BackButton />
       <header>
-        <p className="studio-eyebrow">TS INDUSTRIES / PRICING</p>
+        <p className="studio-eyebrow">Ts Industries / PRICING</p>
         <h1>
           Clear starting points.
           <br />

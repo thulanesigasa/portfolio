@@ -36,7 +36,7 @@ const HeroSection = () => {
       >
         <div className="eternal-hero-overlay-content">
           <h1 className="eternal-title" onClick={scrollToSection("about")}>
-            T.s Industries
+            Ts Industries
           </h1>
 
           <p className="eternal-subtitle">

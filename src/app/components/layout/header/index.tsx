@@ -25,14 +25,14 @@ export default function Header() {
       <a className="skip-link" href="#content-start">
         Skip to content
       </a>
-      <Link className="studio-brand" href="/" aria-label="TS Industries home">
+      <Link className="studio-brand" href="/" aria-label="Ts Industries home">
         <Image
           className="studio-logo"
           src="/images/logo/ts-industries-transparent.png"
-          alt="TS Industries — Thulane Sigasa"
+          alt="Ts Industries — Thulane Sigasa"
           width={1774}
           height={887}
-          sizes="180px"
+          sizes="112px"
           priority
         />
       </Link>

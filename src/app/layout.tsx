@@ -15,7 +15,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ts-industries.co.za"),
-  title: "TS Industries | Websites, Apps & Custom Software",
+  title: "Ts Industries | Websites, Apps & Custom Software",
   description:
     "An independent digital studio in South Africa. We design and build distinctive websites, mobile apps and custom software.",
   keywords: [
@@ -26,18 +26,18 @@ export const metadata: Metadata = {
     "React",
     "Next.js",
   ],
-  authors: [{ name: "T.s Industries" }],
+  authors: [{ name: "Ts Industries" }],
   icons: {
     icon: "/images/icon/icon.png",
     shortcut: "/images/icon/icon.png",
     apple: "/images/icon/icon.png",
   },
   openGraph: {
-    title: "TS Industries | Websites, Apps & Custom Software",
+    title: "Ts Industries | Websites, Apps & Custom Software",
     description:
-      "T.s Industries specializes in modern web development, custom software engineering, and premium digital solutions.",
+      "Ts Industries specializes in modern web development, custom software engineering, and premium digital solutions.",
     url: "https://ts-industries.co.za",
-    siteName: "T.s Industries",
+    siteName: "Ts Industries",
     type: "website",
     locale: "en_ZA",
     images: [
@@ -46,15 +46,15 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/png",
-        alt: "T.s Industries - Thulane Sigasa",
+        alt: "Ts Industries - Thulane Sigasa",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TS Industries | Websites, Apps & Custom Software",
+    title: "Ts Industries | Websites, Apps & Custom Software",
     description:
-      "T.s Industries specializes in modern web development, custom software engineering, and premium digital solutions.",
+      "Ts Industries specializes in modern web development, custom software engineering, and premium digital solutions.",
     images: ["https://ts-industries.co.za/images/og-preview.png"],
   },
   alternates: {
@@ -85,7 +85,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "T.s Industries",
+              name: "Ts Industries",
               url: "https://ts-industries.co.za",
               logo: "https://ts-industries.co.za/images/logo/ts-industries-transparent.png",
               description:

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Ndivhu & Mpho — TS Industries",
+  title: "Ndivhu & Mpho — Ts Industries",
   alternates: { canonical: "/work/ndivhu-mpho/" },
 };
 

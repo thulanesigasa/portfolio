@@ -1,6 +1,6 @@
-# T.S Industries — Premium Tech Portfolio & Case Studies
+# Ts Industries — Premium Tech Portfolio & Case Studies
 
-A high-performance, visually stunning Next.js and Vanilla CSS portfolio agency website showcasing custom web applications, SaaS platforms, mobile designs, and product case studies developed by **T.S Industries** since 2024.
+A high-performance, visually stunning Next.js and Vanilla CSS portfolio agency website showcasing custom web applications, SaaS platforms, mobile designs, and product case studies developed by **Ts Industries** since 2024.
 
 ---
 
@@ -69,10 +69,10 @@ To ensure this site stays fully production-ready when deploying live:
 
 ## License & Credits
 
-- **Copyright:** All rights, designs, source code, and assets are owned by **T.S Industries** and the respective client IP owners (Hokma Tech, rbptech, Rhyma).
-- **Development & Design:** Built with excellence by the T.S Industries engineering team, with front-end implementation contributions from Mpho.
+- **Copyright:** All rights, designs, source code, and assets are owned by **Ts Industries** and the respective client IP owners (Hokma Tech, rbptech, Rhyma).
+- **Development & Design:** Built with excellence by the Ts Industries engineering team, with front-end implementation contributions from Mpho.
 
-## TS Industries portfolio
+## Ts Industries portfolio
 
 The shared visual hierarchy uses a white canvas (60), supporting gold (30), and
 yellow action accents (10), with dark text for readability. These are visual

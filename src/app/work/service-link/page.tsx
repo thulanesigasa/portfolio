@@ -5,7 +5,7 @@ import Link from "next/link";
 import ImageCarousel from "@/app/components/ui/image-carousel";
 
 export const metadata: Metadata = {
-  title: "Service Link — TS Industries",
+  title: "Service Link — Ts Industries",
   alternates: { canonical: "/work/service-link/" },
 };
 

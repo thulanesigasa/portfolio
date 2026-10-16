@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Resume Build — TS Industries",
+  title: "Resume Build — Ts Industries",
   alternates: { canonical: "/work/resume-build/" },
 };
 

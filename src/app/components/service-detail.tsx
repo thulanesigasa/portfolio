@@ -13,7 +13,7 @@ export default function ServiceDetail(p: Props) {
     <main className="site-services">
       <BackButton />
       <header>
-        <p className="studio-eyebrow">TS INDUSTRIES / EXPERTISE</p>
+        <p className="studio-eyebrow">Ts Industries / EXPERTISE</p>
         <h1>{p.title}</h1>
         <p>{p.intro}</p>
       </header>

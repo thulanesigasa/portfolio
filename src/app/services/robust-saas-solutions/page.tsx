@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ServiceDetail from "../../components/service-detail";
 export const metadata: Metadata = {
-  title: "Robust SaaS Solutions | TS Industries",
+  title: "Robust SaaS Solutions | Ts Industries",
   alternates: { canonical: "/services/robust-saas-solutions/" },
 };
 export default function Page() {
