@@ -96,7 +96,8 @@ preserving the black signature, circular industries text and 2024.
 The homepage uses `src/app/studio.css`, with selected projects before services,
 process, studio information and the project enquiry form. Six project identities
 use live typography and CSS linework through `ProjectGraphic`, replacing screenshot
-thumbnails. Each full graphic links to its existing `/work/` URL. Shared project
+thumbnails. The homepage shows two featured projects; `/work/` contains the full collection.
+Each full graphic links to its existing project URL. Shared project
 content in `src/app/data/projects.ts` supplies the overview, features, technology
 stack, contribution credits and any public live link to `ProjectStory`. Technology
 names were checked against the respective project repositories, rather than the

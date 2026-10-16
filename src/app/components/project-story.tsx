@@ -9,7 +9,7 @@ export default function ProjectStory({ slug }: { slug: string }) {
   const next = projects[(index + 1) % projects.length];
   return (
     <main id="main-content" className="studio-home project-story">
-      <Link className="studio-text-link" href="/#works">
+      <Link className="studio-text-link" href="/work">
         ← All projects
       </Link>
       <header className="project-story-heading">
