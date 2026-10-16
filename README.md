@@ -105,3 +105,10 @@ and app galleries. CSS renders a gold device frame around screenshots in their
 original colours. Native dialog previews support Escape, close and backdrop
 dismissal. The
 carousel uses slide offsets for navigation and scopes scrollbar styling to its rail.
+
+The certificate gallery reads its catalogue from `src/app/data/certificates.ts`.
+First-page PDF previews are stored as WebP images, with dimensions in
+`src/app/data/certificate-previews.json`. To regenerate after adding or updating a
+certificate, run `python scripts/render-certificate-previews.py` (Poppler and Pillow
+required). Commit the catalogue, previews and manifest together. Issuer/skill filters,
+search and counts derive from the catalogue; the viewer links to the original PDF.
