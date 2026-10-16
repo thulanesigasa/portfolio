@@ -19,6 +19,7 @@ A high-performance, visually stunning Next.js and Vanilla CSS portfolio agency w
 ## Project Portfolio Showcase
 
 The repository houses detailed case studies and UI/UX reviews for several active client projects:
+
 - **MedSync (Hokma Tech)** — Clinical session & appointment booking app designed for Delphi REST API backends.
 - **Rhyma Music** — Immersive artist branding and web streaming portal.
 - **Resume Build (rbptech)** — ATS-optimised SaaS document builder platform.
@@ -31,7 +32,9 @@ The repository houses detailed case studies and UI/UX reviews for several active
 ## Getting Started
 
 ### 1. Installation
+
 Clone the repository and install all dependencies:
+
 ```bash
 git clone https://github.com/thulanesigasa/portfolio.git
 cd portfolio
@@ -39,17 +42,23 @@ npm install
 ```
 
 ### 2. Run in Development
+
 Start the local development server:
+
 ```bash
 npm run dev
 ```
+
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### 3. Build & Export
+
 Compile an optimized production-ready static export:
+
 ```bash
 npm run build
 ```
+
 The compiled HTML, CSS, and JS assets will be exported directly into the `/out` directory, which is ready to be hosted on any static provider (GitHub Pages, Vercel, Netlify, Cloudflare).
 
 ---
@@ -85,10 +94,13 @@ was instructed to remove only the white background and excess margins while
 preserving the black signature, circular industries text and 2024.
 
 The homepage uses `src/app/studio.css`, with selected projects before services,
-process, studio information and the project enquiry form. Existing project stories
-share the white, gold and yellow palette; their original content and galleries are retained.
-The homepage features screenshots from Bible Diaries and Service Link, alongside
-MedSync and Resume Build. All project assets belong to this portfolio.
+process, studio information and the project enquiry form. Six project identities
+use live typography and CSS linework through `ProjectGraphic`, replacing screenshot
+thumbnails. Each full graphic links to its existing `/work/` URL. Shared project
+content in `src/app/data/projects.ts` supplies the overview, features, technology
+stack, contribution credits and any public live link to `ProjectStory`. Technology
+names were checked against the respective project repositories, rather than the
+older case-study prose. The project pages use text graphics instead of image galleries.
 
 Project enquiries use the existing FormSubmit endpoint. Service, optional budget
 and timeline are included in the message. Native field validation, a honeypot,
@@ -99,11 +111,6 @@ Verify receipt with a real enquiry after deployment.
 Build with `npm ci && npm run build`. The existing Pages workflow publishes `out/`
 when changes reach `main`. Security headers configured in `next.config.ts` are not
 applied by a static export; they require support from the hosting layer.
-
-Mobile project screenshots use the shared `ScreenPreview` component in the project
-collection and app galleries. Screens keep their original colours and open in a
-native lightbox with Escape, close and backdrop dismissal. The carousel uses slide
-offsets for navigation and scopes scrollbar styling to its own rail.
 
 The certificate gallery reads its catalogue from `src/app/data/certificates.ts`.
 First-page PDF previews are stored as WebP images, with dimensions in
@@ -117,4 +124,4 @@ The homepage uses `DecorativeHero` and a transparent gold ribbon sculpture at
 image generator: an airy folded satin-gold ribbon, ivory sphere and small polished
 gold sphere, isolated on transparency without text, logos, phones or interfaces.
 Gentle floating and mouse parallax respect reduced motion; there are no hero
-carousel controls or screenshot interactions. App previews remain in the work section.
+carousel controls or screenshot interactions. The work section uses typographic project identities.

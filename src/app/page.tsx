@@ -1,40 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
-import ScreenPreview from "./components/ui/screen-preview";
+import ProjectGraphic from "./components/ui/project-graphic";
+import { projects } from "./data/projects";
 import DecorativeHero from "./components/ui/decorative-hero";
 import ProjectEnquiry from "./components/home/project-enquiry";
-const projects = [
-  {
-    title: "Bible Diaries",
-    type: "Mobile application / Community",
-    image: "/images/work/bible_diaries/feed-boy.webp",
-    slug: "bible-diaries",
-    description: "A dedicated space for reflection, scripture and connection.",
-  },
-  {
-    title: "Service Link",
-    type: "Mobile application / Product design",
-    image: "/images/work/service_link/discover.webp",
-    slug: "service-link",
-    description: "Helping people discover services and connect with providers.",
-  },
-  {
-    title: "MedSync",
-    type: "Healthcare / Product design",
-    image: "/images/work/hokmatech/hokma-1.webp",
-    slug: "medsync",
-    description:
-      "A healthcare interface designed around clear information and practical workflows.",
-  },
-  {
-    title: "Resume Build",
-    type: "SaaS / Web application",
-    image: "/images/work/work-img-1.webp",
-    slug: "resume-build",
-    description:
-      "A focused web application for creating and presenting professional résumés.",
-  },
-];
 export default function Home() {
   return (
     <main id="main-content" className="studio-home">
@@ -86,7 +54,7 @@ export default function Home() {
           <h2 id="work-title">
             Selected projects.
             <br />
-            <em>Purpose in every pixel.</em>
+            <em>Ideas with an identity.</em>
           </h2>
           <p>
             Explore the thinking behind our software and interfaces. From
@@ -97,41 +65,26 @@ export default function Home() {
           {projects.map((p, i) => (
             <li key={p.slug}>
               <article className="studio-project">
-                <figure className="studio-project-image">
-                  <figcaption className="studio-project-number">
-                    0{i + 1} / {p.type.split(" / ")[0]}
-                  </figcaption>
-                  {p.slug !== "resume-build" ? (
-                    <ScreenPreview
-                      src={p.image}
-                      alt={`${p.title} interface`}
-                      sizes="(max-width:700px) 48vw, 230px"
-                    />
-                  ) : (
-                    <Image
-                      src={p.image}
-                      alt={`${p.title} project preview`}
-                      width={900}
-                      height={560}
-                      sizes="(max-width:700px) 100vw, 45vw"
-                    />
-                  )}
-                </figure>
+                <Link
+                  className="project-graphic-link"
+                  href={`/work/${p.slug}`}
+                  aria-label={`Explore ${p.title}: overview and technology stack`}
+                >
+                  <ProjectGraphic project={p} index={i} />
+                </Link>
                 <h3>
                   <Link href={`/work/${p.slug}`}>
                     {p.title} <span aria-hidden="true">↗</span>
                   </Link>
                 </h3>
-                <small>{p.type}</small>
+                <small>{p.category}</small>
                 <p>{p.description}</p>
               </article>
             </li>
           ))}
         </ul>
         <nav className="studio-more-work" aria-label="More projects">
-          <span>More work</span>
-          <Link href="/work/rhyma-music">Rhyma Music ↗</Link>
-          <Link href="/work/ndivhu-mpho">Ndivhu & Mpho ↗</Link>
+          <span>Explore our expertise</span>
           <Link href="/certificates">Technical credentials ↗</Link>
         </nav>
       </section>
