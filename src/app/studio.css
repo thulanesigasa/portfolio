@@ -1996,234 +1996,121 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
     transform: none;
   }
 }
-/* Interactive interface lab: a CSS 3D orbit driven by pointer and keyboard input. */
-.orbit-showcase {
-  min-width: 0;
-  width: 100%;
-  color: var(--studio-ink);
-  isolation: isolate;
-}
-.orbit-showcase > header {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 8px;
-  letter-spacing: 1.6px;
-  color: var(--studio-accent);
-  padding: 10px 0;
-}
-.orbit-stage {
+/* Decorative hero: one transparent sculpture on the continuous white canvas. */
+.decorative-hero {
   position: relative;
-  height: 520px;
-  perspective: 950px;
-  overflow: hidden;
-  touch-action: pan-y;
-  cursor: grab;
+  min-width: 0;
+  isolation: isolate;
+  perspective: 1100px;
+  transform: rotateX(var(--art-x, 0deg)) rotateY(var(--art-y, 0deg));
+  transition: transform 0.5s ease-out;
+  margin: 0 !important;
+  padding: 10px 0;
+  pointer-events: auto;
+}
+.decorative-hero .decorative-ribbon {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 112%;
+  max-width: none;
+  height: auto;
+  margin-left: -6%;
+  object-fit: contain;
+  animation: ribbon-float 9s ease-in-out infinite;
   user-select: none;
   -webkit-user-select: none;
 }
-.orbit-stage.is-dragging,
-.orbit-stage.is-dragging .screen-preview-trigger {
-  cursor: grabbing;
+.decorative-spark {
+  position: absolute;
+  display: block;
+  width: 18px;
+  height: 18px;
+  z-index: 2;
+  pointer-events: none;
 }
-.orbit-rotor {
-  position: absolute !important;
+.decorative-spark:before,
+.decorative-spark:after {
+  content: "";
+  position: absolute;
   left: 50%;
   top: 50%;
-  width: 0;
-  height: 0;
-  margin: 0 !important;
-  padding: 0 !important;
-  list-style: none;
-  transform-style: preserve-3d;
-  transform: rotateX(var(--orbit-x, -10deg)) rotateY(var(--orbit-y, 0deg));
-  will-change: transform;
+  width: 1px;
+  height: 100%;
+  background: var(--studio-accent);
+  transform: translate(-50%, -50%);
 }
-.orbit-rotor > .orbit-card {
+.decorative-spark:after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.spark-one {
+  left: 4%;
+  top: 22%;
+  transform: rotate(15deg);
+}
+.spark-two {
+  right: 2%;
+  bottom: 17%;
+  width: 12px;
+  height: 12px;
+  transform: rotate(-15deg);
+}
+.decorative-trail {
   position: absolute;
-  left: -75px;
-  top: -170px;
-  width: 150px;
-  list-style: none;
-  transform: rotateY(var(--screen-angle)) translateZ(175px);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-.orbit-card > .screen-preview-trigger {
-  cursor: grab;
-}
-.orbit-card > .screen-preview-trigger .screen-print:after {
-  display: none;
-}
-.orbit-card > .screen-preview-trigger .screen-image {
-  box-shadow: 0 14px 30px #30291d24;
-  filter: none;
-  transform: none;
-  border-radius: 0;
-}
-.orbit-card .screen-enlarge-hint {
-  display: none;
-}
-.orbit-card-caption {
-  display: block;
-  margin-top: 12px;
-  font-size: 6px;
-  letter-spacing: 0.7px;
-  text-align: center;
-  white-space: nowrap;
-  color: var(--studio-muted);
+  left: 3%;
+  right: 3%;
+  bottom: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d9c99d77, transparent);
+  transform: rotate(-14deg);
   pointer-events: none;
+  z-index: 0;
 }
-.orbit-card.is-active > .orbit-card-caption {
-  color: var(--studio-accent);
-}
-.orbit-ground {
-  position: absolute;
-  left: 50%;
-  bottom: 65px;
-  width: 350px;
-  height: 95px;
-  transform: translateX(-50%);
-  border: 1px solid #d9c99d77;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, #d9c99d22, transparent 70%);
-  pointer-events: none;
-}
-.orbit-instructions {
-  text-align: center;
-  font-size: 9px !important;
-  color: var(--studio-muted);
-  margin: 0 0 22px;
-}
-.orbit-instructions > span {
-  padding: 0 10px;
-  color: var(--studio-accent);
-}
-.orbit-showcase > footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-.orbit-showcase > footer > nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.orbit-showcase > footer button {
-  min-height: 44px;
-  min-width: 40px;
-  border: 0;
-  border-bottom: 1px solid var(--studio-line);
-  padding: 10px 8px;
-  background: transparent;
-  color: var(--studio-ink);
-  font: inherit;
-  font-size: 9px;
-  cursor: pointer;
-}
-.orbit-showcase > footer button[aria-pressed="true"] {
-  border-color: var(--studio-accent);
-  color: var(--studio-accent);
-}
-.orbit-showcase > footer button:disabled {
-  opacity: 0.55;
-  cursor: default;
-}
-.orbit-selected {
-  margin: 0;
-  font-size: 11px !important;
-  line-height: 1.5 !important;
-}
-.orbit-selected > a {
-  color: var(--studio-accent);
-}
-.orbit-selected > span {
-  display: block;
-  font-size: 8px;
-  color: var(--studio-muted);
-  margin-top: 5px;
-}
-.orbit-showcase :focus-visible {
-  outline: 2px solid var(--studio-accent);
-  outline-offset: 5px;
-}
-@media (max-width: 1050px) {
-  .orbit-rotor > .orbit-card {
-    transform: rotateY(var(--screen-angle)) translateZ(140px);
+@keyframes ribbon-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
   }
-  .orbit-stage {
-    height: 480px;
-  }
-  .orbit-ground {
-    width: 285px;
-  }
-  .orbit-showcase > footer {
-    justify-content: center;
-  }
-  .orbit-selected {
-    width: 100%;
-    text-align: center;
+  50% {
+    transform: translateY(-12px) rotate(1deg);
   }
 }
 @media (max-width: 760px) {
-  .orbit-showcase {
-    max-width: 600px;
-    margin: auto;
+  .decorative-hero {
+    width: min(100%, 550px);
+    margin: auto !important;
+    padding: 0;
   }
-  .orbit-stage {
-    height: 490px;
+  .decorative-hero .decorative-ribbon {
+    width: 100%;
+    margin-left: 0;
   }
-  .orbit-showcase > footer {
-    justify-content: space-between;
+  .spark-one {
+    left: 8%;
   }
-  .orbit-selected {
-    width: auto;
-    text-align: left;
+  .spark-two {
+    right: 8%;
   }
 }
 @media (max-width: 500px) {
-  .orbit-stage {
-    height: 420px;
-    perspective: 800px;
+  .decorative-hero {
+    max-width: 390px;
   }
-  .orbit-rotor > .orbit-card {
-    width: 130px;
-    left: -65px;
-    top: -150px;
-    transform: rotateY(var(--screen-angle)) translateZ(112px);
+  .decorative-spark {
+    width: 12px;
+    height: 12px;
   }
-  .orbit-ground {
-    width: 250px;
-    height: 70px;
-    bottom: 55px;
-  }
-  .orbit-showcase > header {
-    font-size: 7px;
-  }
-  .orbit-showcase > footer {
-    gap: 20px;
-    justify-content: center;
-  }
-  .orbit-selected {
-    width: 100%;
-    text-align: center;
-  }
-  .orbit-instructions {
-    font-size: 8px !important;
-  }
-  .orbit-showcase > footer button {
-    font-size: 10px;
+  .decorative-hero .decorative-ribbon {
+    animation-duration: 12s;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .orbit-rotor {
-    will-change: auto;
-  }
-  .orbit-showcase * {
+  .decorative-hero {
+    transform: none !important;
     transition: none !important;
+  }
+  .decorative-hero .decorative-ribbon {
     animation: none !important;
+    transform: none !important;
   }
 }
