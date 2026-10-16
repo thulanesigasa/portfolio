@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
-import PhonePreview from "./phone-preview";
+import ScreenPreview from "./screen-preview";
 type SlideData = {
   imageSrc: string | string[];
   title: string;
@@ -40,19 +40,19 @@ export default function ImageCarousel({ slides }: { slides: SlideData[] }) {
     });
   }
   return (
-    <section className="phone-gallery" aria-label="Application screenshots">
-      <ol className="phone-gallery-rail" ref={rail} onScroll={sync}>
+    <section className="screen-gallery" aria-label="Application screenshots">
+      <ol className="screen-gallery-rail" ref={rail} onScroll={sync}>
         {slides.map((slide, i) => (
           <li
             key={slide.title}
             aria-label={`Screenshot ${i + 1} of ${slides.length}`}
           >
-            <figure className="phone-gallery-pair">
+            <figure className="screen-gallery-pair">
               {(Array.isArray(slide.imageSrc)
                 ? slide.imageSrc
                 : [slide.imageSrc]
               ).map((src, n) => (
-                <PhonePreview
+                <ScreenPreview
                   key={src}
                   src={src}
                   alt={`${slide.title}${Array.isArray(slide.imageSrc) ? ` — view ${n + 1}` : ""}`}

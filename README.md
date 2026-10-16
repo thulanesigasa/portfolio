@@ -100,11 +100,13 @@ Build with `npm ci && npm run build`. The existing Pages workflow publishes `out
 when changes reach `main`. Security headers configured in `next.config.ts` are not
 applied by a static export; they require support from the hosting layer.
 
-Mobile project screenshots use a shared `PhonePreview` component in the homepage
-and app galleries. CSS renders a gold device frame around screenshots in their
-original colours. Native dialog previews support Escape, close and backdrop
-dismissal. The
-carousel uses slide offsets for navigation and scopes scrollbar styling to its rail.
+Mobile project screenshots use a shared `ScreenPreview` component. The homepage
+arranges original, frameless screenshots as overlapping editorial prints with
+numbered captions and a gentle spread interaction on hover or keyboard focus.
+Project galleries use the same open presentation. Screens open in a clean native
+lightbox with Escape, close and backdrop dismissal. Reduced-motion preferences
+disable the spread movement. The carousel uses slide offsets for navigation and
+scopes scrollbar styling to its own rail.
 
 The certificate gallery reads its catalogue from `src/app/data/certificates.ts`.
 First-page PDF previews are stored as WebP images, with dimensions in
