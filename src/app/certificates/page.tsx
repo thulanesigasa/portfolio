@@ -28,7 +28,7 @@ export default function CertificatesPage() {
   });
 
   return (
-    <main className="container" style={{ paddingTop: '150px', paddingBottom: '120px', minHeight: '100vh' }}>
+    <main className="container" style={{ paddingTop: '60px', paddingBottom: '120px', minHeight: '100vh' }}>
       <BackButton />
 
       <div className="section-heading">

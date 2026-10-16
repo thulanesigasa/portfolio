@@ -97,7 +97,7 @@ export default function ServiceLinkWorkPage() {
             src="/images/work/work-img-5.webp"
             alt="Service Link Thumbnail"
             fill
-            style={{ objectFit: "contain", backgroundColor: "rgb(7, 7, 7)" }}
+            style={{ objectFit: "contain", backgroundColor: "transparent" }}
           />
         </div>
 

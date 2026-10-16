@@ -4,11 +4,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Our Journey | T.s Industries",
-  description: "Explore the milestones, products, and clients that have shaped T.s Industries from inception in 2024 to the present day.",
+  description:
+    "Explore the milestones, products, and clients that have shaped T.s Industries from inception in 2024 to the present day.",
   alternates: { canonical: "/journey" },
   openGraph: {
     title: "Our Journey | T.s Industries",
-    description: "Milestones and products from T.s Industries — South African tech startup since 2024.",
+    description:
+      "Milestones and products from T.s Industries — South African tech startup since 2024.",
     url: "https://ts-industries.co.za/journey",
   },
 };
@@ -74,35 +76,34 @@ const allMilestones = [
 
 export default function JourneyPage() {
   return (
-    <main className="container" style={{ paddingTop: "150px", paddingBottom: "120px", minHeight: "100vh" }}>
+    <main className="site-services">
       <BackButton />
-
-      <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-        <h1 className="hero-title" style={{ fontSize: "3.5rem", marginBottom: "1rem" }}>
-          Our <span style={{ fontWeight: 300 }}>Journey</span>
+      <header>
+        <p className="studio-eyebrow">TS INDUSTRIES / OUR JOURNEY</p>
+        <h1>
+          Ideas into experiences.
+          <br />
+          <em>One project at a time.</em>
         </h1>
-        <p style={{ color: "var(--color-text-muted)", fontSize: "1.15rem", marginBottom: "4rem", lineHeight: 1.8 }}>
-          T.S Industries has been designing, developing, and architecting solutions since 2024. Explore the milestones, products, and clients that have shaped our story from inception to the present day.
+        <p>
+          Explore the milestones, products and collaborations that have shaped
+          our story since 2024.
         </p>
-
-        <div className="journey-timeline">
-          {allMilestones.map((m, i) => (
-            <div key={i} className="timeline-item reveal visible" style={{ opacity: 1, transform: "none" }}>
-              <div className="timeline-year">
-                <div className="timeline-year-text">{m.date}</div>
-                <div className="timeline-year-label">{m.type}</div>
-              </div>
-              <div className="timeline-line-col">
-                <div className="timeline-dot" />
-              </div>
-              <div className="timeline-card">
-                <div className="timeline-card-title">{m.title}</div>
-                <p className="timeline-card-desc">{m.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      </header>
+      <ol className="site-journey">
+        {allMilestones.map((m) => (
+          <li key={m.date}>
+            <header>
+              <p>{m.date}</p>
+              <small>{m.type}</small>
+            </header>
+            <article>
+              <h2>{m.title}</h2>
+              <p>{m.description}</p>
+            </article>
+          </li>
+        ))}
+      </ol>
     </main>
   );
 }

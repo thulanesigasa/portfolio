@@ -1,13 +1,18 @@
+import Image from "next/image";
 import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="studio-footer">
-      <div className="studio-footer-top">
+      <section className="studio-footer-top" aria-label="Studio and links">
         <Link className="studio-brand" href="/">
-          <span className="studio-brand-symbol">TS</span>
-          <small>
-            INDUSTRIES<span>DESIGN & DEVELOPMENT</span>
-          </small>
+          <Image
+            className="studio-logo"
+            src="/images/logo/ts-industries-transparent.png"
+            alt="TS Industries — Thulane Sigasa"
+            width={1774}
+            height={887}
+            sizes="180px"
+          />
         </Link>
         <p>
           Thoughtful design.
@@ -37,15 +42,18 @@ export default function Footer() {
           </a>
           <a href="mailto:pharezsigasa@gmail.com">Email ↗</a>
         </nav>
-      </div>
-      <div className="studio-footer-bottom">
+      </section>
+      <section
+        className="studio-footer-bottom"
+        aria-label="Copyright and policies"
+      >
         <span>© {new Date().getFullYear()} TS Industries</span>
         <span>Based in South Africa. Building for everywhere.</span>
-        <div>
+        <nav aria-label="Legal">
           <Link href="/privacy-policy">Privacy</Link>
           <Link href="/terms-of-service">Terms</Link>
-        </div>
-      </div>
+        </nav>
+      </section>
     </footer>
   );
 }

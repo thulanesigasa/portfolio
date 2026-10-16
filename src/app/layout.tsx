@@ -87,7 +87,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               name: "T.s Industries",
               url: "https://ts-industries.co.za",
-              logo: "https://ts-industries.co.za/images/logo/logo.svg",
+              logo: "https://ts-industries.co.za/images/logo/ts-industries-transparent.png",
               description:
                 "Forward-thinking tech startup specializing in modern web development.",
               address: {
@@ -101,7 +101,8 @@ export default function RootLayout({
       <body>
         <ScrollRestorationHandler />
         <Header />
-        <div id="page-content">{children}</div>
+        <span id="content-start" tabIndex={-1} />
+        {children}
         <Footer />
       </body>
     </html>

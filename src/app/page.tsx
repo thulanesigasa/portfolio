@@ -8,7 +8,6 @@ const projects = [
     image: "/images/work/bible_diaries/feed-boy.webp",
     slug: "bible-diaries",
     description: "A dedicated space for reflection, scripture and connection.",
-    tone: "peach",
   },
   {
     title: "Service Link",
@@ -16,7 +15,6 @@ const projects = [
     image: "/images/work/service_link/discover.webp",
     slug: "service-link",
     description: "Helping people discover services and connect with providers.",
-    tone: "lavender",
   },
   {
     title: "MedSync",
@@ -25,7 +23,6 @@ const projects = [
     slug: "medsync",
     description:
       "A healthcare interface designed around clear information and practical workflows.",
-    tone: "slate",
   },
   {
     title: "Resume Build",
@@ -34,81 +31,66 @@ const projects = [
     slug: "resume-build",
     description:
       "A focused web application for creating and presenting professional résumés.",
-    tone: "silver",
   },
 ];
 export default function Home() {
   return (
     <main id="main-content" className="studio-home">
-      <section className="studio-hero">
-        <div className="studio-hero-grid">
-          <div className="studio-hero-copy">
-            <p className="studio-eyebrow">
-              <span className="studio-dot" /> TS INDUSTRIES / DESIGN &
-              DEVELOPMENT
-            </p>
-            <h1>
-              Websites.
-              <br />
-              Applications.
-              <br />
-              <em>Built around you.</em>
-            </h1>
-            <p>
-              We turn complex ideas into clear digital experiences. Websites,
-              mobile apps and custom software — designed with purpose and built
-              with care.
-            </p>
-            <div className="studio-actions">
-              <Link className="studio-button" href="#works">
-                View our projects <span>↗</span>
-              </Link>
-              <Link className="studio-text-link" href="#contact">
-                Discuss your idea <span>→</span>
-              </Link>
-            </div>
-            <div className="studio-hero-capabilities">
-              <span>WEB DEVELOPMENT</span>
-              <span>MOBILE APPLICATIONS</span>
-              <span>UI/UX DESIGN</span>
-            </div>
-          </div>
-          <div className="studio-product-stage">
-            <div className="studio-stage-top">
-              <span className="studio-dot" /> FROM THE PORTFOLIO{" "}
-              <span>01 — 02</span>
-            </div>
-            <div className="studio-device-pair">
-              <Link href="/work/bible-diaries" className="studio-device first">
-                <Image
-                  src="/images/work/bible_diaries/feed-boy.webp"
-                  alt="Bible Diaries reflection feed interface"
-                  width={430}
-                  height={932}
-                  priority
-                  sizes="(max-width:760px) 42vw, 21vw"
-                />
-                <span>Bible Diaries ↗</span>
-              </Link>
-              <Link href="/work/service-link" className="studio-device second">
-                <Image
-                  src="/images/work/service_link/discover.webp"
-                  alt="Service Link discovery interface"
-                  width={430}
-                  height={932}
-                  priority
-                  sizes="(max-width:760px) 42vw, 21vw"
-                />
-                <span>Service Link ↗</span>
-              </Link>
-            </div>
-            <div className="studio-stage-bottom">
-              <span>IDEA → INTERFACE → EXPERIENCE</span>
-              <span>EXPLORE THE WORK ↙</span>
-            </div>
-          </div>
-        </div>
-        <div className="studio-hero-bottom">
+      <section className="studio-hero" aria-labelledby="hero-title">
+        <header className="studio-hero-copy">
+          <p className="studio-eyebrow">TS INDUSTRIES / DESIGN & DEVELOPMENT</p>
+          <h1 id="hero-title">
+            Websites.
+            <br />
+            Applications.
+            <br />
+            <em>Built around you.</em>
+          </h1>
+          <p>
+            We turn complex ideas into clear digital experiences. Websites,
+            mobile apps and custom software — designed with purpose and built
+            with care.
+          </p>
+          <nav className="studio-actions" aria-label="Get started">
+            <Link className="studio-button" href="#works">
+              View our projects <span>↗</span>
+            </Link>
+            <Link className="studio-text-link" href="#contact">
+              Discuss your idea →
+            </Link>
+          </nav>
+          <p className="studio-hero-capabilities">
+            WEB DEVELOPMENT / MOBILE APPLICATIONS / UI/UX DESIGN
+          </p>
+        </header>
+        <figure
+          className="studio-device-pair"
+          aria-label="Selected application interfaces"
+        >
+          <Link href="/work/bible-diaries" className="studio-device first">
+            <Image
+              src="/images/work/bible_diaries/feed-boy.webp"
+              alt="Bible Diaries reflection feed interface"
+              width={430}
+              height={932}
+              priority
+              sizes="(max-width:760px) 40vw, 20vw"
+            />
+            <span>Bible Diaries ↗</span>
+          </Link>
+          <Link href="/work/service-link" className="studio-device second">
+            <Image
+              src="/images/work/service_link/discover.webp"
+              alt="Service Link discovery interface"
+              width={430}
+              height={932}
+              priority
+              sizes="(max-width:760px) 40vw, 20vw"
+            />
+            <span>Service Link ↗</span>
+          </Link>
+        </figure>
+        <footer className="studio-hero-bottom">
           <span>BASED IN SOUTH AFRICA</span>
           <p>
             Independent thinking.
@@ -116,67 +98,66 @@ export default function Home() {
             Connected experiences.
           </p>
           <a href="#works">Discover what we build ↓</a>
-        </div>
+        </footer>
       </section>
-      <section id="works" className="studio-section">
-        <div className="studio-section-top">
-          <div>
-            <p className="studio-eyebrow">01 / SELECTED WORK</p>
-            <h2>
-              Selected projects.
-              <br />
-              <em>Purpose in every pixel.</em>
-            </h2>
-          </div>
-          <p>
-            Explore the thinking behind our software and interfaces.
+      <section
+        id="works"
+        className="studio-section"
+        aria-labelledby="work-title"
+      >
+        <header className="studio-section-top">
+          <p className="studio-eyebrow">01 / SELECTED WORK</p>
+          <h2 id="work-title">
+            Selected projects.
             <br />
-            From community platforms to practical business tools.
+            <em>Purpose in every pixel.</em>
+          </h2>
+          <p>
+            Explore the thinking behind our software and interfaces. From
+            community platforms to practical business tools.
           </p>
-        </div>
-        <div className="studio-project-grid">
+        </header>
+        <ul className="studio-project-grid">
           {projects.map((p, i) => (
-            <Link
-              href={`/work/${p.slug}`}
-              className={`studio-project ${p.tone}`}
-              key={p.slug}
-            >
-              <div className="studio-project-image">
-                <span className="studio-project-number">
-                  0{i + 1} / {p.type.split(" / ")[0]}
-                </span>
-                <Image
-                  src={p.image}
-                  alt={`${p.title} project preview`}
-                  width={900}
-                  height={560}
-                  sizes="(max-width: 700px) 100vw, 50vw"
-                />
-                <span className="studio-round-arrow">↗</span>
-              </div>
-              <div className="studio-project-meta">
-                <h3>{p.title}</h3>
+            <li key={p.slug}>
+              <Link href={`/work/${p.slug}`} className="studio-project">
+                <figure className="studio-project-image">
+                  <figcaption className="studio-project-number">
+                    0{i + 1} / {p.type.split(" / ")[0]}
+                  </figcaption>
+                  <Image
+                    src={p.image}
+                    alt={`${p.title} project preview`}
+                    width={900}
+                    height={560}
+                    sizes="(max-width:700px) 100vw, 45vw"
+                  />
+                </figure>
+                <h3>
+                  {p.title}
+                  <span aria-hidden="true">↗</span>
+                </h3>
                 <small>{p.type}</small>
-              </div>
-              <p>{p.description}</p>
-            </Link>
+                <p>{p.description}</p>
+              </Link>
+            </li>
           ))}
-        </div>
-        <details className="studio-more-work">
-          <summary>
-            More from the studio <span>＋</span>
-          </summary>
-          <div>
-            <Link href="/work/rhyma-music">Rhyma Music ↗</Link>
-            <Link href="/work/ndivhu-mpho">Ndivhu & Mpho ↗</Link>
-            <Link href="/certificates">Technical credentials ↗</Link>
-          </div>
-        </details>
+        </ul>
+        <nav className="studio-more-work" aria-label="More projects">
+          <span>More work</span>
+          <Link href="/work/rhyma-music">Rhyma Music ↗</Link>
+          <Link href="/work/ndivhu-mpho">Ndivhu & Mpho ↗</Link>
+          <Link href="/certificates">Technical credentials ↗</Link>
+        </nav>
       </section>
-      <section id="services" className="studio-services studio-section">
-        <div>
+      <section
+        id="services"
+        className="studio-services studio-section"
+        aria-labelledby="services-title"
+      >
+        <header>
           <p className="studio-eyebrow">02 / WHAT WE DO</p>
-          <h2>
+          <h2 id="services-title">
             The right solution.
             <br />
             <em>From the ground up.</em>
@@ -188,56 +169,51 @@ export default function Home() {
           <Link className="studio-text-link" href="/pricing">
             Explore pricing ↗
           </Link>
-        </div>
-        <div className="studio-service-list">
+        </header>
+        <ol className="studio-service-list">
           {[
             [
-              "01",
               "Websites & e-commerce",
               "Distinctive, responsive websites and online stores that make it easy to explore your business.",
               "custom-web-applications",
             ],
             [
-              "02",
               "Apps & custom software",
               "Purposeful interfaces and connected systems, shaped around how your users work.",
               "robust-saas-solutions",
             ],
             [
-              "03",
               "UI/UX & design systems",
               "Clear user journeys, considered interactions and consistent visual foundations.",
               "ui-ux-design-systems",
             ],
-          ].map(([n, title, desc, slug]) => (
-            <Link href={`/services/${slug}`} key={n}>
-              <small>{n}</small>
-              <div>
+          ].map(([title, desc, slug], i) => (
+            <li key={slug}>
+              <Link href={`/services/${slug}`}>
+                <small>0{i + 1}</small>
                 <h3>{title}</h3>
                 <p>{desc}</p>
-              </div>
-              <span>↗</span>
-            </Link>
+                <span aria-hidden="true">↗</span>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ol>
       </section>
-      <section id="process" className="studio-section">
-        <div className="studio-section-top">
-          <div>
-            <p className="studio-eyebrow">03 / THE PROCESS</p>
-            <h2>
-              A clear process.
-              <br />
-              <em>From idea to launch.</em>
-            </h2>
-          </div>
-          <p>
-            A clear path from “what if”
+      <section
+        id="process"
+        className="studio-section"
+        aria-labelledby="process-title"
+      >
+        <header className="studio-section-top">
+          <p className="studio-eyebrow">03 / THE PROCESS</p>
+          <h2 id="process-title">
+            A clear process.
             <br />
-            to something people can use.
-          </p>
-        </div>
-        <div className="studio-process">
+            <em>From idea to launch.</em>
+          </h2>
+          <p>A clear path from “what if” to something people can use.</p>
+        </header>
+        <ol className="studio-process">
           {[
             [
               "Discover",
@@ -256,56 +232,56 @@ export default function Home() {
               "We prepare the handover and agree on the next steps for keeping things running.",
             ],
           ].map(([title, desc], i) => (
-            <article key={title}>
-              <span>
-                0{i + 1} <b>↗</b>
-              </span>
+            <li key={title}>
+              <span>0{i + 1}</span>
               <h3>{title}</h3>
               <p>{desc}</p>
-            </article>
+            </li>
           ))}
-        </div>
+        </ol>
       </section>
-      <section id="about" className="studio-about studio-section">
-        <div className="studio-about-mark" aria-hidden="true">
-          <span className="studio-about-code">&lt;ts /&gt;</span>
-          <small>DESIGN × DEVELOPMENT</small>
-        </div>
-        <div>
-          <p className="studio-eyebrow">04 / THE PEOPLE BEHIND THE PIXELS</p>
-          <h2>
-            Design meets engineering.
-            <br />
-            <em>That’s TS Industries.</em>
-          </h2>
-          <p>
-            TS Industries is the digital studio of Thulane Sigasa. Based in
-            South Africa, we bring design and development together to turn ideas
-            into useful digital experiences.
-          </p>
-          <p>
-            Our work spans websites, e-commerce, community apps and custom
-            platforms. We care about the details people see, and the systems
-            that make everything work.
-          </p>
-          <div className="studio-actions">
-            <Link className="studio-text-link" href="/journey">
-              Explore the journey ↗
-            </Link>
-            <Link className="studio-text-link" href="/certificates">
-              View credentials ↗
-            </Link>
-          </div>
-          <div className="studio-tech">
-            <span>TOOLS WE BUILD WITH</span>
-            <p>React / Next.js / TypeScript / Python / PostgreSQL</p>
-          </div>
-        </div>
+      <section
+        id="about"
+        className="studio-about studio-section"
+        aria-labelledby="about-title"
+      >
+        <p className="studio-eyebrow">04 / ABOUT TS INDUSTRIES</p>
+        <h2 id="about-title">
+          Design meets engineering.
+          <br />
+          <em>That’s TS Industries.</em>
+        </h2>
+        <p>
+          TS Industries is the digital studio of Thulane Sigasa. Based in South
+          Africa, we bring design and development together to turn ideas into
+          useful digital experiences.
+        </p>
+        <p>
+          Our work spans websites, e-commerce, community apps and custom
+          platforms. We care about the details people see, and the systems that
+          make everything work.
+        </p>
+        <nav className="studio-actions" aria-label="About the studio">
+          <Link className="studio-text-link" href="/journey">
+            Explore the journey ↗
+          </Link>
+          <Link className="studio-text-link" href="/certificates">
+            View credentials ↗
+          </Link>
+        </nav>
+        <p className="studio-tech">
+          <span>TOOLS WE BUILD WITH</span>React / Next.js / TypeScript / Python
+          / PostgreSQL
+        </p>
       </section>
-      <section id="contact" className="studio-contact studio-section">
-        <div>
+      <section
+        id="contact"
+        className="studio-contact studio-section"
+        aria-labelledby="contact-title"
+      >
+        <header>
           <p className="studio-eyebrow">05 / YOUR NEXT CHAPTER</p>
-          <h2>
+          <h2 id="contact-title">
             Let’s build
             <br />
             <em>what’s next.</em>
@@ -317,7 +293,7 @@ export default function Home() {
           <a className="studio-email" href="mailto:pharezsigasa@gmail.com">
             pharezsigasa@gmail.com ↗
           </a>
-        </div>
+        </header>
         <ProjectEnquiry />
       </section>
     </main>
