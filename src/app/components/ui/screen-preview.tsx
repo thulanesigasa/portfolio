@@ -2,24 +2,20 @@
 import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 type Props = { src: string; alt: string; priority?: boolean; sizes?: string };
-function PhoneScreen({ src, alt, priority, sizes }: Props) {
+function ScreenImage({ src, alt, priority, sizes }: Props) {
   return (
-    <span className="phone-shell">
-      <span className="phone-camera" aria-hidden="true" />
-      <Image
-        className="phone-screen"
-        src={src}
-        alt={alt}
-        width={738}
-        height={1600}
-        priority={priority}
-        sizes={sizes ?? "(max-width:600px) 42vw, 230px"}
-      />
-      <span className="phone-home" aria-hidden="true" />
-    </span>
+    <Image
+      className="screen-image"
+      src={src}
+      alt={alt}
+      width={738}
+      height={1600}
+      priority={priority}
+      sizes={sizes ?? "(max-width:600px) 42vw, 230px"}
+    />
   );
 }
-export default function PhonePreview(props: Props) {
+export default function ScreenPreview(props: Props) {
   const dialog = useRef<HTMLDialogElement>(null);
   const label = useId();
   const [open, setOpen] = useState(false);
@@ -39,17 +35,19 @@ export default function PhonePreview(props: Props) {
     <>
       <button
         type="button"
-        className="phone-preview-trigger"
+        className="screen-preview-trigger"
         onClick={show}
         aria-label={`Enlarge ${props.alt}`}
         aria-haspopup="dialog"
       >
-        <PhoneScreen {...props} />
-        <span className="phone-enlarge-hint">Enlarge ↗</span>
+        <span className="screen-print">
+          <ScreenImage {...props} />
+        </span>
+        <span className="screen-enlarge-hint">Explore screen ↗</span>
       </button>
       <dialog
         ref={dialog}
-        className="phone-dialog"
+        className="screen-lightbox"
         aria-labelledby={label}
         onClose={() => setOpen(false)}
         onClick={(e) => {
@@ -57,18 +55,27 @@ export default function PhonePreview(props: Props) {
         }}
       >
         <header>
-          <h2 id={label}>{props.alt}</h2>
+          <h2 id={label}>
+            <small>INTERFACE STUDY</small>
+            {props.alt}
+          </h2>
           <button
             autoFocus
-            className="phone-close"
+            className="screen-close"
             type="button"
             aria-label="Close screenshot"
             onClick={() => dialog.current?.close()}
           >
-            ✕
+            Close ×
           </button>
         </header>
-        {open && <PhoneScreen src={props.src} alt={props.alt} sizes="300px" />}
+        {open && (
+          <ScreenImage
+            src={props.src}
+            alt={props.alt}
+            sizes="(max-width:760px) 80vw, 360px"
+          />
+        )}
       </dialog>
     </>
   );

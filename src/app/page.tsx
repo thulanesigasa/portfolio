@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import PhonePreview from "./components/ui/phone-preview";
+import ScreenPreview from "./components/ui/screen-preview";
 import ProjectEnquiry from "./components/home/project-enquiry";
 const projects = [
   {
@@ -65,28 +65,30 @@ export default function Home() {
           </p>
         </header>
         <figure
-          className="studio-device-pair"
+          className="interface-deck"
           aria-label="Selected application interfaces"
         >
-          <figure className="studio-device first">
-            <PhonePreview
+          <figure className="interface-sheet first">
+            <ScreenPreview
               src="/images/work/bible_diaries/feed-boy.webp"
               alt="Bible Diaries reflection feed interface"
               priority
               sizes="(max-width:760px) 40vw, 20vw"
             />
             <figcaption>
+              <small>01 / REFLECTIONS</small>
               <Link href="/work/bible-diaries">Bible Diaries ↗</Link>
             </figcaption>
           </figure>
-          <figure className="studio-device second">
-            <PhonePreview
+          <figure className="interface-sheet second">
+            <ScreenPreview
               src="/images/work/service_link/discover.webp"
               alt="Service Link discovery interface"
               priority
               sizes="(max-width:760px) 40vw, 20vw"
             />
             <figcaption>
+              <small>02 / DISCOVERY</small>
               <Link href="/work/service-link">Service Link ↗</Link>
             </figcaption>
           </figure>
@@ -127,7 +129,7 @@ export default function Home() {
                     0{i + 1} / {p.type.split(" / ")[0]}
                   </figcaption>
                   {p.slug !== "resume-build" ? (
-                    <PhonePreview
+                    <ScreenPreview
                       src={p.image}
                       alt={`${p.title} interface`}
                       sizes="(max-width:700px) 48vw, 230px"

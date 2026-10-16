@@ -199,40 +199,7 @@ body {
   font-size: 7px;
   letter-spacing: 1px;
 }
-.studio-device-pair {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 28px;
-  padding: 22px 0;
-}
-.studio-device {
-  display: block;
-  width: 43%;
-  max-width: 190px;
-}
-.studio-device.second {
-  margin-top: 65px;
-}
-.studio-device img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 430/932;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 14px;
-}
-.studio-device > span {
-  display: block;
-  text-align: center;
-  margin-top: 16px;
-  font-size: 9px;
-  color: var(--studio-muted);
-}
-.studio-device:hover > span {
-  color: var(--studio-accent);
-}
+
 .studio-hero-bottom {
   grid-column: 1/-1;
   margin-top: 65px;
@@ -646,9 +613,7 @@ body {
   .studio-hero-copy h1 {
     font-size: 5.8vw;
   }
-  .studio-device-pair {
-    gap: 18px;
-  }
+
   .studio-project-grid {
     gap: 40px 30px;
   }
@@ -716,13 +681,7 @@ body {
   .studio-hero-copy > p:not(.studio-eyebrow) {
     max-width: 540px;
   }
-  .studio-device-pair {
-    gap: 35px;
-  }
-  .studio-device {
-    max-width: 180px;
-    width: 38%;
-  }
+
   .studio-hero-bottom {
     margin-top: 0;
     gap: 16px;
@@ -813,9 +772,7 @@ body {
     gap: 10px;
     font-size: 11px;
   }
-  .studio-device-pair {
-    gap: 20px;
-  }
+
   .studio-section h2 {
     font-size: 32px;
   }
@@ -1188,8 +1145,72 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
     gap: 40px;
   }
 }
-/* Phone presentation stays inside the continuous page; only the device has a frame. */
-.phone-preview-trigger {
+/* Interface studies: frameless prints with an editorial composition. */
+.interface-deck {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  isolation: isolate;
+  min-height: 540px;
+  padding: 30px 20px 95px;
+  gap: 0;
+}
+.interface-deck:before {
+  content: "SELECTED INTERFACES";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 7px;
+  letter-spacing: 2px;
+  color: var(--studio-muted);
+}
+.interface-deck:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--studio-line);
+  z-index: -1;
+}
+.interface-sheet {
+  display: block;
+  position: relative;
+  width: 53%;
+  max-width: 200px;
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.interface-sheet.first {
+  transform: translate(-4px, 10px) rotate(-6deg);
+  z-index: 1;
+}
+.interface-sheet.second {
+  margin-left: -35px;
+  transform: translate(5px, 65px) rotate(6deg);
+  z-index: 2;
+}
+.interface-sheet:focus-within {
+  z-index: 3;
+}
+.interface-sheet > figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 18px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.interface-sheet > figcaption > small {
+  font-size: 7px;
+  letter-spacing: 1.3px;
+  color: var(--studio-accent);
+}
+.interface-sheet > figcaption > a:hover {
+  color: var(--studio-accent);
+}
+.screen-preview-trigger {
   display: block;
   position: relative;
   width: 100%;
@@ -1199,93 +1220,74 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
   color: var(--studio-accent);
   cursor: zoom-in;
   font: inherit;
-  text-align: center;
+  text-align: left;
 }
-.phone-shell {
+.screen-print {
   display: block;
   position: relative;
   isolation: isolate;
-  width: 100%;
-  padding: 6px;
-  border: 1px solid #9c792e;
-  border-radius: 30px;
-  background: linear-gradient(
-    125deg,
-    #e6d7af,
-    #a88332 45%,
-    #f8edcb 75%,
-    #c8a65a
-  );
-  box-shadow: 0 10px 22px #785c2514;
 }
-.phone-shell .phone-screen {
+.screen-print:after {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+  background: var(--studio-line);
+}
+.screen-print .screen-image {
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 738/1600;
-  object-fit: cover;
+  object-fit: contain;
   object-position: top;
-  border-radius: 23px;
+  border: 0;
+  border-radius: 0;
+  filter: none;
+  box-shadow: 0 15px 30px #30291d17;
+  transform: none;
 }
-
-.phone-camera {
-  position: absolute;
-  top: 11px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 25%;
-  height: 8px;
-  background: #30291d;
-  border-radius: 10px;
-  z-index: 2;
-  pointer-events: none;
-}
-.phone-home {
-  position: absolute;
-  bottom: 13px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 32%;
-  height: 3px;
-  background: #30291d;
-  border-radius: 4px;
-  z-index: 2;
-  pointer-events: none;
-}
-.phone-enlarge-hint {
+.screen-enlarge-hint {
   display: block;
+  margin-top: 10px;
   font-size: 8px;
-  letter-spacing: 0.5px;
-  margin-top: 12px;
+  letter-spacing: 0.7px;
   color: var(--studio-accent);
 }
-.studio-device > figcaption {
-  font-size: 9px;
-  text-align: center;
-  margin-top: 12px;
+.interface-deck .screen-enlarge-hint {
+  font-size: 7px;
 }
-.studio-device .phone-screen {
-  border-radius: 23px;
-}
-.studio-device-pair .phone-preview-trigger {
-  max-width: none;
-}
-.studio-project-image:has(.phone-preview-trigger) {
+.studio-project-image:has(.screen-preview-trigger) {
   aspect-ratio: auto;
-  min-height: 480px;
-  padding: 35px 0 20px;
+  min-height: 490px;
+  align-items: center;
+  padding: 42px 0 22px;
+  overflow: visible;
 }
-.studio-project-image > .phone-preview-trigger {
-  width: 200px;
+.studio-project-image > .screen-preview-trigger {
+  width: 210px;
   max-width: 65%;
+  transform: rotate(-3deg);
+  transition: transform 0.3s;
 }
-.studio-project-image .phone-shell .phone-screen {
+.studio-project-grid
+  > li:nth-child(even)
+  .studio-project-image
+  > .screen-preview-trigger {
+  transform: rotate(3deg);
+}
+.studio-project-image .screen-print .screen-image {
   height: auto;
   width: 100%;
   max-width: none;
   transform: none;
 }
-.studio-project:hover .phone-screen {
+.studio-project:hover .screen-image {
+  transform: none;
+}
+.studio-project-image > .screen-preview-trigger:focus-visible {
   transform: none;
 }
 .studio-project h3 > a {
@@ -1299,55 +1301,75 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
   color: var(--studio-accent);
   font-size: 19px;
 }
-.phone-dialog {
+.screen-lightbox {
   position: fixed;
   inset: 0;
   margin: auto;
-  width: min(560px, calc(100vw - 28px));
-  max-height: 90dvh;
+  width: min(1060px, calc(100vw - 24px));
+  max-height: 96dvh;
   overflow: auto;
   overscroll-behavior: contain;
-  padding: 22px;
+  border: 0;
+  padding: 20px 25px 28px;
   background: var(--studio-paper);
   color: var(--studio-ink);
-  border: 1px solid var(--studio-line);
-  border-radius: 8px;
+  border-radius: 0;
 }
-.phone-dialog::backdrop {
-  background: #30291d88;
+.screen-lightbox::backdrop {
+  background: #fffefbf5;
 }
-.phone-dialog > header {
+.screen-lightbox > header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 22px;
+  gap: 25px;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--studio-line);
 }
-.phone-dialog > header > h2 {
+.screen-lightbox > header > h2 {
   font-size: 16px;
   line-height: 1.5;
   font-weight: 500;
   letter-spacing: 0;
   margin: 0;
 }
-.phone-close {
+.screen-lightbox h2 > small {
+  display: block;
+  font-size: 7px;
+  letter-spacing: 1.7px;
+  color: var(--studio-accent);
+  margin-bottom: 9px;
+}
+.screen-close {
   flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--studio-line);
+  min-width: 75px;
+  min-height: 44px;
+  border: 0;
+  border-bottom: 1px solid var(--studio-line);
   background: transparent;
   color: var(--studio-ink);
-  font-size: 18px;
+  font: inherit;
+  font-size: 11px;
   cursor: pointer;
 }
-.phone-dialog > .phone-shell {
-  width: min(270px, 65vw);
+.screen-lightbox > .screen-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 75dvh;
   margin: 0 auto;
+  object-fit: contain;
+  filter: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
-.phone-gallery {
+.screen-gallery {
   margin: 40px 0;
 }
-.phone-gallery .phone-gallery-rail {
+.screen-gallery .screen-gallery-rail {
   position: relative;
   display: flex;
   gap: 32px;
@@ -1358,45 +1380,49 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
 }
-.phone-gallery-rail::-webkit-scrollbar {
+.screen-gallery-rail::-webkit-scrollbar {
   display: none;
 }
-.phone-gallery-rail > li {
+.screen-gallery-rail > li {
   flex: 0 0 100%;
   min-width: 0;
   scroll-snap-align: start;
   text-align: center;
 }
-.phone-gallery-pair {
+.screen-gallery-pair {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  gap: 25px;
+  gap: 35px;
+  padding: 20px 15px 12px;
   margin: 0 0 25px;
 }
-.phone-gallery-pair > .phone-preview-trigger {
+.screen-gallery-pair > .screen-preview-trigger {
   width: 210px;
   max-width: 43%;
 }
-.phone-gallery-rail h3 {
+.screen-gallery-pair > .screen-preview-trigger:nth-of-type(2) {
+  margin-top: 40px;
+}
+.screen-gallery-rail h3 {
   font-size: 24px;
   margin: 20px 0 12px;
   font-weight: 500;
 }
-.phone-gallery-rail p {
+.screen-gallery-rail p {
   font-size: 14px;
   max-width: 700px;
   margin: 0 auto;
   color: var(--studio-muted);
 }
-.phone-gallery > nav {
+.screen-gallery > nav {
   display: flex;
   justify-content: center;
   gap: 8px;
   margin-top: 28px;
   flex-wrap: wrap;
 }
-.phone-gallery > nav > button {
+.screen-gallery > nav > button {
   width: 44px;
   height: 44px;
   border: 0;
@@ -1407,45 +1433,121 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
   font-size: 12px;
   cursor: pointer;
 }
-.phone-gallery > nav > button[aria-current="true"] {
+.screen-gallery > nav > button[aria-current="true"] {
   border-color: var(--studio-accent);
   color: var(--studio-accent);
   font-weight: 600;
 }
-@media (max-width: 600px) {
-  .phone-shell {
-    padding: 5px;
-    border-radius: 24px;
+@media (hover: hover) and (pointer: fine) {
+  .interface-deck:hover .interface-sheet.first,
+  .interface-deck:focus-within .interface-sheet.first {
+    transform: translate(-20px, 0) rotate(-3deg);
   }
-  .phone-shell .phone-screen,
-  .studio-device .phone-screen {
-    border-radius: 18px;
+  .interface-deck:hover .interface-sheet.second,
+  .interface-deck:focus-within .interface-sheet.second {
+    transform: translate(20px, 65px) rotate(3deg);
   }
-  .phone-camera {
-    top: 10px;
-    height: 6px;
+  .studio-project-image > .screen-preview-trigger:hover {
+    transform: rotate(0) translateY(-5px);
   }
-  .phone-home {
-    bottom: 11px;
-    height: 2px;
+  .studio-project-grid
+    > li:nth-child(even)
+    .studio-project-image
+    > .screen-preview-trigger:hover {
+    transform: rotate(0) translateY(-5px);
   }
-  .studio-project-image:has(.phone-preview-trigger) {
+}
+@media (max-width: 1050px) {
+  .interface-deck {
+    min-height: 450px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .interface-sheet {
+    max-width: 185px;
+  }
+  .interface-sheet.second {
+    margin-left: -25px;
+  }
+}
+@media (max-width: 760px) {
+  .interface-deck {
+    min-height: 530px;
+    max-width: 520px;
+    width: 100%;
+    margin: auto !important;
+    gap: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .interface-sheet {
+    max-width: 190px;
+    width: 46%;
+  }
+  .interface-sheet.second {
+    margin-left: -20px;
+  }
+  .studio-project-image:has(.screen-preview-trigger) {
     min-height: 0;
-    padding-top: 35px;
   }
-  .phone-gallery-pair {
-    gap: 16px;
+  .screen-lightbox {
+    padding: 14px;
   }
-  .phone-dialog {
-    padding: 16px;
+  .screen-lightbox > header > h2 {
+    font-size: 13px;
   }
-  .phone-gallery-rail h3 {
+  .screen-gallery-pair {
+    gap: 25px;
+  }
+  .screen-gallery-rail h3 {
     font-size: 21px;
   }
-  .phone-gallery-rail p {
+  .screen-gallery-rail p {
     font-size: 12px;
   }
 }
+@media (max-width: 420px) {
+  .interface-deck {
+    min-height: 470px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .interface-sheet {
+    width: 46%;
+  }
+  .interface-sheet.second {
+    margin-left: -17px;
+    transform: translate(0, 50px) rotate(5deg);
+  }
+  .interface-sheet.first {
+    transform: translate(0, 10px) rotate(-5deg);
+  }
+  .interface-sheet > figcaption {
+    font-size: 10px;
+  }
+  .interface-sheet > figcaption > small {
+    font-size: 6px;
+  }
+  .screen-gallery-pair {
+    gap: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .interface-sheet,
+  .studio-project-image > .screen-preview-trigger {
+    transition: none !important;
+    transform: none !important;
+  }
+  .interface-deck:hover .interface-sheet.first,
+  .interface-deck:hover .interface-sheet.second,
+  .interface-deck:focus-within .interface-sheet.first,
+  .interface-deck:focus-within .interface-sheet.second {
+    transform: none !important;
+  }
+}
+
 /* Credentials: real certificate pages, arranged as an open editorial collection. */
 .credential-page {
   max-width: 1440px;
