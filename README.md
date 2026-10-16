@@ -126,3 +126,14 @@ image generator: an airy folded satin-gold ribbon, ivory sphere and small polish
 gold sphere, isolated on transparency without text, logos, phones or interfaces.
 Gentle floating and mouse parallax respect reduced motion; there are no hero
 carousel controls or screenshot interactions. The work section uses typographic project identities.
+
+The full collection also includes GENI, Ghost FileShuttler, Rulership ERP, My Writer
+(Scriptorium), SellMyNotes and MakeMyNotes. Their content is in
+`src/app/data/additional-projects.json`. The homepage remains limited to two projects.
+`src/app/data/project-history.json` records the earliest and latest committer
+timestamps across every commit reachable from each added repository's default
+branch, checked on 16 October 2026 (including both pages of SellMyNotes history).
+The journey inserts these ranges chronologically by first commit, preserving the
+existing studio milestones. These are repository activity dates, not launch dates.
+Each date links to its exact source commit; display uses Africa/Johannesburg time.
+The history is a checked snapshot and is not fetched at page load.
