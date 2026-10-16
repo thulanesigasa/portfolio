@@ -1,7 +1,14 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
-type Props = { src: string; alt: string; priority?: boolean; sizes?: string };
+type Props = {
+  src: string;
+  alt: string;
+  priority?: boolean;
+  sizes?: string;
+  tabIndex?: number;
+  onInspect?: () => void;
+};
 function ScreenImage({ src, alt, priority, sizes }: Props) {
   return (
     <Image
@@ -28,6 +35,7 @@ export default function ScreenPreview(props: Props) {
     };
   }, [open]);
   function show() {
+    props.onInspect?.();
     dialog.current?.showModal();
     setOpen(true);
   }
@@ -39,6 +47,7 @@ export default function ScreenPreview(props: Props) {
         onClick={show}
         aria-label={`Enlarge ${props.alt}`}
         aria-haspopup="dialog"
+        tabIndex={props.tabIndex}
       >
         <span className="screen-print">
           <ScreenImage {...props} />

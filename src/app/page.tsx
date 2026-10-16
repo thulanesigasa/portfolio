@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import ScreenPreview from "./components/ui/screen-preview";
+import InteractiveScreenOrbit from "./components/ui/interactive-screen-orbit";
 import ProjectEnquiry from "./components/home/project-enquiry";
 const projects = [
   {
@@ -64,35 +65,7 @@ export default function Home() {
             WEB DEVELOPMENT / MOBILE APPLICATIONS / UI/UX DESIGN
           </p>
         </header>
-        <figure
-          className="interface-deck"
-          aria-label="Selected application interfaces"
-        >
-          <figure className="interface-sheet first">
-            <ScreenPreview
-              src="/images/work/bible_diaries/feed-boy.webp"
-              alt="Bible Diaries reflection feed interface"
-              priority
-              sizes="(max-width:760px) 40vw, 20vw"
-            />
-            <figcaption>
-              <small>01 / REFLECTIONS</small>
-              <Link href="/work/bible-diaries">Bible Diaries ↗</Link>
-            </figcaption>
-          </figure>
-          <figure className="interface-sheet second">
-            <ScreenPreview
-              src="/images/work/service_link/discover.webp"
-              alt="Service Link discovery interface"
-              priority
-              sizes="(max-width:760px) 40vw, 20vw"
-            />
-            <figcaption>
-              <small>02 / DISCOVERY</small>
-              <Link href="/work/service-link">Service Link ↗</Link>
-            </figcaption>
-          </figure>
-        </figure>
+        <InteractiveScreenOrbit />
         <footer className="studio-hero-bottom">
           <span>BASED IN SOUTH AFRICA</span>
           <p>
