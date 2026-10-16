@@ -3,10 +3,23 @@ import { useEffect, useState } from "react";
 import BackButton from "@/app/components/ui/back-button";
 import Link from "next/link";
 
-const SOUTHERN_AFRICA_COUNTRIES = ['ZA', 'NA', 'BW', 'LS', 'SZ', 'ZW', 'MZ', 'AO', 'ZM', 'MW'];
+const SOUTHERN_AFRICA_COUNTRIES = [
+  "ZA",
+  "NA",
+  "BW",
+  "LS",
+  "SZ",
+  "ZW",
+  "MZ",
+  "AO",
+  "ZM",
+  "MW",
+];
 
 export default function Pricing() {
-  const [region, setRegion] = useState<"loading" | "southern_africa" | "international">("loading");
+  const [region, setRegion] = useState<
+    "loading" | "southern_africa" | "international"
+  >("loading");
 
   useEffect(() => {
     async function fetchLocation() {
@@ -14,11 +27,18 @@ export default function Pricing() {
         // 1. Instant local check using browser timezone (Bypasses adblockers & network latency)
         const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
         const southernAfricaTimezones = [
-          'Africa/Johannesburg', 'Africa/Windhoek', 'Africa/Gaborone', 
-          'Africa/Maseru', 'Africa/Mbabane', 'Africa/Harare', 
-          'Africa/Maputo', 'Africa/Luanda', 'Africa/Lusaka', 'Africa/Blantyre'
+          "Africa/Johannesburg",
+          "Africa/Windhoek",
+          "Africa/Gaborone",
+          "Africa/Maseru",
+          "Africa/Mbabane",
+          "Africa/Harare",
+          "Africa/Maputo",
+          "Africa/Luanda",
+          "Africa/Lusaka",
+          "Africa/Blantyre",
         ];
-        
+
         if (southernAfricaTimezones.includes(tz)) {
           setRegion("southern_africa");
           return;
@@ -28,7 +48,11 @@ export default function Pricing() {
         const res = await fetch("https://ipapi.co/json/");
         if (!res.ok) throw new Error("Rate limited");
         const data = await res.json();
-        if (data && data.country_code && SOUTHERN_AFRICA_COUNTRIES.includes(data.country_code)) {
+        if (
+          data &&
+          data.country_code &&
+          SOUTHERN_AFRICA_COUNTRIES.includes(data.country_code)
+        ) {
           setRegion("southern_africa");
           return;
         }
@@ -36,12 +60,18 @@ export default function Pricing() {
         try {
           const res2 = await fetch("https://ipwho.is/");
           const data2 = await res2.json();
-          if (data2 && data2.country_code && SOUTHERN_AFRICA_COUNTRIES.includes(data2.country_code)) {
+          if (
+            data2 &&
+            data2.country_code &&
+            SOUTHERN_AFRICA_COUNTRIES.includes(data2.country_code)
+          ) {
             setRegion("southern_africa");
             return;
           }
         } catch (fallbackError) {
-          console.warn("Geolocation failed, defaulting to international pricing.");
+          console.warn(
+            "Geolocation failed, defaulting to international pricing.",
+          );
         }
       }
       setRegion("international");
@@ -49,119 +79,103 @@ export default function Pricing() {
     fetchLocation();
   }, []);
 
-  const pricingPlans = region === "southern_africa" ? [
-    {
-      prefix: "From",
-      currency: "R",
-      price: "200",
-      title: "Graphic Design",
-      description: "Eye-catching and impactful designs tailored to your brand identity. From logos to full branding kits, we ensure your visuals leave a lasting impression.",
-    },
-    {
-      prefix: "From",
-      currency: "R",
-      price: "11,500",
-      title: "Mobile App Development",
-      description: "Custom mobile applications for Android and iOS, built to deliver seamless user experiences and meet your business needs.",
-    },
-    {
-      prefix: "From",
-      currency: "R",
-      price: "2,000",
-      title: "Web App Development",
-      description: "Modern, responsive, and secure web applications designed to enhance productivity and engage users.",
-    }
-  ] : [
-    {
-      prefix: "From",
-      currency: "£",
-      price: "20",
-      title: "Graphic Design",
-      description: "Eye-catching and impactful designs tailored to your brand identity. From logos to full branding kits, we ensure your visuals leave a lasting impression.",
-    },
-    {
-      prefix: "From",
-      currency: "£",
-      price: "2,000",
-      title: "Mobile App Development",
-      description: "Custom mobile applications for Android and iOS, built to deliver seamless user experiences and meet your business needs.",
-    },
-    {
-      prefix: "From",
-      currency: "£",
-      price: "1,000",
-      title: "Web App Development",
-      description: "Modern, responsive, and secure web applications designed to enhance productivity and engage users.",
-    }
-  ];
+  const pricingPlans =
+    region === "southern_africa"
+      ? [
+          {
+            prefix: "From",
+            currency: "R",
+            price: "200",
+            title: "Graphic Design",
+            description:
+              "Eye-catching and impactful designs tailored to your brand identity. From logos to full branding kits, we ensure your visuals leave a lasting impression.",
+          },
+          {
+            prefix: "From",
+            currency: "R",
+            price: "11,500",
+            title: "Mobile App Development",
+            description:
+              "Custom mobile applications for Android and iOS, built to deliver seamless user experiences and meet your business needs.",
+          },
+          {
+            prefix: "From",
+            currency: "R",
+            price: "2,000",
+            title: "Web App Development",
+            description:
+              "Modern, responsive, and secure web applications designed to enhance productivity and engage users.",
+          },
+        ]
+      : [
+          {
+            prefix: "From",
+            currency: "£",
+            price: "20",
+            title: "Graphic Design",
+            description:
+              "Eye-catching and impactful designs tailored to your brand identity. From logos to full branding kits, we ensure your visuals leave a lasting impression.",
+          },
+          {
+            prefix: "From",
+            currency: "£",
+            price: "2,000",
+            title: "Mobile App Development",
+            description:
+              "Custom mobile applications for Android and iOS, built to deliver seamless user experiences and meet your business needs.",
+          },
+          {
+            prefix: "From",
+            currency: "£",
+            price: "1,000",
+            title: "Web App Development",
+            description:
+              "Modern, responsive, and secure web applications designed to enhance productivity and engage users.",
+          },
+        ];
 
   return (
-    <main className="pricing-page" style={{ paddingTop: "150px", paddingBottom: "120px" }}>
-      <div className="container">
-        <BackButton />
-        <div style={{ textAlign: "center", marginBottom: "5rem", marginTop: "1rem" }}>
-          <h2 style={{ fontSize: "3rem", fontFamily: "var(--font-heading)", fontWeight: 600, lineHeight: 1.2, marginBottom: "1.5rem" }}>
-            Reasonable <span style={{ fontWeight: 300 }}>prices</span> <br />
-            for innovative <span style={{ fontWeight: 300 }}>solutions</span>
-          </h2>
-          <p style={{ color: "var(--color-text-muted)", fontSize: "1.1rem", lineHeight: 1.6 }}>
-            At our agency, we have a unique approach to web design and development. <br />
-            We believe in creating in terms of user experience, functionality.
-          </p>
-        </div>
-
-        <div className="pricing-list" style={{ display: "flex", flexDirection: "column" }}>
-          {pricingPlans.map((plan, i) => (
-            <Link href="#contact" key={i} className="pricing-row" style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 2fr 3fr auto",
-              gap: "2rem",
-              alignItems: "center",
-              padding: "2.5rem 0",
-              borderTop: "1px solid var(--color-border)",
-              borderBottom: i === pricingPlans.length - 1 ? "1px solid var(--color-border)" : "none",
-              textDecoration: "none",
-              color: "inherit",
-              transition: "all 0.3s ease",
-              opacity: region === "loading" ? 0.4 : 1,
-              pointerEvents: region === "loading" ? "none" : "auto"
-            }}>
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px" }}>
-                <span style={{ fontSize: "0.9rem", color: "var(--color-text-muted)", textTransform: "uppercase", letterSpacing: "0.05em", lineHeight: 1 }}>
-                  {region === "loading" ? "" : plan.prefix}
-                </span>
-                <div style={{ display: "flex", alignItems: "baseline", gap: "5px", lineHeight: 1 }}>
-                  <span style={{ fontSize: "1.2rem", color: "var(--color-text-muted)" }}>
-                    {region === "loading" ? "-" : plan.currency}
-                  </span>
-                  <span style={{ fontSize: "2.5rem", color: "var(--color-primary)", fontWeight: 600 }}>
-                    {region === "loading" ? "..." : plan.price}
-                  </span>
-                </div>
-              </div>
-              <h5 style={{ fontSize: "1.2rem", fontFamily: "var(--font-heading)", fontWeight: 600 }}>{plan.title}</h5>
-              <p style={{ color: "var(--color-text-muted)", fontSize: "0.95rem", lineHeight: 1.6, margin: 0 }}>{plan.description}</p>
-              <div className="pricing-arrow-btn" style={{
-                width: "44px", height: "44px", borderRadius: "50%", background: "var(--color-primary)", 
-                display: "flex", alignItems: "center", justifyContent: "center", color: "#fff"
-              }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-              </div>
+    <main className="site-services pricing-page">
+      <BackButton />
+      <header>
+        <p className="studio-eyebrow">TS INDUSTRIES / PRICING</p>
+        <h1>
+          Clear starting points.
+          <br />
+          <em>Room for your ambition.</em>
+        </h1>
+        <p>
+          Starting prices for design and development. Final pricing depends on
+          your project’s requirements and agreed scope.
+        </p>
+      </header>
+      <p role="status" className="studio-eyebrow">
+        {region === "loading"
+          ? "Loading regional pricing…"
+          : region === "southern_africa"
+            ? "PRICES IN SOUTH AFRICAN RAND"
+            : "PRICES IN BRITISH POUNDS"}
+      </p>
+      <ul className="site-pricing-list">
+        {pricingPlans.map((plan) => (
+          <li key={plan.title}>
+            <Link href="/#contact" className="pricing-row">
+              <p className="site-price">
+                <small>{plan.prefix}</small>
+                <strong>
+                  {region === "loading" ? "…" : `${plan.currency}${plan.price}`}
+                </strong>
+              </p>
+              <h2>{plan.title}</h2>
+              <p>{plan.description}</p>
+              <span aria-hidden="true">↗</span>
             </Link>
-          ))}
-        </div>
-
-        <div style={{ textAlign: "center", marginTop: "4rem" }}>
-          <Link href="/#contact" style={{
-            display: "inline-flex", alignItems: "center", gap: "10px", 
-            background: "var(--color-primary)", color: "#fff", padding: "1rem 2.5rem", 
-            borderRadius: "var(--radius-full)", textDecoration: "none", fontWeight: 600, fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.1em"
-          }}>
-            Let's Talk
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </Link>
-        </div>
-      </div>
+          </li>
+        ))}
+      </ul>
+      <Link className="studio-button" href="/#contact">
+        Request a project quote <span>↗</span>
+      </Link>
     </main>
   );
 }

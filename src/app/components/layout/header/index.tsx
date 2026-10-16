@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -11,24 +12,29 @@ export default function Header() {
   }, [path]);
   useEffect(() => {
     const close = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
+      if (e.key === "Escape" && open) {
         setOpen(false);
         toggle.current?.focus();
       }
     };
     document.addEventListener("keydown", close);
     return () => document.removeEventListener("keydown", close);
-  }, []);
+  }, [open]);
   return (
     <header className="studio-header">
-      <a className="skip-link" href="#page-content">
+      <a className="skip-link" href="#content-start">
         Skip to content
       </a>
       <Link className="studio-brand" href="/" aria-label="TS Industries home">
-        <span className="studio-brand-symbol">TS</span>
-        <small>
-          INDUSTRIES<span>DESIGN & DEVELOPMENT</span>
-        </small>
+        <Image
+          className="studio-logo"
+          src="/images/logo/ts-industries-transparent.png"
+          alt="TS Industries — Thulane Sigasa"
+          width={1774}
+          height={887}
+          sizes="180px"
+          priority
+        />
       </Link>
       <button
         ref={toggle}

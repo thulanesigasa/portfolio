@@ -74,9 +74,19 @@ To ensure this site stays fully production-ready when deploying live:
 
 ## TS Industries portfolio
 
+The shared visual hierarchy uses a white canvas (60), supporting gold (30), and
+yellow action accents (10), with dark text for readability. These are visual
+proportions, not a literal pixel quota. The body provides the continuous background;
+semantic sections and lists replace unnecessary homepage wrappers and panels.
+Services, pricing, journey and FAQs use open layouts. The header and footer display
+`public/images/logo/ts-industries-transparent.png`, a transparent-background edit of
+the original signature in `public/images/icon/icon.png`. The built-in image editor
+was instructed to remove only the white background and excess margins while
+preserving the black signature, circular industries text and 2024.
+
 The homepage uses `src/app/studio.css`, with selected projects before services,
 process, studio information and the project enquiry form. Existing project stories
-share the dark technical palette; their original content and galleries are retained.
+share the white, gold and yellow palette; their original content and galleries are retained.
 The homepage features screenshots from Bible Diaries and Service Link, alongside
 MedSync and Resume Build. All project assets belong to this portfolio.
 

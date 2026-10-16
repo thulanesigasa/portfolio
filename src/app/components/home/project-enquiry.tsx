@@ -41,7 +41,10 @@ export default function ProjectEnquiry() {
       onSubmit={submit}
       aria-busy={status === "sending"}
     >
-      <div className="studio-form-grid">
+      <fieldset className="studio-form-grid">
+        <legend className="studio-visually-hidden">
+          Contact and project details
+        </legend>
         <label>
           Your name
           <input
@@ -86,7 +89,7 @@ export default function ProjectEnquiry() {
             <option>R75,000+</option>
           </select>
         </label>
-      </div>
+      </fieldset>
       <label>
         Ideal timeline
         <input
@@ -105,12 +108,12 @@ export default function ProjectEnquiry() {
           placeholder="Your idea, your goals, or the problem you want to solve."
         />
       </label>
-      <div className="studio-honeypot" aria-hidden="true">
+      <fieldset className="studio-honeypot" aria-hidden="true">
         <label>
           Website
           <input name="website" tabIndex={-1} autoComplete="off" />
         </label>
-      </div>
+      </fieldset>
       <p className="studio-form-note">
         Your enquiry is processed by FormSubmit so we can reply. Read our{" "}
         <a href="/privacy-policy/">privacy policy</a>.
@@ -119,7 +122,7 @@ export default function ProjectEnquiry() {
         {status === "sending" ? "Sending…" : "Send project enquiry"}
         <span>↗</span>
       </button>
-      <div role="status" aria-live="polite">
+      <output className="studio-form-status" aria-live="polite">
         {status === "success" && (
           <p className="studio-feedback">
             Thank you. Your enquiry has been sent. We’ll be in touch by email.
@@ -131,7 +134,7 @@ export default function ProjectEnquiry() {
             pharezsigasa@gmail.com. Your details are still here.
           </p>
         )}
-      </div>
+      </output>
     </form>
   );
 }
