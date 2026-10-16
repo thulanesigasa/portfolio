@@ -25,8 +25,10 @@ export default function Header() {
         Skip to content
       </a>
       <Link className="studio-brand" href="/" aria-label="TS Industries home">
-        ts<span>✳</span>
-        <small>INDUSTRIES</small>
+        <span className="studio-brand-symbol">TS</span>
+        <small>
+          INDUSTRIES<span>DESIGN & DEVELOPMENT</span>
+        </small>
       </Link>
       <button
         ref={toggle}

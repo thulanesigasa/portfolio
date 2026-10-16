@@ -4,8 +4,10 @@ export default function Footer() {
     <footer className="studio-footer">
       <div className="studio-footer-top">
         <Link className="studio-brand" href="/">
-          ts<span>✳</span>
-          <small>INDUSTRIES</small>
+          <span className="studio-brand-symbol">TS</span>
+          <small>
+            INDUSTRIES<span>DESIGN & DEVELOPMENT</span>
+          </small>
         </Link>
         <p>
           Thoughtful design.
