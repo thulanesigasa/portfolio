@@ -1,6 +1,5 @@
 import Link from "next/link";
-import ProjectGraphic from "./components/ui/project-graphic";
-import { projects } from "./data/projects";
+import ProjectGrid from "./components/project-grid";
 import DecorativeHero from "./components/ui/decorative-hero";
 import ProjectEnquiry from "./components/home/project-enquiry";
 export default function Home() {
@@ -61,31 +60,10 @@ export default function Home() {
             community platforms to practical business tools.
           </p>
         </header>
-        <ul className="studio-project-grid">
-          {projects.map((p, i) => (
-            <li key={p.slug}>
-              <article className="studio-project">
-                <Link
-                  className="project-graphic-link"
-                  href={`/work/${p.slug}`}
-                  aria-label={`Explore ${p.title}: overview and technology stack`}
-                >
-                  <ProjectGraphic project={p} index={i} />
-                </Link>
-                <h3>
-                  <Link href={`/work/${p.slug}`}>
-                    {p.title} <span aria-hidden="true">↗</span>
-                  </Link>
-                </h3>
-                <small>{p.category}</small>
-                <p>{p.description}</p>
-              </article>
-            </li>
-          ))}
-        </ul>
+        <ProjectGrid limit={2} />
         <nav className="studio-more-work" aria-label="More projects">
-          <span>Explore our expertise</span>
-          <Link href="/certificates">Technical credentials ↗</Link>
+          <span>There’s more to explore</span>
+          <Link href="/work">All projects ↗</Link>
         </nav>
       </section>
       <section
