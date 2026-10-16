@@ -1,116 +1,240 @@
 "use client";
-
-import BackButton from "@/app/components/ui/back-button";
-import React, { useState } from "react";
-import { allCertificates, getIssuerIcon } from "../components/home/certificates-sec";
-import CertificateModal from "../components/ui/certificate-modal";
+import { useState } from "react";
 import Image from "next/image";
-
-const TABS = ["All", "Cisco", "Huawei", "freeCodeCamp", "Vodacom Group", "Other"];
-
-type Cert = typeof allCertificates[0];
-
+import Link from "next/link";
+import { allCertificates, type Certificate } from "../data/certificates";
+import previews from "../data/certificate-previews.json";
+import CertificateModal from "../components/ui/certificate-modal";
+const issuers = [
+  "All",
+  "Cisco",
+  "Huawei",
+  "freeCodeCamp",
+  "Vodacom Group",
+  "AI Certification",
+];
+const topics = [
+  "All skills",
+  "Development",
+  "Networking",
+  "Cloud",
+  "AI",
+  "Digital skills",
+];
+const previewData: Record<
+  string,
+  { src: string; width: number; height: number }
+> = previews;
+function topic(cert: Certificate) {
+  if (/AI|Artificial Intelligence/i.test(cert.title)) return "AI";
+  if (/Cloud/i.test(cert.title)) return "Cloud";
+  if (/Network|Protocols/i.test(cert.title)) return "Networking";
+  if (
+    /JavaScript|Web Design|Development|Visualization|Front End/i.test(
+      cert.title,
+    )
+  )
+    return "Development";
+  return "Digital skills";
+}
 export default function CertificatesPage() {
-  const [activeTab, setActiveTab] = useState("All");
-  const [activeCert, setActiveCert] = useState<Cert | null>(null);
-
-  const filteredCertificates = allCertificates.filter((cert) => {
-    if (activeTab === "All") return true;
-    if (activeTab === "Cisco") return cert.issuer.includes("Cisco");
-    if (activeTab === "Huawei") return cert.issuer.includes("Huawei");
-    if (activeTab === "freeCodeCamp") return cert.issuer.includes("freeCodeCamp");
-    if (activeTab === "Vodacom Group") return cert.issuer.includes("Vodacom");
-    if (activeTab === "Other") {
-      const mainIssuers = ["Cisco", "Huawei", "freeCodeCamp", "Vodacom"];
-      return !mainIssuers.some((issuer) => cert.issuer.includes(issuer));
-    }
-    return true;
-  });
-
+  const [issuer, setIssuer] = useState("All");
+  const [skill, setSkill] = useState("All skills");
+  const [query, setQuery] = useState("");
+  const [active, setActive] = useState<Certificate | null>(null);
+  const filtered = allCertificates.filter(
+    (cert) =>
+      (issuer === "All" || cert.issuer.includes(issuer)) &&
+      (skill === "All skills" || topic(cert) === skill) &&
+      `${cert.title} ${cert.issuer} ${cert.description}`
+        .toLowerCase()
+        .includes(query.trim().toLowerCase()),
+  );
+  const featured = filtered[0];
+  const rest = filtered.slice(1);
+  function reset() {
+    setIssuer("All");
+    setSkill("All skills");
+    setQuery("");
+  }
   return (
-    <main className="container" style={{ paddingTop: '60px', paddingBottom: '120px', minHeight: '100vh' }}>
-      <BackButton />
-
-      <div className="section-heading">
-        <span className="section-eyebrow">Milestones</span>
-        <h2 className="section-title">
-          All <span style={{ fontWeight: 300 }}>Certifications</span>
-        </h2>
-        <p className="section-desc">
-          A complete showcase of my professional certifications. Click any card to preview the certificate.
+    <main className="credential-page">
+      <header className="credential-intro">
+        <Link className="studio-text-link" href="/">
+          ← Back to the studio
+        </Link>
+        <p className="studio-eyebrow">Ts Industries / LEARNING IN PRACTICE</p>
+        <h1>
+          Curiosity.
+          <br />
+          <em>With credentials.</em>
+        </h1>
+        <p>
+          A collection of the learning behind the work. Explore certificates in
+          development, networking, cloud computing and digital skills.
         </p>
-      </div>
-
-      {/* Filter Tabs */}
-      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '3rem' }}>
-        {TABS.map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            style={{
-              padding: '0.5rem 1.5rem',
-              borderRadius: 'var(--radius-full)',
-              background: activeTab === tab ? 'var(--color-primary)' : 'transparent',
-              color: activeTab === tab ? '#fff' : 'var(--color-text)',
-              border: `1px solid ${activeTab === tab ? 'var(--color-primary)' : 'var(--color-border)'}`,
-              cursor: 'pointer',
-              fontWeight: 500,
-              transition: 'all 0.2s ease',
-            }}
+        <span className="credential-total">
+          {allCertificates.length} certificates{" "}
+          <span aria-hidden="true">/</span> {issuers.length - 1} issuer groups
+        </span>
+      </header>
+      <section className="credential-browser" aria-label="Browse certificates">
+        <nav
+          className="credential-issuers"
+          aria-label="Filter certificates by issuer"
+        >
+          {issuers.map((name) => (
+            <button
+              key={name}
+              type="button"
+              aria-pressed={issuer === name}
+              onClick={() => setIssuer(name)}
+            >
+              {name}
+              <span>
+                {
+                  allCertificates.filter(
+                    (cert) => name === "All" || cert.issuer.includes(name),
+                  ).length
+                }
+              </span>
+            </button>
+          ))}
+        </nav>
+        <form
+          className="credential-tools"
+          role="search"
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <label>
+            Find a certificate
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search a title, issuer or skill"
+            />
+          </label>
+          <label>
+            Skill area
+            <select value={skill} onChange={(e) => setSkill(e.target.value)}>
+              {topics.map((name) => (
+                <option key={name}>{name}</option>
+              ))}
+            </select>
+          </label>
+          <p role="status" aria-live="polite">
+            {filtered.length}{" "}
+            {filtered.length === 1 ? "certificate" : "certificates"}
+          </p>
+        </form>
+      </section>
+      {featured ? (
+        <>
+          <section
+            className="credential-feature"
+            aria-labelledby="featured-title"
           >
-            {tab}
+            <figure>
+              <button
+                type="button"
+                className="credential-preview feature"
+                onClick={() => setActive(featured)}
+                aria-label={`View ${featured.title}`}
+              >
+                <Image
+                  {...previewData[String(featured.id)]}
+                  alt={`${featured.title} certificate issued by ${featured.issuer}`}
+                  priority
+                  sizes="(max-width:760px) 90vw, 60vw"
+                />
+                <span className="credential-view">View certificate ↗</span>
+              </button>
+            </figure>
+            <header>
+              <p className="studio-eyebrow">
+                IN FOCUS / {topic(featured).toUpperCase()}
+              </p>
+              <span className="credential-issuer">{featured.issuer}</span>
+              <h2 id="featured-title">{featured.title}</h2>
+              <p>{featured.description}</p>
+              <button
+                className="studio-button"
+                type="button"
+                onClick={() => setActive(featured)}
+              >
+                Take a closer look <span>↗</span>
+              </button>
+              <a className="studio-text-link" href={featured.pdfLink} download>
+                Download PDF ↓
+              </a>
+            </header>
+          </section>
+          {rest.length > 0 && (
+            <section aria-labelledby="collection-title">
+              <header className="credential-collection-heading">
+                <h2 id="collection-title">The collection.</h2>
+                <p>Open any certificate to explore the details.</p>
+              </header>
+              <ul className="credential-gallery">
+                {rest.map((cert, i) => (
+                  <li key={cert.id}>
+                    <figure>
+                      <button
+                        type="button"
+                        className="credential-preview"
+                        onClick={() => setActive(cert)}
+                        aria-label={`View ${cert.title}`}
+                      >
+                        <Image
+                          {...previewData[String(cert.id)]}
+                          alt={`${cert.title} certificate issued by ${cert.issuer}`}
+                          sizes="(max-width:600px) 90vw, 44vw"
+                        />
+                        <span className="credential-view">
+                          View certificate ↗
+                        </span>
+                      </button>
+                      <figcaption>
+                        <small>
+                          {String(i + 2).padStart(2, "0")} / {topic(cert)}
+                        </small>
+                        <h3>
+                          <button type="button" onClick={() => setActive(cert)}>
+                            {cert.title}
+                            <span aria-hidden="true">↗</span>
+                          </button>
+                        </h3>
+                        <p>{cert.issuer}</p>
+                      </figcaption>
+                    </figure>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </>
+      ) : (
+        <section className="credential-empty" aria-live="polite">
+          <h2>No matching certificates.</h2>
+          <p>Try a different title, issuer or skill area.</p>
+          <button className="studio-button" onClick={reset} type="button">
+            Clear filters ↺
           </button>
-        ))}
-      </div>
-
-      {/* Certificate Grid */}
-      <div className="cert-grid">
-        {filteredCertificates.map((cert) => (
-          <button
-            key={cert.id}
-            type="button"
-            className="cert-card"
-            onClick={() => setActiveCert(cert)}
-            style={{ cursor: "pointer", textAlign: "left", width: "100%", background: "none", border: "none", padding: 0 }}
-            aria-label={`View certificate: ${cert.title}`}
-          >
-            <div className="cert-img-wrap">
-              <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--color-bg-alt)', borderRadius: 'var(--radius-md) var(--radius-md) 0 0', position: 'relative' }}>
-                {getIssuerIcon(cert.issuer) ? (
-                  <Image src={getIssuerIcon(cert.issuer)!} alt={cert.issuer} width={100} height={100} style={{ opacity: 0.9, objectFit: 'contain' }} />
-                ) : (
-                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                    <polyline points="10 9 9 9 8 9"></polyline>
-                  </svg>
-                )}
-              </div>
-            </div>
-            <div className="cert-content">
-              <h3 className="cert-title">{cert.title}</h3>
-              <h4 className="cert-issuer">{cert.issuer}</h4>
-              <p className="cert-desc">{cert.description}</p>
-            </div>
-          </button>
-        ))}
-      </div>
-
-      {filteredCertificates.length === 0 && (
-        <div style={{ textAlign: 'center', color: 'var(--color-text-muted)', marginTop: '2rem' }}>
-          No certificates found for this category yet.
-        </div>
+        </section>
       )}
-
-      {/* Certificate Lightbox Modal */}
-      {activeCert && (
+      <footer className="credential-end">
+        <p>Learning that becomes useful work.</p>
+        <Link className="studio-text-link" href="/#works">
+          Explore the projects ↗
+        </Link>
+      </footer>
+      {active && (
         <CertificateModal
-          pdfLink={activeCert.pdfLink}
-          title={activeCert.title}
-          issuer={activeCert.issuer}
-          onClose={() => setActiveCert(null)}
+          pdfLink={active.pdfLink}
+          title={active.title}
+          issuer={active.issuer}
+          onClose={() => setActive(null)}
         />
       )}
     </main>
