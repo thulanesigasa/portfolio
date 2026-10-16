@@ -99,3 +99,9 @@ Verify receipt with a real enquiry after deployment.
 Build with `npm ci && npm run build`. The existing Pages workflow publishes `out/`
 when changes reach `main`. Security headers configured in `next.config.ts` are not
 applied by a static export; they require support from the hosting layer.
+
+Mobile project screenshots use a shared `PhonePreview` component in the homepage
+and app galleries. CSS renders a gold device frame and a warm monochrome treatment;
+source screenshots remain intact. Native dialog previews support Escape, close and
+backdrop dismissal, with white-and-gold or original-colour viewing options. The
+carousel uses slide offsets for navigation and scopes scrollbar styling to its rail.

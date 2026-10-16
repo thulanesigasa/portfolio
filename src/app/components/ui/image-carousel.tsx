@@ -1,127 +1,82 @@
 "use client";
-
-import React, { useRef, useState, useEffect } from "react";
-import Image from "next/image";
-
-interface SlideData {
-  imageSrc: string | string[]; // Can be an array of 2 for side-by-side
+import { useRef, useState } from "react";
+import PhonePreview from "./phone-preview";
+type SlideData = {
+  imageSrc: string | string[];
   title: string;
   description: string;
-}
-
-interface ImageCarouselProps {
-  slides: SlideData[];
-}
-
-export default function ImageCarousel({ slides }: ImageCarouselProps) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleScroll = () => {
-    if (scrollRef.current) {
-      const scrollLeft = scrollRef.current.scrollLeft;
-      const width = scrollRef.current.clientWidth;
-      const index = Math.round(scrollLeft / width);
-      setActiveIndex(index);
-    }
-  };
-
-  const scrollTo = (index: number) => {
-    if (scrollRef.current) {
-      const width = scrollRef.current.clientWidth;
-      scrollRef.current.scrollTo({ left: width * index, behavior: 'smooth' });
-    }
-  };
-
+};
+export default function ImageCarousel({ slides }: { slides: SlideData[] }) {
+  const rail = useRef<HTMLOListElement>(null);
+  const [active, setActive] = useState(0);
+  function sync() {
+    const el = rail.current;
+    if (!el) return;
+    const first = (el.children[0] as HTMLElement)?.offsetLeft ?? 0;
+    let nearest = 0;
+    let distance = Infinity;
+    Array.from(el.children).forEach((child, i) => {
+      const delta = Math.abs(
+        (child as HTMLElement).offsetLeft - first - el.scrollLeft,
+      );
+      if (delta < distance) {
+        distance = delta;
+        nearest = i;
+      }
+    });
+    setActive(nearest);
+  }
+  function go(index: number) {
+    const el = rail.current;
+    if (!el) return;
+    const child = el.children[index] as HTMLElement;
+    const first = el.children[0] as HTMLElement;
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    el.scrollTo({
+      left: child.offsetLeft - first.offsetLeft,
+      behavior: reduced ? "auto" : "smooth",
+    });
+  }
   return (
-    <div style={{ width: "100%", margin: "3rem 0" }}>
-      <div 
-        ref={scrollRef}
-        onScroll={handleScroll}
-        style={{
-          display: "flex",
-          overflowX: "auto",
-          scrollSnapType: "x mandatory",
-          scrollBehavior: "smooth",
-          WebkitOverflowScrolling: "touch",
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-          gap: "2rem"
-        }}
-      >
+    <section className="phone-gallery" aria-label="Application screenshots">
+      <ol className="phone-gallery-rail" ref={rail} onScroll={sync}>
         {slides.map((slide, i) => (
-          <div 
-            key={i} 
-            style={{ 
-              minWidth: "100%", 
-              scrollSnapAlign: "center",
-              display: "flex",
-              flexDirection: "column",
-              gap: "1.5rem"
-            }}
+          <li
+            key={slide.title}
+            aria-label={`Screenshot ${i + 1} of ${slides.length}`}
           >
-            <div style={{ 
-              display: "flex",
-              justifyContent: "center",
-              gap: "1rem",
-              height: "500px",
-              position: "relative",
-              width: "100%"
-            }}>
-              {Array.isArray(slide.imageSrc) ? (
-                <>
-                  <div style={{ position: "relative", width: "45%", height: "100%" }}>
-                    <Image src={slide.imageSrc[0]} alt={`${slide.title} 1`} fill style={{ objectFit: 'contain' }} />
-                  </div>
-                  <div style={{ position: "relative", width: "45%", height: "100%" }}>
-                    <Image src={slide.imageSrc[1]} alt={`${slide.title} 2`} fill style={{ objectFit: 'contain' }} />
-                  </div>
-                </>
-              ) : (
-                <div style={{ position: "relative", width: "100%", height: "100%" }}>
-                  <Image src={slide.imageSrc} alt={slide.title} fill style={{ objectFit: 'contain' }} />
-                </div>
-              )}
-            </div>
-            
-            <div style={{ textAlign: "center", padding: "0 1rem" }}>
-              <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "1.4rem", color: "var(--color-text)", marginBottom: "0.5rem" }}>
-                {slide.title}
-              </h4>
-              <p style={{ color: "var(--color-text-muted)", fontSize: "1.05rem", lineHeight: 1.6 }}>
-                {slide.description}
-              </p>
-            </div>
-          </div>
+            <figure className="phone-gallery-pair">
+              {(Array.isArray(slide.imageSrc)
+                ? slide.imageSrc
+                : [slide.imageSrc]
+              ).map((src, n) => (
+                <PhonePreview
+                  key={src}
+                  src={src}
+                  alt={`${slide.title}${Array.isArray(slide.imageSrc) ? ` — view ${n + 1}` : ""}`}
+                />
+              ))}
+            </figure>
+            <h3>{slide.title}</h3>
+            <p>{slide.description}</p>
+          </li>
         ))}
-      </div>
-
-      <div style={{ display: "flex", justifyContent: "center", gap: "0.5rem", marginTop: "2rem" }}>
-        {slides.map((_, i) => (
+      </ol>
+      <nav aria-label="Screenshot slides">
+        {slides.map((slide, i) => (
           <button
-            key={i}
-            onClick={() => scrollTo(i)}
-            style={{
-              width: activeIndex === i ? "30px" : "10px",
-              height: "10px",
-              borderRadius: "5px",
-              background: activeIndex === i ? "var(--color-primary)" : "var(--color-border)",
-              border: "none",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              padding: 0
-            }}
-            aria-label={`Go to slide ${i + 1}`}
-          />
+            key={slide.title}
+            type="button"
+            aria-label={`Show ${slide.title}`}
+            aria-current={active === i ? "true" : undefined}
+            onClick={() => go(i)}
+          >
+            {i + 1}
+          </button>
         ))}
-      </div>
-
-      {/* Hide scrollbar pseudo-element for webkit */}
-      <style dangerouslySetInnerHTML={{__html: `
-        div::-webkit-scrollbar {
-          display: none;
-        }
-      `}} />
-    </div>
+      </nav>
+    </section>
   );
 }
