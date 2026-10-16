@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import PhonePreview from "./components/ui/phone-preview";
 import ProjectEnquiry from "./components/home/project-enquiry";
 const projects = [
   {
@@ -67,28 +68,28 @@ export default function Home() {
           className="studio-device-pair"
           aria-label="Selected application interfaces"
         >
-          <Link href="/work/bible-diaries" className="studio-device first">
-            <Image
+          <figure className="studio-device first">
+            <PhonePreview
               src="/images/work/bible_diaries/feed-boy.webp"
               alt="Bible Diaries reflection feed interface"
-              width={430}
-              height={932}
               priority
               sizes="(max-width:760px) 40vw, 20vw"
             />
-            <span>Bible Diaries ↗</span>
-          </Link>
-          <Link href="/work/service-link" className="studio-device second">
-            <Image
+            <figcaption>
+              <Link href="/work/bible-diaries">Bible Diaries ↗</Link>
+            </figcaption>
+          </figure>
+          <figure className="studio-device second">
+            <PhonePreview
               src="/images/work/service_link/discover.webp"
               alt="Service Link discovery interface"
-              width={430}
-              height={932}
               priority
               sizes="(max-width:760px) 40vw, 20vw"
             />
-            <span>Service Link ↗</span>
-          </Link>
+            <figcaption>
+              <Link href="/work/service-link">Service Link ↗</Link>
+            </figcaption>
+          </figure>
         </figure>
         <footer className="studio-hero-bottom">
           <span>BASED IN SOUTH AFRICA</span>
@@ -120,26 +121,35 @@ export default function Home() {
         <ul className="studio-project-grid">
           {projects.map((p, i) => (
             <li key={p.slug}>
-              <Link href={`/work/${p.slug}`} className="studio-project">
+              <article className="studio-project">
                 <figure className="studio-project-image">
                   <figcaption className="studio-project-number">
                     0{i + 1} / {p.type.split(" / ")[0]}
                   </figcaption>
-                  <Image
-                    src={p.image}
-                    alt={`${p.title} project preview`}
-                    width={900}
-                    height={560}
-                    sizes="(max-width:700px) 100vw, 45vw"
-                  />
+                  {p.slug !== "resume-build" ? (
+                    <PhonePreview
+                      src={p.image}
+                      alt={`${p.title} interface`}
+                      sizes="(max-width:700px) 48vw, 230px"
+                    />
+                  ) : (
+                    <Image
+                      src={p.image}
+                      alt={`${p.title} project preview`}
+                      width={900}
+                      height={560}
+                      sizes="(max-width:700px) 100vw, 45vw"
+                    />
+                  )}
                 </figure>
                 <h3>
-                  {p.title}
-                  <span aria-hidden="true">↗</span>
+                  <Link href={`/work/${p.slug}`}>
+                    {p.title} <span aria-hidden="true">↗</span>
+                  </Link>
                 </h3>
                 <small>{p.type}</small>
                 <p>{p.description}</p>
-              </Link>
+              </article>
             </li>
           ))}
         </ul>
