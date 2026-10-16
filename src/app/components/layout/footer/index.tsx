@@ -8,10 +8,10 @@ export default function Footer() {
           <Image
             className="studio-logo"
             src="/images/logo/ts-industries-transparent.png"
-            alt="TS Industries — Thulane Sigasa"
+            alt="Ts Industries — Thulane Sigasa"
             width={1774}
             height={887}
-            sizes="180px"
+            sizes="132px"
           />
         </Link>
         <p>
@@ -47,7 +47,7 @@ export default function Footer() {
         className="studio-footer-bottom"
         aria-label="Copyright and policies"
       >
-        <span>© {new Date().getFullYear()} TS Industries</span>
+        <span>© {new Date().getFullYear()} Ts Industries</span>
         <span>Based in South Africa. Building for everywhere.</span>
         <nav aria-label="Legal">
           <Link href="/privacy-policy">Privacy</Link>

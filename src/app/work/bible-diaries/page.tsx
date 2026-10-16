@@ -5,7 +5,7 @@ import Link from "next/link";
 import ImageCarousel from "@/app/components/ui/image-carousel";
 
 export const metadata: Metadata = {
-  title: "Bible Diaries — TS Industries",
+  title: "Bible Diaries — Ts Industries",
   alternates: { canonical: "/work/bible-diaries/" },
 };
 

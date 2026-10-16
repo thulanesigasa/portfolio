@@ -19,7 +19,7 @@ export default function ProjectEnquiry() {
           body: JSON.stringify({
             name: data.get("name"),
             email: data.get("email"),
-            _subject: "TS Industries project enquiry",
+            _subject: "Ts Industries project enquiry",
             message: `Service: ${data.get("service")}\nBudget: ${data.get("budget")}\nTimeline: ${data.get("timeline")}\n\n${data.get("message")}`,
           }),
           signal: AbortSignal.timeout(20000),

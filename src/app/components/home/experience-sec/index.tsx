@@ -7,9 +7,9 @@ const allMilestones = [
   {
     date: "March 2024",
     type: "Inception",
-    title: "T.S Industries Founded",
+    title: "Ts Industries Founded",
     description:
-      "T.S Industries was established with a clear mission: to build premium, production-ready software for clients who demand excellence. We set up our core engineering team and defined our focus areas — custom web applications, mobile development, and UI/UX systems.",
+      "Ts Industries was established with a clear mission: to build premium, production-ready software for clients who demand excellence. We set up our core engineering team and defined our focus areas — custom web applications, mobile development, and UI/UX systems.",
   },
   {
     date: "June 2024",
@@ -58,7 +58,7 @@ const allMilestones = [
     type: "Continuous Growth",
     title: "Expanding Frontiers",
     description:
-      "T.S Industries continues to grow its portfolio across healthcare, entertainment, fintech, and community platforms. We are actively scaling our team and capabilities into AI-powered interfaces, real-time data systems, and cross-platform mobile frameworks.",
+      "Ts Industries continues to grow its portfolio across healthcare, entertainment, fintech, and community platforms. We are actively scaling our team and capabilities into AI-powered interfaces, real-time data systems, and cross-platform mobile frameworks.",
   },
 ];
 

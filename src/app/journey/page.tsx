@@ -3,14 +3,14 @@ import BackButton from "@/app/components/ui/back-button";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Our Journey | T.s Industries",
+  title: "Our Journey | Ts Industries",
   description:
-    "Explore the milestones, products, and clients that have shaped T.s Industries from inception in 2024 to the present day.",
+    "Explore the milestones, products, and clients that have shaped Ts Industries from inception in 2024 to the present day.",
   alternates: { canonical: "/journey" },
   openGraph: {
-    title: "Our Journey | T.s Industries",
+    title: "Our Journey | Ts Industries",
     description:
-      "Milestones and products from T.s Industries — South African tech startup since 2024.",
+      "Milestones and products from Ts Industries — South African tech startup since 2024.",
     url: "https://ts-industries.co.za/journey",
   },
 };
@@ -19,9 +19,9 @@ const allMilestones = [
   {
     date: "March 2024",
     type: "Inception",
-    title: "T.S Industries Founded",
+    title: "Ts Industries Founded",
     description:
-      "T.S Industries was established with a clear mission: to build premium, production-ready software for clients who demand excellence. We set up our core engineering team and defined our focus areas — custom web applications, mobile development, and UI/UX systems.",
+      "Ts Industries was established with a clear mission: to build premium, production-ready software for clients who demand excellence. We set up our core engineering team and defined our focus areas — custom web applications, mobile development, and UI/UX systems.",
   },
   {
     date: "June 2024",
@@ -70,7 +70,7 @@ const allMilestones = [
     type: "Continuous Growth",
     title: "Expanding Frontiers",
     description:
-      "T.S Industries continues to grow its portfolio across healthcare, entertainment, fintech, and community platforms. We are actively scaling our team and capabilities into AI-powered interfaces, real-time data systems, and cross-platform mobile frameworks.",
+      "Ts Industries continues to grow its portfolio across healthcare, entertainment, fintech, and community platforms. We are actively scaling our team and capabilities into AI-powered interfaces, real-time data systems, and cross-platform mobile frameworks.",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function JourneyPage() {
     <main className="site-services">
       <BackButton />
       <header>
-        <p className="studio-eyebrow">TS INDUSTRIES / OUR JOURNEY</p>
+        <p className="studio-eyebrow">Ts Industries / OUR JOURNEY</p>
         <h1>
           Ideas into experiences.
           <br />

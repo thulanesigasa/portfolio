@@ -5,7 +5,7 @@ import Link from "next/link";
 import ImageCarousel from "@/app/components/ui/image-carousel";
 
 export const metadata: Metadata = {
-  title: "MedSync — TS Industries",
+  title: "MedSync — Ts Industries",
   alternates: { canonical: "/work/medsync/" },
 };
 
@@ -205,7 +205,7 @@ export default function MedSyncWorkPage() {
                   </strong>
                   . This includes, but is not limited to, the product name,
                   application concept, client data structures, and any
-                  proprietary workflows. T.S Industries was engaged as a
+                  proprietary workflows. Ts Industries was engaged as a
                   development partner and does not claim any ownership over the
                   product or its commercial rights.
                 </p>
@@ -225,11 +225,11 @@ export default function MedSyncWorkPage() {
                     marginBottom: "0.4rem",
                   }}
                 >
-                  UI/UX Design & Development — T.S Industries
+                  UI/UX Design & Development — Ts Industries
                 </div>
                 <p style={{ margin: 0, lineHeight: 1.8 }}>
                   <strong style={{ color: "var(--color-text)" }}>
-                    T.S Industries
+                    Ts Industries
                   </strong>{" "}
                   was responsible for the full end-to-end UI/UX design and
                   implementation of MedSync. This encompassed creating the
@@ -238,8 +238,7 @@ export default function MedSyncWorkPage() {
                   Splash, Login, Home Dashboard, Booking, and Confirmation — to
                   pixel-perfect accuracy against the approved specification. All
                   component architecture decisions, screen transitions, and
-                  responsive layout considerations were handled by T.S
-                  Industries.
+                  responsive layout considerations were handled by Ts Industries.
                 </p>
               </div>
 
@@ -257,12 +256,12 @@ export default function MedSyncWorkPage() {
                     marginBottom: "0.4rem",
                   }}
                 >
-                  Backend Contribution — T.S Industries
+                  Backend Contribution — Ts Industries
                 </div>
                 <p style={{ margin: 0, lineHeight: 1.8 }}>
                   In addition to the front-end scope,{" "}
                   <strong style={{ color: "var(--color-text)" }}>
-                    T.S Industries
+                    Ts Industries
                   </strong>{" "}
                   contributed to backend development by defining the API
                   boundary contracts, establishing the decoupled component
@@ -294,7 +293,7 @@ export default function MedSyncWorkPage() {
                   Front-end development was led and executed by{" "}
                   <strong style={{ color: "var(--color-text)" }}>Mpho</strong>,
                   who was responsible for translating the designs produced by
-                  T.S Industries into fully functional React Native components.
+                  Ts Industries into fully functional React Native components.
                   Mpho's contribution covers the implementation of the component
                   codebase, state management using local hooks, and the
                   integration layer connecting the UI to MedSync's

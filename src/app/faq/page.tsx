@@ -3,12 +3,12 @@ import React from "react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "FAQ | T.s Industries",
+  title: "FAQ | Ts Industries",
   description:
-    "Frequently asked questions about T.s Industries services, pricing, technical process, and design approach.",
+    "Frequently asked questions about Ts Industries services, pricing, technical process, and design approach.",
   alternates: { canonical: "/faq" },
   openGraph: {
-    title: "FAQ | T.s Industries",
+    title: "FAQ | Ts Industries",
     description:
       "Find answers to common questions about our web development and design services.",
     url: "https://ts-industries.co.za/faq",

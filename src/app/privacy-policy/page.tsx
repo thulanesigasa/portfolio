@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
           <p><strong>Last Updated: July 2026</strong></p>
 
           <h3 style={{ color: 'var(--color-text)', marginTop: '2.5rem', fontSize: '1.5rem' }}>1. Introduction</h3>
-          <p>Welcome to TS Industries. We respect your privacy and are committed to protecting your personal data. This extensive privacy policy details precisely how we collect, process, store, and look after your personal data when you visit our website, utilize our software, or engage with our digital services. This document also outlines your privacy rights and how current data protection laws safeguard you.</p>
+          <p>Welcome to Ts Industries. We respect your privacy and are committed to protecting your personal data. This extensive privacy policy details precisely how we collect, process, store, and look after your personal data when you visit our website, utilize our software, or engage with our digital services. This document also outlines your privacy rights and how current data protection laws safeguard you.</p>
 
           <h3 style={{ color: 'var(--color-text)', marginTop: '2.5rem', fontSize: '1.5rem' }}>2. Comprehensive Data Collection</h3>
           <p>Personal data, or personal information, implies any piece of information concerning an individual from which that person can be unequivocally identified. It does not include data where the identity has been removed (anonymous data). We may collect, use, store, and transfer various categories of personal data about you which we have meticulously grouped together as follows:</p>

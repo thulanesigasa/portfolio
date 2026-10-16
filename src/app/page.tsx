@@ -39,7 +39,7 @@ export default function Home() {
     <main id="main-content" className="studio-home">
       <section className="studio-hero" aria-labelledby="hero-title">
         <header className="studio-hero-copy">
-          <p className="studio-eyebrow">TS INDUSTRIES / DESIGN & DEVELOPMENT</p>
+          <p className="studio-eyebrow">Ts Industries / DESIGN & DEVELOPMENT</p>
           <h1 id="hero-title">
             Websites.
             <br />
@@ -255,14 +255,14 @@ export default function Home() {
         className="studio-about studio-section"
         aria-labelledby="about-title"
       >
-        <p className="studio-eyebrow">04 / ABOUT TS INDUSTRIES</p>
+        <p className="studio-eyebrow">04 / ABOUT Ts Industries</p>
         <h2 id="about-title">
           Design meets engineering.
           <br />
-          <em>That’s TS Industries.</em>
+          <em>That’s Ts Industries.</em>
         </h2>
         <p>
-          TS Industries is the digital studio of Thulane Sigasa. Based in South
+          Ts Industries is the digital studio of Thulane Sigasa. Based in South
           Africa, we bring design and development together to turn ideas into
           useful digital experiences.
         </p>

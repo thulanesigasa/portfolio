@@ -95,7 +95,7 @@ const AboutMe = () => {
 
         <div className="about-glass-card reveal">
           <p className="about-intro">
-            T.s Industries is a forward-thinking tech startup specializing in
+            Ts Industries is a forward-thinking tech startup specializing in
             modern web development. We help brands, startups, and established
             enterprises build high-performance web applications, seamless SaaS
             integrations, and intuitive, conversion-focused user interfaces.

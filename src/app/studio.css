@@ -900,13 +900,13 @@ body {
 }
 .studio-brand .studio-logo {
   display: block;
-  width: 154px;
+  width: 112px;
   height: auto;
   object-fit: contain;
   background: transparent;
 }
 .studio-footer .studio-logo {
-  width: 185px;
+  width: 132px;
 }
 .studio-header {
   padding-top: 9px;
@@ -1052,10 +1052,10 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
 }
 @media (max-width: 760px) {
   .studio-brand .studio-logo {
-    width: 128px;
+    width: 96px;
   }
   .studio-footer .studio-logo {
-    width: 155px;
+    width: 112px;
   }
   .studio-header {
     min-height: 78px;
