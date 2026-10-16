@@ -1,0 +1,104 @@
+[
+  {
+    "slug": "geni",
+    "repository": "thulanesigasa/GENI",
+    "checkedAt": "2026-10-16",
+    "branch": "main",
+    "count": 7,
+    "first": {
+      "sha": "d217704a62549e4fb12ed3827ac1bd23a48e999b",
+      "date": "2025-05-06T18:50:05Z",
+      "authorDate": "2025-05-06T18:50:05Z"
+    },
+    "last": {
+      "sha": "4620bcf305ccc5881dc3ffe6f0f59d3b9c4dfc95",
+      "date": "2025-05-07T04:13:01Z",
+      "authorDate": "2025-05-07T04:13:01Z"
+    }
+  },
+  {
+    "slug": "ghost-file-shuttler",
+    "repository": "thulanesigasa/ghost_fileshuttler",
+    "checkedAt": "2026-10-16",
+    "branch": "main",
+    "count": 52,
+    "first": {
+      "sha": "3354f69bf9975b05d2f4c20b8d27a7396bb17390",
+      "date": "2026-03-11T07:53:37Z",
+      "authorDate": "2026-03-11T07:53:37Z"
+    },
+    "last": {
+      "sha": "3f67f5c75044b4231b8b8d15222995955d68cfc6",
+      "date": "2026-10-05T18:36:00Z",
+      "authorDate": "2026-10-05T18:36:00Z"
+    }
+  },
+  {
+    "slug": "rulership-erp",
+    "repository": "thulanesigasa/rulership_erp",
+    "checkedAt": "2026-10-16",
+    "branch": "main",
+    "count": 63,
+    "first": {
+      "sha": "84d08f8465fc52a1f0b1ca2658392cbf03e18013",
+      "date": "2026-09-02T14:27:32Z",
+      "authorDate": "2026-09-02T14:27:32Z"
+    },
+    "last": {
+      "sha": "aa42dd5c9e0cb99ef80523026205a42291966f01",
+      "date": "2026-09-02T20:25:16Z",
+      "authorDate": "2026-09-02T20:25:16Z"
+    }
+  },
+  {
+    "slug": "my-writer",
+    "repository": "thulanesigasa/my_writer",
+    "checkedAt": "2026-10-16",
+    "branch": "master",
+    "count": 31,
+    "first": {
+      "sha": "81dd9d0fcd63a730c60017688c94b45aad02fab0",
+      "date": "2026-08-07T07:44:24Z",
+      "authorDate": "2026-08-07T07:44:24Z"
+    },
+    "last": {
+      "sha": "7369057444616502c6deb4c80afcb3aaa07bb3d2",
+      "date": "2026-08-19T18:31:10Z",
+      "authorDate": "2026-08-19T18:31:10Z"
+    }
+  },
+  {
+    "slug": "sell-my-notes",
+    "repository": "thulanesigasa/sellmynotes",
+    "checkedAt": "2026-10-16",
+    "branch": "main",
+    "count": 177,
+    "first": {
+      "sha": "e06d9c6c90055b5aa184a8f7f7c23670d03c7fd9",
+      "date": "2026-06-29T17:31:15Z",
+      "authorDate": "2026-06-29T17:31:15Z"
+    },
+    "last": {
+      "sha": "7ab18fbe96ffa67fb489497f672799435fe35d37",
+      "date": "2026-07-21T07:41:14Z",
+      "authorDate": "2026-07-21T07:41:14Z"
+    }
+  },
+  {
+    "slug": "make-my-notes",
+    "repository": "thulanesigasa/makemynotes",
+    "checkedAt": "2026-10-16",
+    "branch": "main",
+    "count": 15,
+    "first": {
+      "sha": "f66210971ff608014e1570137ece86094fab2c6e",
+      "date": "2026-07-01T13:38:45Z",
+      "authorDate": "2026-07-01T13:38:45Z"
+    },
+    "last": {
+      "sha": "5805c3d7421ea8f266efad1228a59330da3aec61",
+      "date": "2026-07-04T14:43:29Z",
+      "authorDate": "2026-07-04T14:43:29Z"
+    }
+  }
+]

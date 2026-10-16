@@ -1,3 +1,5 @@
+import additionalProjects from "./additional-projects.json";
+
 export const projects = [
   {
     slug: "bible-diaries",
@@ -127,5 +129,6 @@ export const projects = [
     contribution:
       "Custom website design and reservation workflow development. The live address is withheld under the client confidentiality agreement.",
   },
+  ...additionalProjects,
 ];
 export type Project = (typeof projects)[number];

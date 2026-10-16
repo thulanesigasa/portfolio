@@ -15,7 +15,7 @@ export default function ProjectGraphic({
     >
       <figcaption className="project-type-meta">
         <span>
-          0{index + 1} / {project.category}
+          {String(index + 1).padStart(2, "0")} / {project.category}
         </span>
         <span aria-hidden="true">✦</span>
       </figcaption>

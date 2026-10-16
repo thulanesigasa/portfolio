@@ -2472,3 +2472,152 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
     transform: none;
   }
 }
+
+.type-geni .project-type-name {
+  font-size: clamp(75px, 10vw, 145px);
+  font-weight: 800;
+  letter-spacing: -0.09em;
+}
+.type-geni:before {
+  width: 56%;
+  aspect-ratio: 1;
+  right: 0;
+  top: 12%;
+  border: 1px solid #d3b45e;
+  border-radius: 50%;
+  box-shadow:
+    -25px 20px 0 -1px var(--studio-paper),
+    -25px 20px 0 0 #e2d1a0;
+}
+.type-ghost-file-shuttler .project-type-name > span:last-child {
+  font-weight: 300;
+  letter-spacing: -0.07em;
+}
+.type-ghost-file-shuttler:before {
+  width: 46%;
+  height: 55%;
+  right: 3%;
+  top: 22%;
+  border: 1px dashed #c7a755;
+  transform: skewY(-12deg);
+}
+.type-rulership-erp .project-type-name {
+  font-size: clamp(40px, 4.6vw, 66px);
+}
+.type-rulership-erp .project-type-name > span:last-child {
+  font-size: 1.5em;
+  letter-spacing: -0.08em;
+}
+.type-rulership-erp:before {
+  width: 42%;
+  height: 65%;
+  right: 0;
+  top: 20%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 24px,
+    #eadfbf 25px 26px
+  );
+  transform: skewY(-10deg);
+}
+.type-my-writer .project-type-name {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+}
+.type-my-writer .project-type-name > span:last-child {
+  padding-left: 0.55em;
+}
+.type-my-writer:before {
+  width: 40%;
+  height: 60%;
+  right: 5%;
+  top: 23%;
+  border-block: 1px solid #d3b45e;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 20px,
+    #eadfbf 21px 22px
+  );
+  transform: rotate(-8deg);
+}
+.type-sell-my-notes .project-type-name > span:last-child {
+  padding-left: 0.45em;
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+.type-sell-my-notes:before {
+  width: 43%;
+  height: 56%;
+  right: 5%;
+  top: 23%;
+  border: 1px solid #d3b45e;
+  box-shadow:
+    10px -10px 0 -1px var(--studio-paper),
+    10px -10px 0 0 #e2d1a0;
+  transform: rotate(9deg);
+}
+.type-make-my-notes .project-type-name > span:last-child {
+  padding-left: 0.45em;
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+}
+.type-make-my-notes:before {
+  width: 55%;
+  aspect-ratio: 1;
+  right: -3%;
+  top: 15%;
+  border: 1px solid #d3b45e;
+  border-radius: 50% 0 50% 0;
+  transform: rotate(-15deg);
+}
+.repository-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 45px;
+  margin: 24px 0 0;
+}
+.repository-dates dt {
+  font-size: 10px;
+  color: var(--studio-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+.repository-dates dd {
+  margin: 0;
+  font-size: 14px;
+}
+.repository-dates a {
+  color: var(--studio-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.journey-history-note {
+  max-width: 740px;
+  margin-top: 35px;
+  color: var(--studio-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.site-journey h2 a {
+  text-decoration: none;
+  color: inherit;
+}
+.site-journey h2 a:hover {
+  color: var(--studio-accent);
+}
+@media (max-width: 760px) {
+  .type-geni .project-type-name {
+    font-size: clamp(75px, 15vw, 115px);
+  }
+  .type-rulership-erp .project-type-name {
+    font-size: clamp(35px, 6vw, 58px);
+  }
+}
+@media (max-width: 500px) {
+  .type-rulership-erp .project-type-name {
+    font-size: clamp(36px, 10vw, 50px);
+  }
+}

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import RepositoryActivity from "./repository-activity";
+import projectHistory from "@/app/data/project-history.json";
 import { projects } from "@/app/data/projects";
 import ProjectGraphic from "./ui/project-graphic";
 
@@ -44,6 +46,19 @@ export default function ProjectStory({ slug }: { slug: string }) {
           ))}
         </ul>
       </section>
+      {projectHistory.some((entry) => entry.slug === slug) && (
+        <section
+          className="project-story-role"
+          aria-labelledby="project-activity"
+        >
+          <h2 id="project-activity">Development activity.</h2>
+          <RepositoryActivity slug={slug} />
+          <p>
+            First and latest recorded commits on the repository’s default
+            branch, checked on 16 October 2026.
+          </p>
+        </section>
+      )}
       <section className="project-story-role" aria-labelledby="project-role">
         <h2 id="project-role">Our contribution.</h2>
         <p>{project.contribution}</p>

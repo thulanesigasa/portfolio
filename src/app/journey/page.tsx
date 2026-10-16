@@ -1,4 +1,10 @@
 import React from "react";
+import Link from "next/link";
+import { projects } from "@/app/data/projects";
+import history from "@/app/data/project-history.json";
+import RepositoryActivity, {
+  formatCommitDate,
+} from "@/app/components/repository-activity";
 import BackButton from "@/app/components/ui/back-button";
 import type { Metadata } from "next";
 
@@ -15,7 +21,7 @@ export const metadata: Metadata = {
   },
 };
 
-const allMilestones = [
+const studioMilestones = [
   {
     date: "March 2024",
     type: "Inception",
@@ -74,6 +80,44 @@ const allMilestones = [
   },
 ];
 
+const milestoneDates = [
+  "2024-03-01",
+  "2024-06-01",
+  "2024-09-01",
+  "2025-01-01",
+  "2025-04-01",
+  "2025-08-01",
+  "2026-02-01",
+  "9999-12-31",
+];
+type Milestone = {
+  date: string;
+  type: string;
+  title: string;
+  description: string;
+  sortDate: string;
+  slug?: string;
+};
+const allMilestones: Milestone[] = [
+  ...studioMilestones.map((milestone, index) => ({
+    ...milestone,
+    sortDate: milestoneDates[index],
+  })),
+  ...history.map((entry) => {
+    const project = projects.find((item) => item.slug === entry.slug)!;
+    const first = formatCommitDate(entry.first.date);
+    const last = formatCommitDate(entry.last.date);
+    return {
+      date: first === last ? first : `${first} — ${last}`,
+      type: project.category,
+      title: project.title,
+      description: project.description,
+      sortDate: entry.first.date,
+      slug: entry.slug,
+    };
+  }),
+].sort((a, b) => a.sortDate.localeCompare(b.sortDate));
+
 export default function JourneyPage() {
   return (
     <main className="site-services">
@@ -87,23 +131,36 @@ export default function JourneyPage() {
         </h1>
         <p>
           Explore the milestones, products and collaborations that have shaped
-          our story since 2024.
+          our story since 2024. Project activity ranges show the first and
+          latest recorded commits, rather than launch dates.
         </p>
       </header>
       <ol className="site-journey">
         {allMilestones.map((m) => (
-          <li key={m.date}>
+          <li key={m.title}>
             <header>
               <p>{m.date}</p>
               <small>{m.type}</small>
             </header>
             <article>
-              <h2>{m.title}</h2>
+              <h2>
+                {m.slug ? (
+                  <Link href={`/work/${m.slug}`}>{m.title} ↗</Link>
+                ) : (
+                  m.title
+                )}
+              </h2>
               <p>{m.description}</p>
+              {m.slug && <RepositoryActivity slug={m.slug} />}
             </article>
           </li>
         ))}
       </ol>
+      <p className="journey-history-note">
+        Repository activity checked on 16 October 2026 using all commits
+        reachable from each repository’s default branch. Dates are shown in
+        South African time. Select a commit date to view its source on GitHub.
+      </p>
     </main>
   );
 }

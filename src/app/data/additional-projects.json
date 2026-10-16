@@ -1,0 +1,152 @@
+[
+  {
+    "slug": "geni",
+    "title": "GENI",
+    "words": ["GENI"],
+    "category": "Digital inclusion / Mobile app",
+    "label": "More inclusive digital spaces.",
+    "description": "A learning companion for gender equality and inclusion in digital transformation.",
+    "overview": "GENI brings educational resources, quizzes, assessments and an AI chat assistant into a mobile experience focused on gender equality in technology. It helps people explore inclusive digital practices and build their understanding through guided learning.",
+    "features": [
+      "Browse articles and learning resources about digital inclusion",
+      "Explore quizzes and organisational inclusivity assessments",
+      "Ask an AI assistant about gender equality topics"
+    ],
+    "stack": ["React Native", "Expo", "TypeScript", "Expo Router", "Zustand"],
+    "contribution": "Mobile application design and development for an initiative focused on inclusive digital transformation.",
+    "url": "https://github.com/thulanesigasa/GENI",
+    "urlLabel": "View GitHub repository"
+  },
+  {
+    "slug": "ghost-file-shuttler",
+    "title": "Ghost FileShuttler",
+    "words": ["Ghost", "Shuttler"],
+    "category": "File transfer / Web & Android",
+    "label": "Your files. Between devices.",
+    "description": "A file transfer tool connecting desktop browsers and Android devices through cloud or local network workflows.",
+    "overview": "Ghost FileShuttler, also branded .Vault Access, helps people move files between computers and Android devices. It provides paired vaults, browser uploads and an Android archive view, with cloud and local network modes.",
+    "features": [
+      "Pair devices using a shared vault PIN",
+      "Upload and download files through web and Android interfaces",
+      "Choose cloud transfers or a local network workflow"
+    ],
+    "stack": [
+      "Python",
+      "Flask",
+      "Kotlin",
+      "Android SDK",
+      "Supabase",
+      "PostgreSQL"
+    ],
+    "contribution": "Cross-platform file transfer development spanning the browser experience, Flask service and native Android application.",
+    "url": "https://github.com/thulanesigasa/ghost_fileshuttler",
+    "urlLabel": "View GitHub repository"
+  },
+  {
+    "slug": "rulership-erp",
+    "title": "Rulership ERP",
+    "words": ["Rulership", "ERP"],
+    "category": "Business systems / ERP & POS",
+    "label": "Stock. Sales. In order.",
+    "description": "A web and mobile inventory and point-of-sale system for a detergent manufacturing business.",
+    "overview": "Rulership ERP brings inventory, sales, receipts and shift management into one business workflow. A web dashboard supports administration while the mobile application handles barcode scanning and point-of-sale tasks.",
+    "features": [
+      "Manage inventory, restocking and sales reports",
+      "Scan product barcodes for mobile checkout",
+      "Calculate VAT and prepare sales receipts"
+    ],
+    "stack": [
+      "JavaScript",
+      "Vite",
+      "Node.js",
+      "Express",
+      "React Native",
+      "Expo"
+    ],
+    "contribution": "Web and mobile software development for the inventory, administration and point-of-sale workflows of Rulership LTD PTY.",
+    "url": "https://github.com/thulanesigasa/rulership_erp",
+    "urlLabel": "View GitHub repository"
+  },
+  {
+    "slug": "my-writer",
+    "title": "My Writer",
+    "words": ["My", "Writer"],
+    "category": "AI tools / Writing platform",
+    "label": "Scriptorium / From premise to manuscript.",
+    "description": "An AI-assisted book-writing workspace with research, live drafting and human review.",
+    "overview": "My Writer, named Scriptorium in the repository, turns a book premise and supporting documents into a structured drafting workflow. It plans sections, pauses for human approval, researches topics and streams drafted prose into a dashboard before compiling the manuscript.",
+    "features": [
+      "Plan book sections using context documents",
+      "Review and approve writing tasks before drafting",
+      "Stream prose and download a compiled Markdown manuscript"
+    ],
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Python",
+      "FastAPI",
+      "LangGraph",
+      "OpenAI",
+      "Tavily",
+      "Redis"
+    ],
+    "contribution": "Development of the writing dashboard and the research, planning and drafting pipeline with human review checkpoints.",
+    "url": "https://github.com/thulanesigasa/my_writer",
+    "urlLabel": "View GitHub repository"
+  },
+  {
+    "slug": "sell-my-notes",
+    "title": "SellMyNotes",
+    "words": ["SellMy", "Notes"],
+    "category": "Education / Marketplace",
+    "label": "Knowledge worth sharing.",
+    "description": "A marketplace for South African students to buy and sell study notes, summaries and past papers.",
+    "overview": "SellMyNotes connects students who create study materials with others looking for useful resources. Its architecture combines listings, protected file delivery, AI-assisted organisation and PayFast payment integration.",
+    "features": [
+      "Upload, price and discover study materials",
+      "Organise notes by topic with AI assistance",
+      "Use payment-linked access to purchased files"
+    ],
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Python",
+      "FastAPI",
+      "Supabase",
+      "PayFast",
+      "OpenAI"
+    ],
+    "contribution": "Marketplace design and development across the student interface, document handling and payment integration.",
+    "url": "https://github.com/thulanesigasa/sellmynotes",
+    "urlLabel": "View GitHub repository"
+  },
+  {
+    "slug": "make-my-notes",
+    "title": "MakeMyNotes",
+    "words": ["MakeMy", "Notes"],
+    "category": "Education / AI study tools",
+    "label": "From past papers to understanding.",
+    "description": "An education platform that turns past exam papers and memos into structured study notes.",
+    "overview": "MakeMyNotes organises exam resources by province, grade and subject, then uses a processing pipeline to extract paper content and generate readable study notes. A Next.js interface delivers the material through a dedicated Python API.",
+    "features": [
+      "Browse exam resources by grade, province and subject",
+      "Extract text from exam papers and memos",
+      "Generate and read structured study notes"
+    ],
+    "stack": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Python",
+      "FastAPI",
+      "Supabase",
+      "Google Gemini",
+      "OCR"
+    ],
+    "contribution": "Development of the study interface and the exam-paper processing and note-generation pipeline.",
+    "url": "https://github.com/thulanesigasa/makemynotes",
+    "urlLabel": "View GitHub repository"
+  }
+]
