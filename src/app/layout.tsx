@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import "./studio.css";
 import Header from "./components/layout/header";
 import Footer from "./components/layout/footer";
-import ScrollArrow from "./components/layout/scroll-arrow";
 import ScrollRestorationHandler from "./components/ui/scroll-restoration-handler";
 
 const poppins = Poppins({
@@ -15,9 +15,17 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ts-industries.co.za"),
-  title: "T.s Industries - Portfolio",
-  description: "T.s Industries is a forward-thinking tech startup specializing in modern web development.",
-  keywords: ["Web Development", "Tech Startup", "Custom Software", "South Africa", "React", "Next.js"],
+  title: "TS Industries | Websites, Apps & Custom Software",
+  description:
+    "An independent digital studio in South Africa. We design and build distinctive websites, mobile apps and custom software.",
+  keywords: [
+    "Web Development",
+    "Tech Startup",
+    "Custom Software",
+    "South Africa",
+    "React",
+    "Next.js",
+  ],
   authors: [{ name: "T.s Industries" }],
   icons: {
     icon: "/images/icon/icon.png",
@@ -25,8 +33,9 @@ export const metadata: Metadata = {
     apple: "/images/icon/icon.png",
   },
   openGraph: {
-    title: "T.s Industries - Portfolio",
-    description: "T.s Industries specializes in modern web development, custom software engineering, and premium digital solutions.",
+    title: "TS Industries | Websites, Apps & Custom Software",
+    description:
+      "T.s Industries specializes in modern web development, custom software engineering, and premium digital solutions.",
     url: "https://ts-industries.co.za",
     siteName: "T.s Industries",
     type: "website",
@@ -43,8 +52,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "T.s Industries - Portfolio",
-    description: "T.s Industries specializes in modern web development, custom software engineering, and premium digital solutions.",
+    title: "TS Industries | Websites, Apps & Custom Software",
+    description:
+      "T.s Industries specializes in modern web development, custom software engineering, and premium digital solutions.",
     images: ["https://ts-industries.co.za/images/og-preview.png"],
   },
   alternates: {
@@ -75,24 +85,24 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "T.s Industries",
-              "url": "https://ts-industries.co.za",
-              "logo": "https://ts-industries.co.za/images/logo/logo.svg",
-              "description": "Forward-thinking tech startup specializing in modern web development.",
-              "address": {
+              name: "T.s Industries",
+              url: "https://ts-industries.co.za",
+              logo: "https://ts-industries.co.za/images/logo/logo.svg",
+              description:
+                "Forward-thinking tech startup specializing in modern web development.",
+              address: {
                 "@type": "PostalAddress",
-                "addressCountry": "ZA"
-              }
-            })
+                addressCountry: "ZA",
+              },
+            }),
           }}
         />
       </head>
       <body>
         <ScrollRestorationHandler />
         <Header />
-        {children}
+        <div id="page-content">{children}</div>
         <Footer />
-        <ScrollArrow />
       </body>
     </html>
   );
