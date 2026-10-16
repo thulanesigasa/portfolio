@@ -100,13 +100,10 @@ Build with `npm ci && npm run build`. The existing Pages workflow publishes `out
 when changes reach `main`. Security headers configured in `next.config.ts` are not
 applied by a static export; they require support from the hosting layer.
 
-Mobile project screenshots use a shared `ScreenPreview` component. The homepage
-arranges original, frameless screenshots as overlapping editorial prints with
-numbered captions and a gentle spread interaction on hover or keyboard focus.
-Project galleries use the same open presentation. Screens open in a clean native
-lightbox with Escape, close and backdrop dismissal. Reduced-motion preferences
-disable the spread movement. The carousel uses slide offsets for navigation and
-scopes scrollbar styling to its own rail.
+Mobile project screenshots use the shared `ScreenPreview` component in the project
+collection and app galleries. Screens keep their original colours and open in a
+native lightbox with Escape, close and backdrop dismissal. The carousel uses slide
+offsets for navigation and scopes scrollbar styling to its own rail.
 
 The certificate gallery reads its catalogue from `src/app/data/certificates.ts`.
 First-page PDF previews are stored as WebP images, with dimensions in
@@ -115,10 +112,9 @@ certificate, run `python scripts/render-certificate-previews.py` (Poppler and Pi
 required). Commit the catalogue, previews and manifest together. Issuer/skill filters,
 search and counts derive from the catalogue; the viewer links to the original PDF.
 
-The homepage interface lab uses `InteractiveScreenOrbit`: six original app screens
-on a CSS 3D ring. Pointer dragging rotates the ring, mouse vertical dragging tilts
-it, and touch keeps normal vertical page scrolling. Arrow keys and buttons navigate;
-Home or Reset view restores the front view. Selecting a screen pauses rotation and
-opens its native lightbox. Automatic rotation pauses offscreen/in background tabs
-and is disabled when reduced motion is requested. Run the geometry checks with
-`node --test tests/screen-orbit.test.mjs`.
+The homepage uses `DecorativeHero` and a transparent gold ribbon sculpture at
+`public/images/decorative/gold-ribbon.webp`. The artwork was created with the built-in
+image generator: an airy folded satin-gold ribbon, ivory sphere and small polished
+gold sphere, isolated on transparency without text, logos, phones or interfaces.
+Gentle floating and mouse parallax respect reduced motion; there are no hero
+carousel controls or screenshot interactions. App previews remain in the work section.

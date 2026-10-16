@@ -7,7 +7,6 @@ type Props = {
   priority?: boolean;
   sizes?: string;
   tabIndex?: number;
-  onInspect?: () => void;
 };
 function ScreenImage({ src, alt, priority, sizes }: Props) {
   return (
@@ -35,7 +34,6 @@ export default function ScreenPreview(props: Props) {
     };
   }, [open]);
   function show() {
-    props.onInspect?.();
     dialog.current?.showModal();
     setOpen(true);
   }

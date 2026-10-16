@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import ScreenPreview from "./components/ui/screen-preview";
-import InteractiveScreenOrbit from "./components/ui/interactive-screen-orbit";
+import DecorativeHero from "./components/ui/decorative-hero";
 import ProjectEnquiry from "./components/home/project-enquiry";
 const projects = [
   {
@@ -65,7 +65,7 @@ export default function Home() {
             WEB DEVELOPMENT / MOBILE APPLICATIONS / UI/UX DESIGN
           </p>
         </header>
-        <InteractiveScreenOrbit />
+        <DecorativeHero />
         <footer className="studio-hero-bottom">
           <span>BASED IN SOUTH AFRICA</span>
           <p>
