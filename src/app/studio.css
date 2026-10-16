@@ -1226,11 +1226,8 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
   object-fit: cover;
   object-position: top;
   border-radius: 23px;
-  filter: grayscale(1) sepia(0.7) saturate(1.25);
 }
-.phone-shell.phone-original .phone-screen {
-  filter: none;
-}
+
 .phone-camera {
   position: absolute;
   top: 11px;
@@ -1346,35 +1343,6 @@ main :is(a, button, input, select, textarea, summary):focus-visible {
 .phone-dialog > .phone-shell {
   width: min(270px, 65vw);
   margin: 0 auto;
-}
-.phone-dialog footer {
-  margin-top: 22px;
-  text-align: center;
-}
-.phone-dialog footer > p {
-  font-size: 10px;
-  margin-bottom: 10px;
-  color: var(--studio-muted);
-}
-.phone-dialog nav {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.phone-dialog nav button {
-  min-height: 44px;
-  padding: 10px 16px;
-  border: 1px solid var(--studio-line);
-  background: transparent;
-  color: var(--studio-ink);
-  font: inherit;
-  font-size: 11px;
-  cursor: pointer;
-}
-.phone-dialog nav button[aria-pressed="true"] {
-  border-color: var(--studio-accent);
-  background: var(--studio-panel);
 }
 .phone-gallery {
   margin: 40px 0;

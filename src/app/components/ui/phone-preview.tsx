@@ -2,15 +2,9 @@
 import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 type Props = { src: string; alt: string; priority?: boolean; sizes?: string };
-function PhoneScreen({
-  src,
-  alt,
-  priority,
-  sizes,
-  original = false,
-}: Props & { original?: boolean }) {
+function PhoneScreen({ src, alt, priority, sizes }: Props) {
   return (
-    <span className={`phone-shell${original ? " phone-original" : ""}`}>
+    <span className="phone-shell">
       <span className="phone-camera" aria-hidden="true" />
       <Image
         className="phone-screen"
@@ -29,7 +23,6 @@ export default function PhonePreview(props: Props) {
   const dialog = useRef<HTMLDialogElement>(null);
   const label = useId();
   const [open, setOpen] = useState(false);
-  const [original, setOriginal] = useState(false);
   useEffect(() => {
     if (!open) return;
     const previous = document.body.style.overflow;
@@ -39,7 +32,6 @@ export default function PhonePreview(props: Props) {
     };
   }, [open]);
   function show() {
-    setOriginal(false);
     dialog.current?.showModal();
     setOpen(true);
   }
@@ -76,33 +68,7 @@ export default function PhonePreview(props: Props) {
             ✕
           </button>
         </header>
-        {open && (
-          <PhoneScreen
-            src={props.src}
-            alt={props.alt}
-            original={original}
-            sizes="300px"
-          />
-        )}
-        <footer>
-          <p>Preview appearance</p>
-          <nav aria-label="Screenshot colour treatment">
-            <button
-              type="button"
-              aria-pressed={!original}
-              onClick={() => setOriginal(false)}
-            >
-              White & gold
-            </button>
-            <button
-              type="button"
-              aria-pressed={original}
-              onClick={() => setOriginal(true)}
-            >
-              Original colours
-            </button>
-          </nav>
-        </footer>
+        {open && <PhoneScreen src={props.src} alt={props.alt} sizes="300px" />}
       </dialog>
     </>
   );
