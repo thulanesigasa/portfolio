@@ -3,28 +3,12 @@ import Image from "next/image";
 import ProjectEnquiry from "./components/home/project-enquiry";
 const projects = [
   {
-    title: "Exclusive Apparel",
-    type: "E-commerce / Web development",
-    image: "/images/work/exclusive-apparel.jpg",
-    slug: "exclusive-apparel",
-    description: "An everyday clothing brand, brought to life online.",
-    tone: "sage",
-  },
-  {
     title: "Bible Diaries",
     type: "Mobile application / Community",
     image: "/images/work/bible_diaries/feed-boy.webp",
     slug: "bible-diaries",
     description: "A dedicated space for reflection, scripture and connection.",
     tone: "peach",
-  },
-  {
-    title: "Ndivhu & Mpho",
-    type: "Website / Digital experience",
-    image: "/images/work/work-img-3.webp",
-    slug: "ndivhu-mpho",
-    description: "A personal celebration, thoughtfully translated to the web.",
-    tone: "sand",
   },
   {
     title: "Service Link",
@@ -34,119 +18,120 @@ const projects = [
     description: "Helping people discover services and connect with providers.",
     tone: "lavender",
   },
+  {
+    title: "MedSync",
+    type: "Healthcare / Product design",
+    image: "/images/work/hokmatech/hokma-1.webp",
+    slug: "medsync",
+    description:
+      "A healthcare interface designed around clear information and practical workflows.",
+    tone: "slate",
+  },
+  {
+    title: "Resume Build",
+    type: "SaaS / Web application",
+    image: "/images/work/work-img-1.webp",
+    slug: "resume-build",
+    description:
+      "A focused web application for creating and presenting professional résumés.",
+    tone: "silver",
+  },
 ];
 export default function Home() {
   return (
     <main id="main-content" className="studio-home">
       <section className="studio-hero">
-        <div className="studio-eyebrow">
-          <span className="studio-dot" /> INDEPENDENT DIGITAL STUDIO · SOUTH
-          AFRICA
-        </div>
         <div className="studio-hero-grid">
-          <div>
+          <div className="studio-hero-copy">
+            <p className="studio-eyebrow">
+              <span className="studio-dot" /> TS INDUSTRIES / DESIGN &
+              DEVELOPMENT
+            </p>
             <h1>
-              Your next
+              Websites.
               <br />
-              big idea.
+              Applications.
               <br />
-              <em>Built to work.</em>
+              <em>Built around you.</em>
             </h1>
             <p>
-              We design and develop websites, mobile apps and custom software
-              that help businesses move forward.
+              We turn complex ideas into clear digital experiences. Websites,
+              mobile apps and custom software — designed with purpose and built
+              with care.
             </p>
             <div className="studio-actions">
               <Link className="studio-button" href="#works">
-                Explore our work <span>↘</span>
+                View our projects <span>↗</span>
               </Link>
               <Link className="studio-text-link" href="#contact">
-                Let’s talk ↗
+                Discuss your idea <span>→</span>
               </Link>
             </div>
+            <div className="studio-hero-capabilities">
+              <span>WEB DEVELOPMENT</span>
+              <span>MOBILE APPLICATIONS</span>
+              <span>UI/UX DESIGN</span>
+            </div>
           </div>
-          <Link href="/work/exclusive-apparel" className="studio-hero-showcase">
-            <div className="studio-browser">
-              <span>● ● ●</span>
-              <span>SELECTED PROJECT / 01</span>
-              <span>↗</span>
+          <div className="studio-product-stage">
+            <div className="studio-stage-top">
+              <span className="studio-dot" /> FROM THE PORTFOLIO{" "}
+              <span>01 — 02</span>
             </div>
-            <div className="studio-store-preview">
-              <div className="studio-store-nav">
-                <strong>EXCLUSIVE.</strong>
-                <span>MEN / WOMEN / KIDS</span>
-              </div>
-              <div className="studio-store-grid">
-                <div>
-                  <small>THE EVERYDAY COLLECTION</small>
-                  <h2>
-                    Made for
-                    <br />
-                    your <em>everyday.</em>
-                  </h2>
-                  <p>
-                    Good fits. Clean details.
-                    <br />
-                    Your own kind of exclusive.
-                  </p>
-                  <span className="studio-store-cta">
-                    Explore the collection ↗
-                  </span>
-                </div>
+            <div className="studio-device-pair">
+              <Link href="/work/bible-diaries" className="studio-device first">
                 <Image
-                  src="/images/work/exclusive-model.webp"
-                  alt="Exclusive Apparel T-shirt product photography"
-                  width={768}
-                  height={1024}
+                  src="/images/work/bible_diaries/feed-boy.webp"
+                  alt="Bible Diaries reflection feed interface"
+                  width={430}
+                  height={932}
                   priority
-                  sizes="(max-width: 850px) 45vw, 26vw"
+                  sizes="(max-width:760px) 42vw, 21vw"
                 />
-              </div>
+                <span>Bible Diaries ↗</span>
+              </Link>
+              <Link href="/work/service-link" className="studio-device second">
+                <Image
+                  src="/images/work/service_link/discover.webp"
+                  alt="Service Link discovery interface"
+                  width={430}
+                  height={932}
+                  priority
+                  sizes="(max-width:760px) 42vw, 21vw"
+                />
+                <span>Service Link ↗</span>
+              </Link>
             </div>
-            <div className="studio-showcase-caption">
-              <div>
-                <small>COMMERCE WITH CHARACTER</small>
-                <strong>Exclusive Apparel</strong>
-              </div>
-              <span className="studio-round-arrow">↗</span>
+            <div className="studio-stage-bottom">
+              <span>IDEA → INTERFACE → EXPERIENCE</span>
+              <span>EXPLORE THE WORK ↙</span>
             </div>
-            <span className="studio-project-stamp">
-              DESIGN.
-              <br />
-              BUILD.
-              <br />
-              MAKE IT MATTER.
-            </span>
-          </Link>
+          </div>
         </div>
         <div className="studio-hero-bottom">
-          <span>FROM FIRST SKETCH TO FINAL SHIP.</span>
-          <span>SCROLL TO EXPLORE ↓</span>
+          <span>BASED IN SOUTH AFRICA</span>
+          <p>
+            Independent thinking.
+            <br />
+            Connected experiences.
+          </p>
+          <a href="#works">Discover what we build ↓</a>
         </div>
       </section>
-      <div className="studio-strip" aria-label="Our focus">
-        <span>Web experiences</span>
-        <b>✳</b>
-        <span>Mobile applications</span>
-        <b>✳</b>
-        <span>Custom software</span>
-        <b>✳</b>
-        <span>Thoughtful design</span>
-      </div>
       <section id="works" className="studio-section">
         <div className="studio-section-top">
           <div>
             <p className="studio-eyebrow">01 / SELECTED WORK</p>
             <h2>
-              Good ideas.
+              Selected projects.
               <br />
-              <em>Real experiences.</em>
+              <em>Purpose in every pixel.</em>
             </h2>
           </div>
           <p>
-            A selection of brands, products and platforms.
+            Explore the thinking behind our software and interfaces.
             <br />
-            Each with a different story to tell.
+            From community platforms to practical business tools.
           </p>
         </div>
         <div className="studio-project-grid">
@@ -183,8 +168,8 @@ export default function Home() {
           </summary>
           <div>
             <Link href="/work/rhyma-music">Rhyma Music ↗</Link>
-            <Link href="/work/resume-build">Resume Build ↗</Link>
-            <Link href="/work/medsync">MedSync ↗</Link>
+            <Link href="/work/ndivhu-mpho">Ndivhu & Mpho ↗</Link>
+            <Link href="/certificates">Technical credentials ↗</Link>
           </div>
         </details>
       </section>
@@ -192,9 +177,9 @@ export default function Home() {
         <div>
           <p className="studio-eyebrow">02 / WHAT WE DO</p>
           <h2>
-            Made to look good.
+            The right solution.
             <br />
-            <em>Built to do more.</em>
+            <em>From the ground up.</em>
           </h2>
           <p>
             From a first online presence to a product with complex workflows, we
@@ -241,9 +226,9 @@ export default function Home() {
           <div>
             <p className="studio-eyebrow">03 / THE PROCESS</p>
             <h2>
-              Big picture thinking.
+              A clear process.
               <br />
-              <em>Care in every detail.</em>
+              <em>From idea to launch.</em>
             </h2>
           </div>
           <p>
@@ -283,14 +268,15 @@ export default function Home() {
       </section>
       <section id="about" className="studio-about studio-section">
         <div className="studio-about-mark" aria-hidden="true">
-          ts<span>✳</span>
+          <span className="studio-about-code">&lt;ts /&gt;</span>
+          <small>DESIGN × DEVELOPMENT</small>
         </div>
         <div>
           <p className="studio-eyebrow">04 / THE PEOPLE BEHIND THE PIXELS</p>
           <h2>
-            A personal approach.
+            Design meets engineering.
             <br />
-            <em>A bigger ambition.</em>
+            <em>That’s TS Industries.</em>
           </h2>
           <p>
             TS Industries is the digital studio of Thulane Sigasa. Based in
@@ -320,9 +306,9 @@ export default function Home() {
         <div>
           <p className="studio-eyebrow">05 / YOUR NEXT CHAPTER</p>
           <h2>
-            Have something
+            Let’s build
             <br />
-            <em>in mind?</em>
+            <em>what’s next.</em>
           </h2>
           <p>
             Tell us what you’re thinking. We’ll help you work out what comes

@@ -72,15 +72,13 @@ To ensure this site stays fully production-ready when deploying live:
 - **Copyright:** All rights, designs, source code, and assets are owned by **T.S Industries** and the respective client IP owners (Hokma Tech, rbptech, Rhyma).
 - **Development & Design:** Built with excellence by the T.S Industries engineering team, with front-end implementation contributions from Mpho.
 
-## Studio portfolio refresh
+## TS Industries portfolio
 
 The homepage uses `src/app/studio.css`, with selected projects before services,
 process, studio information and the project enquiry form. Existing project stories
-share the studio palette; their original content and galleries are retained.
-Exclusive Apparel has its own case study, with imagery sourced from the owner's
-`exclusive-apparel` repository (`public/og-image.jpg` and
-`public/photos/apparel/men-tees-1.webp`). The homepage storefront composition is
-an editorial project preview, not a live embedded shop.
+share the dark technical palette; their original content and galleries are retained.
+The homepage features screenshots from Bible Diaries and Service Link, alongside
+MedSync and Resume Build. All project assets belong to this portfolio.
 
 Project enquiries use the existing FormSubmit endpoint. Service, optional budget
 and timeline are included in the message. Native field validation, a honeypot,
