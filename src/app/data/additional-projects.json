@@ -13,9 +13,7 @@
       "Ask an AI assistant about gender equality topics"
     ],
     "stack": ["React Native", "Expo", "TypeScript", "Expo Router", "Zustand"],
-    "contribution": "Mobile application design and development for an initiative focused on inclusive digital transformation.",
-    "url": "https://github.com/thulanesigasa/GENI",
-    "urlLabel": "View GitHub repository"
+    "contribution": "Mobile application design and development for an initiative focused on inclusive digital transformation."
   },
   {
     "slug": "ghost-file-shuttler",
@@ -38,9 +36,7 @@
       "Supabase",
       "PostgreSQL"
     ],
-    "contribution": "Cross-platform file transfer development spanning the browser experience, Flask service and native Android application.",
-    "url": "https://github.com/thulanesigasa/ghost_fileshuttler",
-    "urlLabel": "View GitHub repository"
+    "contribution": "Cross-platform file transfer development spanning the browser experience, Flask service and native Android application."
   },
   {
     "slug": "rulership-erp",
@@ -63,9 +59,7 @@
       "React Native",
       "Expo"
     ],
-    "contribution": "Web and mobile software development for the inventory, administration and point-of-sale workflows of Rulership LTD PTY.",
-    "url": "https://github.com/thulanesigasa/rulership_erp",
-    "urlLabel": "View GitHub repository"
+    "contribution": "Web and mobile software development for the inventory, administration and point-of-sale workflows of Rulership LTD PTY."
   },
   {
     "slug": "my-writer",
@@ -91,9 +85,7 @@
       "Tavily",
       "Redis"
     ],
-    "contribution": "Development of the writing dashboard and the research, planning and drafting pipeline with human review checkpoints.",
-    "url": "https://github.com/thulanesigasa/my_writer",
-    "urlLabel": "View GitHub repository"
+    "contribution": "Development of the writing dashboard and the research, planning and drafting pipeline with human review checkpoints."
   },
   {
     "slug": "sell-my-notes",
@@ -118,9 +110,7 @@
       "PayFast",
       "OpenAI"
     ],
-    "contribution": "Marketplace design and development across the student interface, document handling and payment integration.",
-    "url": "https://github.com/thulanesigasa/sellmynotes",
-    "urlLabel": "View GitHub repository"
+    "contribution": "Marketplace design and development across the student interface, document handling and payment integration."
   },
   {
     "slug": "make-my-notes",
@@ -145,8 +135,6 @@
       "Google Gemini",
       "OCR"
     ],
-    "contribution": "Development of the study interface and the exam-paper processing and note-generation pipeline.",
-    "url": "https://github.com/thulanesigasa/makemynotes",
-    "urlLabel": "View GitHub repository"
+    "contribution": "Development of the study interface and the exam-paper processing and note-generation pipeline."
   }
 ]
